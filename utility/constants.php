@@ -72,7 +72,7 @@ if(!defined('HELPER_DIR'))                  define('HELPER_DIR', 'helpers');
 if(!defined('MODULES_DIR'))                 define('MODULES_DIR', 'modules');
 if(!defined('INCLUDES_DIR'))                define('INCLUDES_DIR', 'includes');
 if(!defined('FUNCTIONS_DIR'))               define('FUNCTIONS_DIR', 'functions');
-if(!defined('ADMIN_DIR'))                   define('ADMIN_DIR', 'inspiretheme-cms');
+if(!defined('ADMIN_DIR'))                   define('ADMIN_DIR', 'jmcr-cms');
 
 if(!defined('MOD_VIEWS_DIR'))               define('MOD_VIEWS_DIR', 'views');
 

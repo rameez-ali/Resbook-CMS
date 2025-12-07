@@ -87,7 +87,7 @@ function initMain()
         </a>
       </li>
       <li>
-        <button disabled type="button" class="btn btn-default"
+        <button type="button" class="btn btn-default"
         onclick="submitForm(\'new\',1)">
           <i class="glyphicon glyphicon-plus-sign"></i> New
         </button>
