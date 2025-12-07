@@ -1,0 +1,35 @@
+.sticky {
+  position: fixed;
+  top: 27%;
+  background:$secondary-color;
+  padding: 14px;
+  -webkit-transform: rotate(-90deg); 
+  -ms-transform: rotate(-90deg);  
+  transform: rotate(-90deg);
+  right: -68px;
+  border-radius: 4px 4px 0 0;
+  color: $black;
+  font-size: 17px;
+  font-weight: $font-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.53px;
+  opacity: 0.9;
+  z-index: 9;
+
+  &:hover {
+    background: $secondary-color-light ;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sticky {
+    top: initial;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: initial;
+    -ms-transform: initial;
+    transform: initial;
+    right: initial;
+    bottom: 0;
+  }
+}

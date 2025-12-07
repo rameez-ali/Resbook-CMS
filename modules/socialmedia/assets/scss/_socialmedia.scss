@@ -1,0 +1,118 @@
+.social-icons {
+  display: flex;
+  // justify-content: center;
+  flex-wrap: nowrap;
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons__item {
+  display: inline-block;
+  margin: 6px;
+  vertical-align: middle;
+  padding: 0 13px;
+
+  &:first-of-type {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.social-icons__link {
+  display: block;
+  font-size:35px;
+  text-align: right;
+  color: $white;
+  border-radius: 50%;
+  padding: 0;
+  line-height: 0;
+  letter-spacing: 0px;
+  opacity: 0.5;
+  @media (max-width: 1440px) {
+    font-size: 28px;
+  }
+  
+  @media (max-width: 1024px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  &:focus {
+    color: $primary-color-light;
+  }
+
+  &:hover{
+    color: $white;
+    opacity: 1;
+  }
+
+}
+
+.social-icons__image{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.social-icons__icon {
+  position: relative;
+  top: 50%;  
+  line-height: em(44,40);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width:768px){
+  .social-icons__link {
+    font-size: em(25);
+  }
+  .social-icons {
+    display: block;
+    justify-content: center;
+  }
+  .social-icons__item {
+    padding: 0 5px;
+    margin: 0 0 15px 5px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 1024px) {
+  .social-icons .social-icons__item:nth-child(5) {
+    padding-left: 0;
+    margin-right: 0;
+    // margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 375px) and (min-width: 360px) {
+  .social-icons .social-icons__item:nth-child(5) {
+    padding-left: 0;
+    margin-right: 0;
+    // margin-top: 20px;
+  }
+  .social-icons .social-icons__item:nth-child(6) {
+    // margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 414px) and (min-width: 411px) {
+  .social-icons .social-icons__item:nth-child(6) {
+    padding-left: 0;
+    margin-right: 0;
+    // margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .social-icons .social-icons__item:nth-child(6) {
+    padding-left: 0;
+    margin-right: 0;
+    // margin-top: 20px;
+  }
+}

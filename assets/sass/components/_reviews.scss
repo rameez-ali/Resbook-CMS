@@ -1,0 +1,17 @@
+.reviews-carousel{
+  .slick-dots {
+    margin: 20px 0;
+
+    li{
+      border-color: transparent;
+      background-color: transparent;
+      border-radius: 50%;
+      border: 1px solid $base-color;
+  
+      &.slick-active{
+        border-color: $base-color;
+        background-color: $base-color;
+      }
+    }
+  }
+}

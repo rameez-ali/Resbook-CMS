@@ -1,0 +1,420 @@
+.choose-voucher-tab {
+  margin-top: 25px;
+  font-size: 31px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media screen and (max-width: 1024px) {
+    font-size: 20px;
+    display: flex;
+    flex-flow: nowrap;
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  a {
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid #A6A6A6;
+    cursor: pointer;
+    @media screen and (max-width: 1024px) {
+      padding: 10px;
+    }
+    &:hover,
+    &.active {
+      border-color: $primary-color;
+      box-shadow: 0 0 0px 4px #F0F0F0;
+    }
+  }
+  
+  span {
+    margin: 30px 15px 0;
+    @media screen and (max-width: 767px) {
+      margin: 0 15px 10px;
+    }
+  }
+  i {
+    font-size: 75px;
+    color: $primary-color;
+    margin-right: 5px;
+    vertical-align: middle;
+    @media screen and (max-width: 1024px) {
+      font-size: 40px;
+    }
+  }
+  p {
+    font-size: 12px;
+  }
+  .choose-voucher-item {
+    max-width: 400px;
+  }
+}
+.vc-cart-item-box {
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+}
+
+#gift-amount {
+  cursor: pointer;
+}
+#voucher-title {
+  cursor: pointer;
+}
+
+.voucher_subtitle {
+  &::before {
+    content: "";
+    text-align: center !important;
+    margin: 25px auto 10px;
+  }  
+}
+
+.voucher-list {
+  border-top: 1px solid $grey;
+  margin-top: 15px;
+  .voucher-list-item {
+    margin-top: 25px;
+    .voucher-wrap {
+      position: relative;
+        .btn {
+          min-width: 142px;
+        }
+        .voucher-photo {
+          object-fit: cover;
+          width: 100%;
+          border-radius:5px;
+          height: 323px;
+        }
+        .price-box {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          color: #fff;
+          font-size:25px;
+          small {
+            font-size: 75%;
+          }
+        }
+        .v-title {
+          font-family: $tertiary-font;
+          font-size: 22px;
+          font-weight: 700;
+          color: $white;
+        }
+        .v-dec {
+          color: $white;
+          line-height: 18px;
+        }
+        .act-button {
+          margin-top: 25px;
+          text-align: center;
+        }
+        .bottom-content {
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          width: 100%;
+          padding: 10px;
+          border-radius: 0 0 5px 5px;
+          background: transparent linear-gradient(180deg, #FFFFFF00 0%, #000000CC 100%) 0% 0% no-repeat padding-box;
+        }
+      }
+    }
+}
+
+.manual-voucher-list {
+  margin-top: 25px;
+  .divider-or {
+    text-align: center;
+    display: block;
+  }
+  .select-amt-block {
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    a {
+      background-color: $white;
+      padding: 5px 25px;
+      min-width: 100px;
+      border-radius: 3px;
+      border:1px solid $grey;
+      margin: 5px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      &:hover,
+      &.active {
+        border-color: $black;
+        box-shadow: 0 0 0px 2px #000;
+      }
+    }
+  }
+  .amt-form {
+    max-width: 423px;
+    margin: 0 auto;
+  }
+  .button-block {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.voucher-detail-modal {
+  .close {
+    font-size: 55px;
+    opacity: 1;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    z-index: 9;
+    background-color: $darkblue;
+    padding: 0 12px;    
+    &:focus, &:active {
+      outline: none;
+      box-shadow: none;
+    }
+    svg {
+      margin-bottom: 8px;
+    } 
+  }
+  .modal-content-wrapper {
+    padding: 15px 15px;
+    @media screen and (max-width:415px) {
+      h4 {
+        text-align: left;
+        width: 85%;
+      }
+    }
+  }
+  .price-box {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  .voucher-detail-photo {
+    min-height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.3rem 0 0 0.3rem;
+    @media screen and (max-width: 991px) {
+      min-height: 300px;
+    }
+  }
+  h6 {
+    &:before {
+      display: none;
+    }
+  }
+  li {
+    font-weight: 400;
+    font-family: $secondary-font;
+  }
+ 
+    #voucher_detailmodal {
+      @media screen and (max-width:415px) {
+        max-width: fit-content !important;
+      }
+    } 
+    
+}
+.show-cart {
+  .input-group {
+    justify-content: end;
+    .input-group-addon {
+      line-height: 30px;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: auto;
+      cursor: pointer;
+    }
+    span {
+      border: 1px solid #CCCCCC;
+      border-right: 0;
+      padding: 3px 10px;
+    }
+  }
+}
+
+#voucherList2 {
+  h5 {
+    margin-top: 1.0rem;
+    &:before {
+      display: none;
+    }
+  }
+  .row-adjust {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .deliverTypeCls {
+    width: 100%;
+  }
+  .vc-cart-item-box {
+    .vc-cart-item {
+      p {
+        margin-bottom: 0;
+        line-height: 22px;
+      }
+    }
+  }
+  .vc-sidebar {
+    .show-cart {
+      .input-group,
+      .delete-item {display: none;}
+    }
+    position: sticky;
+    top: 50px;
+    .vc-sidebar-wrap {
+      background-color: $white;
+      padding: 15px;
+    }
+  }
+  .form__group {
+    .surcharge, .termscondition {
+      font-family: $secondary-font;
+      font-size: em(15);
+    }
+  }
+
+  .total_details {
+    font-size: em(24);
+    font-weight: $font-semi-bold;
+  }
+}
+.delete-item {
+  font-size: 80%;
+  cursor: pointer;
+  font-family: $secondary-font;
+}
+
+.bg-grey {
+  background-color: $ultra-light-grey;
+}
+
+.vc-cart-slider {
+    z-index: -111;
+    .overlap-box {
+      display: none;
+    }
+  .vc-cart-slider-wrapper {
+    padding: 15px;
+    right: 0;
+    transition: 0.8s all;
+    width: 320px;
+    background-color: #F4F4F4;
+    position: fixed;
+    height: 100%;
+    z-index: 9999;
+    right: -100%;
+    top: 0;
+    .vc-btn-close {
+      position: absolute;      
+      font-size: 35px;
+      cursor: pointer;
+      right: 0px;
+      top: 0;
+      z-index: 9;
+      background-color: $darkblue;
+      padding: 0 12px;
+    }
+
+    .vc-cart-item {
+      border-bottom: 1px solid $light-gray;
+      padding-bottom: 10px;
+      p {
+        margin-bottom: 0;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .clear-cart-item {
+        font-size: 80%;
+        font-style: italic;
+        color: $grey;
+        text-decoration: underline;
+        font-family: $secondary-font;
+        cursor: pointer;
+      }
+    }
+    .cart-title {
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  &.vc-cart-show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+   
+    .vc-cart-slider-wrapper {
+      right: 0;
+    }
+    .overlap-box {
+      display: block;
+      background-color: rgba(0,0,0,.3);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+
+  
+}
+.input-group-addon {
+  &:last-child {
+    border-right: 1px solid #CCCCCC !important;
+  }
+}
+
+.vc-h-info {
+  .v-dec-full,
+  .productname,
+  .price {
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    color: transparent;
+  }
+}
+.btn-disable {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+#carttable {
+  max-height: calc(100vh - 245px);
+  overflow: auto;
+}
+
+.btn-cart-view {
+  position: fixed;
+  top: 102px;
+  right: 14px;
+  min-width: auto;
+  z-index: 99;
+  padding-right: 25px;
+  @media screen and (max-width: 1024px) {
+    top: 60px;
+    font-size: 14px;
+    right: 0;
+    padding: 5px 10px;
+  }
+}
+
+.btn + .back-to-vc {
+  margin-top: 10px;
+  text-decoration: none;
+}

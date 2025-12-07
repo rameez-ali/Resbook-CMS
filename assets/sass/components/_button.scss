@@ -1,0 +1,426 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+[href],
+[type="button"],
+[type="submit"],
+button {
+  cursor: pointer;  
+}
+
+.btn,
+button.btn,
+.main__content .btn {
+  min-width: 140px;
+  text-decoration: none;
+  font-family: $secondary-font;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: $font-bold;
+  background-color: $primary-color;
+  letter-spacing: 0px;
+  color: $white;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 0px;
+  padding: 8px 25px;
+  border: 2px solid $primary-color;
+  border-radius: 70px;
+  position: relative;
+  &:hover{
+    color: $white;
+    background-color: $primary-color-dark;
+    border: 2px solid $primary-color-dark;
+  }
+  &:active, &:focus {
+    color: $white;
+    background-color: $primary-color-dark;
+    border: 2px solid $primary-color-dark;
+  }
+  @media screen and (max-width: 768px) {
+    min-width: 100px;
+  }
+}
+
+.footer_btn {
+  &:hover, &:active {
+    color: $primary-color;
+    background-color: $white;
+    border: 2px solid $white;
+  }
+}
+
+.btn-arrow-icon{
+  // position: absolute;
+  // top: 50%;
+  // right: 15px; /* Adjust this value to position the arrow */
+  // transform: translateY(-50%);
+}
+
+.btn--primary,
+button.btn--primary,
+.main__content .btn--primary {
+  background-color: $primary-color;
+  color: $white;
+  &:hover {
+    background-color: $primary-color-dark;
+    color: $white;
+  }
+}
+
+.btn--secondary,
+button.btn--secondary,
+.main__content .btn--secondary {
+  background-color: $secondary-color;
+  &:hover {
+    background-color: $secondary-color-dark;
+  }
+}
+
+.btn__link,
+button.btn__link {
+  color: $primary-color;
+  font-weight: $font-bold ;
+  text-transform: uppercase;
+  border: none;
+  &:hover, &:active {
+    color: $primary-color-dark;
+  }
+}
+
+.btn--ghost,
+button.btn--ghost {
+  background-color: transparent;
+  color: $primary-color;
+  border:2px solid $primary-color;
+  &:hover{
+    border:2px solid  $primary-color;
+    background-color:  $primary-color;
+    .btn-arrow-icon path {
+      fill: #fff; /* Change this to the desired color */
+    }
+  }
+  &:focus{
+    background-color: transparent;
+    color: $primary-color;
+    border:2px solid $primary-color;
+    .btn-arrow-icon path {
+      fill: #fff; /* Change this to the desired color */
+    }
+  }
+}
+
+.btn--white,
+button.btn--white {
+  background-color: $white;
+  color: $primary-color;
+  border:1px solid $white;
+  &:hover{
+    color: $white;
+    border:1px solid $primary-color-dark;
+    background-color: $primary-color-dark;
+  }
+}
+
+.btn--ghost-white,
+button.btn--ghost-white {
+  background-color: transparent;
+  color: $white;
+  border:1px solid $white;
+  &:hover{
+    color: $primary-color;
+    background-color: $white;
+    border:1px solid $white;
+    .btn-arrow-icon path {
+      fill: $primary-color; /* Change this to the desired color */
+    }
+  }  
+}
+
+.btn--sm{
+  min-width: 140px;
+}
+
+.card__cta .btn {
+  min-width: 100px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn--form {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .btn,
+  .link {
+    font-size: 18px;
+  }
+  
+  .link--sm {
+    font-size: 16px;
+  }
+  .btn--sm{
+    min-width: 125px;
+    // font-size: 14px;
+    // line-height: 16px;
+    // padding: 5px 10px;
+  }
+  
+}
+
+.btn--link,
+button.btn--link,
+.main__content .btn--link {
+  background-color: transparent;
+  color: $primary-color;
+  border: none;
+  text-decoration: underline;
+  font-weight: bold;
+  padding: 0;
+  font-size: 17px;
+  text-transform: capitalize;
+  letter-spacing: 0px;
+  line-height: 20px;
+  &:hover, &:active, &:focus {
+    background-color: transparent;
+    color: $primary-color-dark;
+    border: none;
+  }
+}
+
+
+.CheckInPersonWidget .toggle-check-availability {
+  font-size: em(16) !important;
+  font-family: $secondary-font !important;
+  background-color: $primary-color !important;
+  color: #ffffff !important;
+  letter-spacing: 0px !important;
+  border-radius: 70px !important;
+  width: 140px !important;
+  font-weight: $font-semi-bold !important;
+  padding-right: 35px !important;
+  @media screen and (max-width: 768px) {
+    border-radius: 0 !important;
+    width: 95px !important;
+  }
+}
+.CheckInPersonWidget .check-availability-page .toggle-check-availability  {
+  &:hover, &:active, &:focus {
+    background-color: $base-color !important;
+    border-color: $base-color;
+  }
+}
+.book-btn-arrow {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  @media screen and (max-width: 768px) {
+    right: 10px;
+  }
+}
+.CheckInPersonWidget .toggle-check-availability:hover {
+  background-color: $primary-color !important;
+  color: #ffffff !important;
+}
+
+.CheckInPersonWidget .booking-engine .check-availability-sidebar .btn.close-btn.close-check-availability {
+  background-color: $base-color !important;
+  border-color: $base-color !important;;
+}
+
+.CheckInPersonWidget .booking-engine .check-availability-sidebar .btn.w-100 {
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;;
+  &:hover, &:active, &:focus {
+    background-color: $base-color !important;
+    border-color: $base-color !important;;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .CheckInPersonWidget .booking-engine .btn {
+      height: 60px !important;
+      line-height: 60px;
+      // padding: 0px 25px  !important;
+  }
+
+  .show-check-availability .CheckInPersonWidget .booking-engine .check-availability-sidebar{
+    right: 20px !important;
+  }
+  .CheckInPersonWidget .booking-engine .check-availability-sidebar .close-btn{
+    background-color: #464646E6 !important;
+    width: 100%  !important;
+    height: 40px  !important;
+    line-height: 40px !important;
+    img {
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      top: 20px;
+      right: 10px;
+    }
+  }
+
+  
+
+  .select-date-block{
+    margin-top: 25px !important;
+  }
+  .closenbk-btn{
+    color: white;
+    padding-right: 5px;
+    font-size: 14px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-transform: capitalize;
+    padding-right: 15px;
+  }
+  .CheckInPersonWidget .booking-engine .check-availability-sidebar .btn {
+    height: 50px !important;
+    line-height: 50px !important;
+    // background-color: $primary-color !important;
+  }
+  .CheckInPersonWidget .booking-engine .select-date-block li .count-increment .increment-up{
+    img {
+      padding-bottom: 25px;
+    }
+  }
+  .CheckInPersonWidget .booking-engine .select-date-block li .count-increment .increment-down{
+    img {
+      padding-bottom: 25px;
+    }
+  }
+  .CheckInPersonWidget .booking-engine .select-date-block li .count-increment .increment-up{
+    padding: 0 !important;
+    // display: none;
+  }
+  .CheckInPersonWidget .booking-engine .select-date-block li .count-increment .increment-down{
+    padding: 0 !important;
+    // display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .CheckInPersonWidget .booking-engine .check-availability-sidebar{
+    right: -375px !important;
+    padding: 4px 20px 20px !important;
+  }
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-dropdown i {
+  position: absolute;
+  top: 50%;
+  right: 5px; /* Adjust the positioning as needed */
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.custom-dropdown select {
+  padding-right: 25px; /* Adjust the padding value as needed */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.custom-dropdown select::-ms-expand {
+  display: none;
+}
+
+
+.btn-cta{
+  background: $primary-color;
+  border: 2px solid $white;
+  color: $white;
+  text-transform: capitalize;
+  &:hover, &:active, &:focus {
+    color: $primary-color;
+    background: $white;
+    opacity: 1;
+    border: 2px solid $white;
+    .btn-arrow-icon path {
+      fill: $primary-color;
+    }
+  }
+}
+
+.inspireButtonPrimary{
+  min-width: 140px;
+  text-decoration: none;
+  font-family: $secondary-font;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: $font-bold;
+  background-color: $primary-color;
+  letter-spacing: 0px;
+  color: $white;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: 0px;
+  padding: 8px 25px;
+  border: 2px solid $primary-color;
+  border-radius: 70px;
+  position: relative;
+  padding-right: 35px;
+  color: $white !important;
+  text-decoration: none !important;
+  &:hover{
+    color: $white;
+    background-color: $primary-color-dark;
+    border: 2px solid $primary-color-dark;
+  }
+  &:active, &:focus {
+    color: $white;
+    background-color: $primary-color-dark;
+    border: 2px solid $primary-color-dark;
+  }
+  @media screen and (max-width: 768px) {
+    min-width: 100px;
+  }
+}
+
+
+.inspireButtonSecondary {
+  background-color: transparent !important;
+  color: $primary-color;
+  border: 2px solid $primary-color !important;
+  min-width: 140px;
+  text-decoration: none;
+  font-family: $secondary-font;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: $font-bold;
+  background-color: $primary-color;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 8px 25px;
+  border-radius: 70px;
+  position: relative;
+  padding-right: 35px;
+  color: $primary-color !important;
+  text-decoration: none !important;
+  &:hover{
+    color: $white !important;
+    background-color: $primary-color !important;
+    border:2px solid $primary-color !important;
+    .btn-arrow-icon path {
+      fill: $white !important; /* Change this to the desired color */
+    }
+  }
+  &:active, &:focus {
+    color: $white;
+    background-color: $primary-color;
+    border: 2px solid $primary-color;
+  }
+  @media screen and (max-width: 768px) {
+    min-width: 100px;
+  }
+}

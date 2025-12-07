@@ -1,0 +1,38 @@
+.pagination {
+  margin: 15px 0;
+  font-size: 1.2em;
+  
+  li {
+    
+    a{
+      border: 2px solid $secondary-color;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 6px;
+      border-radius: 0px;
+      color: $black;
+
+      &:hover{
+        color: $white;
+        background: $secondary-color;
+        border-color: $secondary-color;
+      }
+
+      &.lg {
+        width:70px;
+      }
+    }
+
+    &.active {
+      a {
+        font-weight: $font-semi-bold;
+        color: $white;
+        background: $secondary-color-light ;
+        border: 2px solid $secondary-color-light ;
+      }
+    }
+  }
+}

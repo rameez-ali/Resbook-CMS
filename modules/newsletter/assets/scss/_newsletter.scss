@@ -1,0 +1,41 @@
+.form__group{
+  .newsletter & {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.form__control {
+  .newsletter & {
+    background-color: $white;
+    border-color: $white;
+  }
+
+  .newsletter &:focus{
+    border-color: $medium-grey;
+  }
+}
+
+.newsletter input[type="text"]::placeholder, 
+.newsletter .form__control::placeholder {
+  color: $white;
+}
+#newsletter-email {
+  padding: 0 170px 0 30px;
+  border-radius: 75px;
+  font-size: em(16);
+  line-height: em(28,16);
+  color: $white;
+  border-color: $white;
+  background-color: transparent;
+  opacity: 0.6;
+}
+
+.newsletter__warning {
+  color: $base-color !important;
+}
+
+.newsletter__success {
+  color: $white !important;
+}

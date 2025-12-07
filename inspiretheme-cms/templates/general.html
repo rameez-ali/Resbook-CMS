@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js general-page"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Website Admin</title>
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="shortcut icon" href="==root==/favicon.ico?v=1">
+
+		<link href="==root==/css/bootstrap.min.css" rel="stylesheet">
+		<link href="==root==/css/font_awesome.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">		
+		<link href="==root==/css/jquery.checkbox.css" rel="stylesheet">
+		<link href="==root==/css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css">
+		<link href="==root==/css/tipsy.css?v=2" rel="stylesheet">
+		<link href="==root==/css/styles_dark.css?v=2.11" rel="stylesheet">
+		==styles_ext==
+		<!-- Always leave these files in the head section  -->
+		<script>var jsVars = ==jsVars==;</script>
+		<script src="==root==/js/modernizr-2.8.2.min.js"></script>
+		<script src="==root==/js/libs/vendor.js"></script>
+		<script src="==root==/ckfinder/ckfinder.js"></script>
+	</head>
+
+	<body>
+		<aside class="col-xs-12 col-md-2 bg" id="main-nav-holder">
+			<div id="logo_wrap">
+				<img src="==root==/images/resbook-logo-transparent.png" id="logo" alt="" style="margin:13px 0 0;width:180px;"/>
+			</div>
+			<div id="filter-bar">
+				<div class="input-group custom-search-form">
+						<input type="text" class="form-control" placeholder="Filter..."
+							id="filter-nav"==data_disabled==>
+						<span class="input-group-btn">
+						<button class="btn btn-default" type="button"
+							id="search-btn"==data_disabled==>
+								<i class="fa fa-search"></i>
+						</button>
+				</span>
+				</div>
+			</div>
+			<nav class="main-nav" role="navigation">
+				==site_main_menu==
+			</nav>
+		</aside>
+		<div id="container">
+			<header id="header_wrap">
+				<div class="col-xs-12 col-md-2">
+					<div class="clear"></div>
+				</div>
+				<div class="col-xs-12 col-md-10">
+					<div id="loggedin" class="pull-right">
+						==site_user_data==
+					</div>
+					<div class="clear"></div>
+				</div>
+			</header>
+			<div id="module-actions">
+				<div class="col-xs-12 col-md-10 col-md-10 col-md-offset-2">
+					<div>
+						==module_main_heading==
+						==module_sub_heading==
+					</div>
+					<nav>
+						<table width="1000" border="0" align="left" cellpadding="0" cellspacing="0" >
+							<tr>
+								<td height="41" valign="top" >
+									<table width="998" border="0" align="center" cellpadding="0" cellspacing="0">
+										<tr>
+											<td valign="top" style="padding-top:2px;">==module_actions==</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</nav>
+				</div>
+			</div>
+			<div class="content-wrapper ==module_content_cls==">
+				<div class="col-xs-12 col-md-10 col-md-10 col-md-offset-2">
+					<main class="inner">
+						<table width="1000" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-top:-5px;">
+							<tr>
+								<td width="1000" valign="top" >
+									<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+										<tr valign="top" >
+											<td>
+												<div>==module_content==</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</main><!-- /main -->
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<!--  javascript libraries and scripts-->
+		<script src="==root==/ckeditor/vendor/ckeditor.js?v=1"></script>
+		<script src="==root==/js/main.js?v=1"></script>
+		<script> 
+			$(function(){
+				var contentTabs = $("#tabs");
+				contentTabs.tabs({
+				active: ==active_tab_index==,
+				tabTemplate: '<li><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Section</span></li>',
+				add: function(event, ui){
+					//var tab_content = ==module_tab_content==;
+						$(ui.panel).append(tab_content);
+					}
+				});
+
+				$(window).keypress(function(event) {
+					if (!(event.which == 115 && event.ctrlKey)) return true;
+					submitForm('save',1);
+					event.preventDefault();
+					return false;
+				});
+			});
+
+		</script>
+
+		==scripts_ext==
+		<script type="text/javascript">==scripts_onload==</script>
+
+	</body>
+</html>

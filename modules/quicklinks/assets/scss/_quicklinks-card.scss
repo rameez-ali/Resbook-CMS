@@ -1,0 +1,264 @@
+.ql__card{
+  margin-bottom: 15px;
+  border:0px;
+  background: none;
+}
+
+.ql__icon__inner {
+  background-color: $light-grey;
+}
+
+.ql__card__inner{
+  position: relative;
+  background: transparent;
+  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.ql__card__figure {
+  height: 550px;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+}
+
+.ql__icon__figure{
+  padding-top: 40px;
+  //max-height: 100px;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow: hidden;
+}
+
+.ql__icon__heading {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  &:after{
+    content:'';
+    display: block;
+    border-bottom: 2px solid $primary-color;
+    width: 120px;
+    margin: 10px auto;
+  }
+}
+.ql__card__btn{
+  margin:0px;
+}
+.ql__card__heading {
+  // font-size: em(35);
+  // line-height: 1.2em;
+  color:$white;
+  text-align: left;
+  &:before{
+    content:none;    
+  }
+}
+
+.ql__card__figure-link{
+  height:100%;
+  width:100%;
+  overflow: hidden;
+  display: block;  
+}
+
+.ql__card__figure-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  @include img-transition();
+}
+
+.ql__card__content,
+.ql__card__cta{
+  display: block;
+  text-align: center;
+}
+
+.ql__icon__content {
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
+.ql__card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: left;
+  color: $white;
+  z-index: 1;
+  padding: 15px;
+  overflow: hidden;
+  background: transparent linear-gradient(0deg, #0000009E 0%, #54545400 100%) 0% 0% no-repeat padding-box;
+  &-inner{
+    padding: 0px 50px;
+    height: 10px !important;
+    opacity: 0;
+    transition: all 1s;
+  }
+ 
+}
+.ql__card__cta {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+/** ql__card style 1 with shadow */
+.ql__card--with-shadow {
+  .ql__card__inner {
+    background-color: $card-bg;
+  }
+  .ql__card__content {
+    padding: 25px 0px;
+  }
+}
+
+.ql__icon__heading {
+  &::before {
+    content: none;
+  }
+}
+
+/* quicklink tile style start */
+.ql_tile_inner {
+  border: none !important;
+}
+.ql_tile_figure {
+  width: 100%;
+  height: 250px;
+}
+
+.ql_tile {
+  .card {
+    padding: 0 20px !important;
+  }
+  .card--with-shadow .card__content {
+    padding: 25px 15px;
+  }
+}
+.ql__icon__cta{
+  padding: 25px 15px;
+}
+.ql__tile__figure-image{
+  width: 100%;
+  height: 100%;
+  object-fit: unset;
+  object-position: center;
+}
+
+.ql_tile_inner {
+  @media screen and (max-width: 768px) {
+    .card__text, .ql__icon__cta {
+      text-align: center;
+    }
+  }
+}
+/* quicklink tile style end */
+
+.ql__default {
+  .ql__card__heading {
+    font-size: em(30);
+    line-height: em(38,30);
+    @media screen and (max-width:768px) {
+      font-size: em(28);
+      line-height: em(34,28);
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  
+  .ql__card{
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .ql__card__figure {
+    height: 250px;
+  }
+  .ql__card__inner{
+    max-width: 400px;
+    width:100%;
+    margin:0 auto;
+  }
+  .ql__card--with-shadow {
+    .ql__card__content {
+      padding: 15px;
+    }
+  }
+  .ql__card__cta {
+    margin: 15px;
+  }
+  .ql__card__heading {
+    // font-size: em(22);
+    // line-height: em(39,22);
+    padding-left: 25px !important;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .ql__card:hover{
+    .ql__card__inner:before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-color: rgba(0,0,0, 0.3); 
+      z-index: 1;
+      transition: all 1s;
+    }
+    .ql__card__content-inner{
+      height: 200px !important;
+      opacity: 1;
+    }
+    .ql__card__figure-image{
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+  
+  .ql__icon__figure-image {
+    width: 64px;
+  }
+}
+
+@media screen and (max-width: 1659px) {
+  .ql__card__heading {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .ql__card__heading-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+  .ql__icon__figure-image {
+    width: 75px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .quicklinktemsheight{
+    min-height: 420px;
+    @media screen and (min-width: 1400px ) {
+      min-height: 390px;
+    }
+  }
+}

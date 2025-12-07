@@ -1,0 +1,354 @@
+/* hero banner styles */
+
+.module-header__title {
+    font-size: 54px;
+    color: #000;
+}
+
+.switch {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    position: relative;
+    min-width: 51px;
+    font-size: 17px;
+    padding: 0 20px;
+    border: none;
+    overflow: visible;
+    width: 51px;
+    height: 32px;
+    z-index: 0;
+    text-align: left;
+}
+
+.switch__input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    z-index: 1;
+    vertical-align: top;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    z-index: 0;
+}
+
+.switch__toggle {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    transition-property: all;
+    transition-duration: 0.35s;
+    transition-timing-function: ease-out;
+    box-shadow: inset 0 0 0 2px #e5e5e5;
+}
+
+.switch__handle {
+    box-sizing: border-box;
+    background-clip: padding-box;
+    position: absolute;
+    content: '';
+    border-radius: 28px;
+    height: 28px;
+    width: 28px;
+    background-color: white;
+    left: 1px;
+    top: 2px;
+    transition-property: all;
+    transition-duration: 0.35s;
+    transition-timing-function: cubic-bezier(.59, .01, .5, .99);
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, .25), 0 3px 2px rgba(0, 0, 0, .25);
+}
+
+:checked+.switch__toggle {
+    box-shadow: inset 0 0 0 2px #44db5e;
+    background-color: #44db5e;
+}
+
+:checked+.switch__toggle>.switch__handle {
+    left: 21px;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, .25);
+}
+
+/* hero banner styles */
+
+.module-header__title {
+    font-size: 36px;
+    color: #000;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.tabs-block {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.image-preview {
+    width: 100%;
+    height: 260px;
+    border: 2px dashed #ccc;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+}
+
+.image-preview .default-btn{
+    align-self: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.image-preview .default-btn i {
+    margin-right: 5px;
+    display: inline;
+}
+
+.activation-bar {
+    padding: 10px 15px;
+    background-color: #efefef;
+    display: flex;
+    margin-top: 15px;
+}
+
+.activation-bar__title {
+    line-height: 40px;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.form-block__note {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 0;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 30px;
+}
+
+.image-preview__text p {
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    font-weight: 300;
+    max-width: 200px;
+    margin: 10px auto 0;
+}
+
+.activation-bar__note {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-left: 25px;
+    line-height: 30px;
+}
+
+.slideshow-wrapper {
+    min-height: 300px;
+}
+
+.slideshow-wrapper .sortable {
+    list-style-type: none;
+    margin: 0 -10px;
+    padding: 0;
+    position: relative;
+}
+
+.slideshow-wrapper .sortable:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.sortable__item {
+    width: 299px;
+    position: relative;
+    height: 290px;
+    padding-top: 40px;
+    margin-bottom: 15px;
+    cursor: grab;
+    float: left;
+    margin: 10px;
+    background-color: #D1EBAF;
+}
+
+.sortable__item-handler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.sortable__item.ui-sortable-helper .sortable__item-title {
+    background-color: transparent;
+}
+
+.sortable__item.ui-sortable-helper {
+    background-color: transparent;
+}
+
+.sortable__image-wrap {
+    width: 100%;
+    height: 260px;
+    justify-content: center;
+    display: flex;
+    border: 2px dashed #ccc;
+    
+}
+
+.slide-modal-image,
+.sortable__image-wrap,
+.hero-photo {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.sortable__image-wrap .sortable__add-btn,
+.sortable__image-wrap .sortable__edit-btn,
+.sortable__image-wrap .sortable__remove-btn {
+    align-self: center;
+    z-index: 3;
+}
+
+.sortable__add-btn,
+.sortable__edit-btn {
+    margin-right: 15px;
+}
+
+.sortable__add-btn,
+.sortable__edit-btn,
+.sortable__remove-btn {
+    color: #666;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+}
+
+.sortable__image-wrap.selected,
+.slide-modal-image.selected,
+.hero-photo.selected {
+    border: none;
+}
+
+.sortable__image-wrap .sortable__edit-btn,
+.sortable__image-wrap .sortable__remove-btn,
+.hero-photo .default-btn-edit {
+    display: none;
+}
+
+.sortable__image-wrap.selected .sortable__edit-btn,
+.sortable__image-wrap.selected .sortable__remove-btn,
+.hero-photo.selected .default-btn-edit {
+    display: inline-block;
+}
+
+.sortable__image-wrap.selected .sortable__add-btn,
+.hero-photo.selected .default-btn-add {
+    display: none;
+}
+
+.sortable__item-title {
+    font-size: 16px;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 12px 5px;
+    margin: 0 0 -2px 0;
+}
+
+.modal--herobanner .modal-dialog {
+    margin: 200px auto;
+    width: 950px;
+}
+
+.modal--herobanner .modal-header .close {
+    z-index: 99;
+}
+
+.modal--herobanner .modal-content {
+    border-radius: 0;
+}
+
+.sortable__image-wrap--active {
+    position: relative;
+    border: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(http://netzonebasecms.loc/library/general/cassie-matias-202987-unsplash.jpg);
+}
+
+.sortable__image-wrap--active:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+}
+
+.sortable__image-wrap--active .btn {
+    z-index: 99;
+}
+
+.switch-group {
+    display: inline-block;
+    margin-right: 25px;
+    vertical-align: middle;
+}
+
+.switch-group-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 4px;
+}
+
+.switch-group input {
+    margin: 0 0 0 -8px !important;
+    min-width: 0 !important;
+    width: auto !important;
+}
+
+.image-preview {
+    position: relative;
+}
+
+.image-preview.selected {
+    border: none;
+}
+
+.image-preview-video {
+    position: absolute !important;
+    left: 0;
+    right: 0 !important;
+    top: 0;
+    right: 0 !important;
+    border: none;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

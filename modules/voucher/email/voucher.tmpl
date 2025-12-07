@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1, maximum-scale=6, minimum-scale=1.0, user-scalable=1">
+    <!-- Facebook sharing information tags -->
+    <meta property="og:title" content="{subject}">
+    
+    <title>{subject}</title>
+
+    <style type="text/css">
+      body {
+        width: 100% !important;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        margin: 0;
+        padding: 0;
+        background: #f1f1f1;
+      }
+      a {
+        color: #005EB0;
+      }
+      h1, h2, h3, p {
+        margin: 1em 0;
+      }
+      img{
+        border:0;
+        height:auto;
+        line-height:100%;
+        outline:none;
+        text-decoration:none;
+      }
+      table td{
+        border-collapse:collapse;
+      }
+      .header-table{
+        padding: 30px 0;
+      }
+      #outer-table{
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+        background-color: #f1f1f1;
+      }
+      #inner-table{
+        width: 100%;
+        max-width:1000px;
+        background-color: #ffffff; 
+        border-width: 1px; 
+        border-color: #DADEDE;
+      }
+
+      table.stripped {
+        border-bottom: 0px;
+        width:100%;
+      }
+
+      .stripped tr td.label{
+        font-size: 22px;
+        line-height: 34px;
+        color: #707070;
+        width:250px;
+      }   
+      .stripped tr td.label strong{
+        color: #414141;
+      }   
+      .header-logo{
+        max-width:100%;
+        height: 80px;
+        margin: 20px;
+      }
+      .text-big {
+        font-size: 70px;
+        line-height: 80px;
+        color: #414141;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if (gte mso 9)|(IE)]>
+    <!-- Outer Table -->
+    <table id="outer-table" cellpadding="10" cellspacing="0" border="0" align="center">
+      <tr>
+        <td style="font-family: 'Lato', sans-serif;font-size: 15px; color: #707070;" align="center">
+          <table id="inner-table" class="content" cellpadding="0" cellspacing="0" align="center" style="border: 10px solid #F29F01; padding: 30px 0;">
+            <tr>
+              <td style="width: 500px;" style="border-right: 1px solid #707070;">
+                <!-- Email first part -->
+                <table id="email-header" border="0" cellpadding="25" cellspacing="0" width="100%" class="header-table">
+                  <tr>
+                    <td valign="middle" align="center" >
+                      <a href="#{root}">
+                        <img class="header-logo" src="{root}/graphics/email-logo.png" alt="{company_name}">
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" align="center">
+                      <span class="text-big">Gift</span>
+                      <span class="text-big">Voucher</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" align="center">
+                      <p>{delivery_string}</p>
+                    </td>
+                  </tr>
+                </table>
+                </td>
+                <td style="width: 500px;">
+                <!-- Email first part End -->
+                <table id="email-body" width="500px" cellpadding="10" cellspacing="0" align="center">
+                  <tr>
+                    <td align="left">
+                      <table cellpadding="5" cellspacing="0" width="500px" class="stripped">
+                        <tr>
+                          <td class="label">Voucher Name</td>
+                          <td class="label">Voucher Value</td>
+                        </tr>
+                        <tr>
+                          <td class="label"><strong>{voucher_name}</strong></td>
+                          <td class="label"><strong style="font-size: 40px; line-height:50px;">${amount}</strong></td>
+                        </tr>
+                      </table>
+                      <table cellpadding="5" cellspacing="0" width="500px" style="margin-top: 30px;" class="stripped">
+                        <tr>
+                          <td class="label" style="border-bottom:1px solid #707070;">To:</td>
+                          <td class="label" style="border-bottom:1px solid #707070;"><strong>{recipient_name}</strong></td>
+                        </tr>
+                        <tr>
+                          <td class="label" width="50" style="border-bottom:1px solid #707070;">From:</td>
+                          <td class="label" style="border-bottom:1px solid #707070;"><strong>{purchaser_first_name} {purchaser_last_name}</strong></td>
+                        </tr>          
+                      </table>
+                      <table cellpadding="5" cellspacing="0" width="500px" style="margin-top: 30px;" class="stripped">                    
+                        <tr >
+                          <td style="width:100%;">{message}</td>
+                        </tr>                              
+                      </table>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          
+          <!-- End Outer Table -->
+    <![endif]-->
+  </body>
+</html>

@@ -1,0 +1,427 @@
+//Date Picker
+
+.pika-single {
+  z-index: 9999;
+  display: block;
+  position: relative;
+  color: $primary-color;
+  background: $light-grey;
+  border: 1px solid $light-grey;
+  border-bottom-color: $light-grey;
+  padding-right:8px;
+  min-width: 434px;
+  min-height: 300px;
+  border-radius: 10px;
+
+  &.is-hidden {
+      display: none;
+  }
+
+  &.is-bound {
+      position: absolute;
+      box-shadow: 0 5px 15px -5px rgba(0,0,0,.5);
+  }
+}
+
+// clear child float (pika-lendar), using the famous micro clearfix hack
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.pika-single {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+      content: " ";
+      display: table;
+  }
+
+  &:after { clear: both }
+}
+
+.pika-lendar {
+  float: left;
+  width: 100%;
+  margin: 5px;
+  padding: 15px 15px 0 15px;
+}
+
+.pika-title {
+  width: 363px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+
+  select {
+      cursor: pointer;
+      position: absolute;
+      z-index: 9998;
+      margin: 0;
+      left: 0;
+      top: 5px;
+      filter: alpha(opacity=0);
+      opacity: 0;
+  }
+}
+
+.pika-label {
+  display: inline-block;
+  *display: inline;
+  position: relative;
+  z-index: 9999;
+  overflow: hidden;
+  margin: 0;
+  padding: 5px 3px;
+  font-family: $base-font;
+  font-size: em(18);
+  text-transform: uppercase;
+  font-weight: $font-regular;
+  line-height: em(21,18);
+  color: $primary-color;
+  background-color: transparent;
+}
+.pika-prev {
+  position: relative;
+  top: 3px;
+  right: 6px;
+}
+
+.pika-prev,
+.pika-next {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  border: 0;
+  padding: 0;
+  width: 10px;
+  height: 17px;
+  text-indent: 20px; // hide text using text-indent trick, using width value (it's enough)
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: .5;
+  *position: absolute;
+  *top: 0;
+  margin-top:5px;
+
+  &:hover {
+      color: yellow;
+  }
+
+  &.is-disabled {
+      cursor: default;
+      opacity: .2;
+  }
+}
+
+.pika-prev,
+.is-rtl .pika-next {
+  float: left;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAARCAYAAAAL4VbbAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xNpkA830AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABDUlEQVQokYWRsUoDQRCGvzmvjfgG4zv4GIJphCUo4SoROz2xE1PYiCA2EVOonbKdjYXgExisfILt0oYUNsJYOCdncp5b7T/7/T8zO2JmtB3RcAV8WIpl/g9YANtALhokawFL4A7oAO/Ac2OyaBgAJy7HQNdSnCzAouEcOHT5AmxailOAfA4cATsun4CepTir3nOHloBboO/1B6BvKX7WwzLRsArc18ARsDUPVsmXQNf1m6W42zQ0QAYUwND1mmi4Fg3SBEu1QdFwAey39lxdLMUD4NRlD3gUDZ3G5J+ChiPgzOWvf16A3bBXm2MMbFiKk0bYDQVw462+AoM/YTes872sZWDYCrvhGFixFMsv+xRkFBo1MvcAAAAASUVORK5CYII=');
+  *left: 0;
+  margin-left:5px;
+}
+
+.pika-next,
+.is-rtl .pika-prev {
+  float: right;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAARCAYAAADkIz3lAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xNpkA830AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABHUlEQVQokX3RQUvUQRgH4Ge2W3QRPIXsQCSh0VfoEAuFZCbRjmcv3bvoR+hj2EHwz3oRQpTw4D1UqKMk/0MnO+lVeD3sIG6728Achnl45zfvm3T7Cd8wiLbZMmV1sIUlbKZcFv4H9/ALz3CYcnk+CaaIkHJ5iiN08Ru9aJuLfyuKtjnHCi7xBHspl7kxWPFZzfoXL7Cfcnk8Biv+gQ+4rng35TJzl3EseC6v8BVzOMDnibDiL9iox++dKWgNn+pxG+tjFVMu77GLB4YTW422uRmBKZfXFT3CMd5F21yNfCbl0jOc0sOKlqNtru+K1Mks1stZnOBNtM3l/UidGnxQ0c/63Ahi2PCXmMcp3kbb/JnYr4ig29/R7X+MCNP2Lffbevj3rGC6AAAAAElFTkSuQmCC');
+  *right: 0;
+}
+
+.pika-select {
+  display: inline-block;
+  *display: inline;
+}
+
+.pika-table {
+  width: 100%;
+  height: 220px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+  
+  th,
+  td {
+     
+      padding: 0;
+  }
+
+  th {
+      width: 14.285714285714286%;
+      color: $primary-color;
+      font-size: 12px;
+      line-height: 25px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 3px 0 10px 0;
+
+
+  }
+
+  abbr {
+      border-bottom: none;
+      cursor: help;
+  }
+}
+
+.pika-button {
+  cursor: pointer;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  margin: 0;
+  width: 47px;
+  height: 32px;
+  padding: 5px;
+  color: gray;
+  font-size: 12px;
+  line-height: 15px;
+  background: $white;
+  text-align: right;
+  .is-today & {
+      color: $white;
+      font-weight: bold;
+      background: $primary-color;
+  }
+
+  .is-selected & {
+      color: $white;
+      font-weight: bold;
+      background: $primary-color-dark;
+  }
+
+  .is-disabled &,
+  .is-outside-current-month & {
+      pointer-events: none;
+      cursor: default;
+      color: $light-gray;
+      opacity: .4;
+      background: $white;
+  }
+
+  &:hover {
+      color: white;
+      background: $primary-color-dark;
+      box-shadow: none;
+
+  }
+}
+
+.pika-week {
+  font-size: 11px;
+  color: gray;
+}
+
+@media screen and (max-width: 414px) {
+  .pika-single {
+    min-width: auto;
+    min-height: auto;
+
+    .pika-lendar {
+      width: 240px;
+      margin: 8px;
+      padding: 0;
+
+      .pika-title {
+        width: auto;
+        left: 6px;
+      }
+
+      .pika-table {
+        width: 245px;
+
+        .pika-button {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      .pika-prev,
+      .pika-next {
+        width: 19px;
+        height: 33px;
+        margin-top: -2px;
+      }
+
+    }
+
+  }
+  
+}
+
+@media screen and  (max-width: 1025px) {
+  .pika-next {
+    padding: 20px;
+    left: 16px;
+    top: -4px;
+  }
+  .pika-prev {
+    padding: 20px;
+    right: 28px;
+    top: -4px;
+  }
+}
+
+/*
+* If no hero banner
+*/
+
+.no-banner {
+  .booking-section {
+    position: relative;
+    width: 100%;
+    bottom: -126px;
+    margin-top: 10px;
+    margin-bottom: 20px;  
+  }
+}
+
+.form_bg {
+  background-color: $white
+}
+
+.form-error {
+  font-size: em(12);
+  line-height: em(18,12);
+}
+
+#tc-modal.in {
+  opacity: 1;
+}
+
+.modal-body {
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding-left: 40px;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
+.comp-form {
+  .form__group--two {
+    width: 49%;
+    display: inline-block;;
+  }
+  select, .date-control, input[type=tel] {
+    height: 45px !important;
+    border-radius: 2px;
+  }
+  .checkbox-inline {
+    span {
+      font-size: em(17);
+      padding-right: 15px;
+    }
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 34px;
+    margin-bottom: 10px;
+    margin-left: 0 !important;
+    input {
+        display: none;
+    }
+    .toggle__switch__label {
+        padding-left: 70px;
+        width: 100%;
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+        padding-top: 10px;
+    }
+  }
+  
+  .toggle__switch {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E2E2E2;
+    -webkit-transition: .4s;
+    transition: .4s;
+    width: 60px;
+    &::before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+  }
+  
+  input:checked+.toggle__switch {
+    background-color: $primary-color;
+  }
+  
+  input:focus+.toggle__switch {
+    box-shadow: 0 0 1px $primary-color;
+  }
+  
+  input:checked+.toggle__switch:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  
+  .toggle__switch.round {
+    border-radius: 34px;
+  }
+  
+  .toggle__switch.round:before {
+    border-radius: 50%;
+  }
+
+  .radio-inline {
+    padding-right: 15px;
+  }
+  .form_calender {
+    position: absolute;
+    bottom: 36px;
+    right: 15px;
+    pointer-events: none;
+    color: #B2B2B2;
+  }
+  .date-control {
+    background-color: #E2E2E2;
+  }
+
+  .form-group-help {
+    color: #AEAEAE;
+    font-style: italic;
+  }
+}
+
+input[type="radio"]:checked {
+  color: $primary-color; /* Replace with your desired color */
+}
+
+@media screen and (max-width: 768px) {
+  .comp-form {
+    .form__group--two {
+      width: 100%;
+      display: block;
+    }
+  }
+}

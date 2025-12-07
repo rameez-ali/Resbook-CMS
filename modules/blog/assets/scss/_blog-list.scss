@@ -1,0 +1,154 @@
+
+.blog{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+  font-family: $secondary-font;
+  .blog-list &{
+      &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom:10px;
+    }
+  }
+}
+
+.blog__image{
+  .blog-list &{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  &.no-image{
+    height:0px;
+    display: none;
+  }
+}
+
+.post__content {
+  img {
+    max-width: 100%;
+  }
+}
+
+.blog__figure {
+  min-height: 250px;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+  margin:0px;
+}
+
+.blog__figure-link{
+  height: 250px;
+  width:100%;
+  overflow: hidden;
+  display: block;
+  
+  &:hover{
+    .blog__figure-img{
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+}
+.blog__figure-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.blog__content{
+  padding: 45px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: $second-light-grey;
+}
+.blog__heading{
+  color:$base-color;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  &:before{    
+    content: none;
+  }
+}
+
+.btn-blog{
+  min-width: auto;
+  font-weight: $font-regular;
+}
+
+.blog__details {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog__link{
+  font-weight: $font-semi-bold;
+	&:hover{
+		border-bottom: 1px solid $primary-color-light;
+	}
+}
+
+.blog__date {
+  font-family: $secondary-font;
+  font-weight: $font-bold;
+  color: $primary-color;
+  text-transform: uppercase;
+  font-size: em(18);
+}
+
+.blog__btn-link {
+  position: absolute;
+  bottom: 15px;
+  color: $white;
+  &:hover {
+    color: $white;
+  }
+}
+
+.blog-list__inner {
+  .author{
+    font-weight: $font-bold;
+  }
+}
+
+/** Blog Module CSS END **/
+
+@media screen and (max-width:991px){
+	.blog{
+	  max-width:450px;
+  }
+  .blog__content{
+    padding-top: 30px;
+  }
+
+  .blog__heading,
+	.author{
+		margin-bottom:20px;
+  }
+
+  .blog__btn-link {
+    position: relative;
+    bottom: 0;
+  }
+
+}
+
+@media screen and (max-width:1024px) and (min-width: 992px){
+  .blog__btn-link {
+    bottom: 0;
+  }
+
+}

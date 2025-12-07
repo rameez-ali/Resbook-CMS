@@ -1,0 +1,108 @@
+//Break points
+@mixin bp($point) {
+	
+	$xxxs-max: "(max-width: 359px)";
+	$xxs-max: "(max-width: 374px)";
+	$xsm-max:"(max-width: 413px)";
+	$xs-max: "(max-width: 575px)";
+	$sm-max: "(max-width: 767px)";
+	$smd-max: "(max-width: 991px)";
+	$md-max: "(max-width: 1024px)";
+	$lg-max: "(max-width: 1199px)";
+	$xlg-max: "(max-width: 1365px)";
+	$xxl-max: "(max-width: 1439px)";
+	
+	@if $point == xxxs-max {
+		@media #{$xxxs-max} { @content; }
+	}
+	@else if $point == xxs-max {
+		@media #{$xxs-max} { @content; }
+	}
+	@else if $point == xsm-max {
+		@media #{$xsm-max} { @content; }
+	}
+	@else if $point == xs-max {
+		@media #{$xs-max} { @content; }
+	}
+	@else if $point == sm-max {
+		@media #{$sm-max} { @content; }
+	}
+	@else if $point == smd-max {
+		@media #{$smd-max} { @content; }
+	}
+	@else if $point == md-max {
+		@media #{$md-max} { @content; }
+	}
+	@else if $point == lg-max {
+		@media #{$lg-max} { @content; }
+	}
+	@else if $point == xlg-max {
+		@media #{$xlg-max} { @content; }
+	}
+	@else if $point == xxl-max {
+		@media #{$xxl-max} { @content; }
+	}
+
+}
+
+
+
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin translate($valX: -50%, $valY: -50%) {
+  transform: -webkit-translate($valX, $valY);
+  transform: translate($valX, $valY);
+}
+
+@mixin translateX($val: -50%) {
+  transform: -webkit-translateX($val);
+  transform: translateX($val);
+}
+
+@mixin translateY($val: -50%) {
+  transform: -webkit-translateY($val);
+  transform: translateY($val);
+}
+
+@mixin transition($direction: all, $time: 0.3s, $effect: ease){
+  -webkit-transition: $direction $time $effect;
+  -moz-transition: $direction $time $effect;
+  -ms-transition: $direction $time $effect;
+  transition: $direction $time $effect;
+}
+
+@mixin img-transition(){
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+@mixin vendor-prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  #{$property}: $value;
+}

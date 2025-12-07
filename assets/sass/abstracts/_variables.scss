@@ -1,0 +1,94 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// FONTS DIR PATH
+$fonts-dir-path: '../fonts' !default;
+
+// ICON FONTS DIR PATH
+$icon-fonts-dir-path: $fonts-dir-path + '/icons' !default;
+
+// TEXT FONTS DIR PATH
+$text-fonts-dir-path: $fonts-dir-path + '/typography' !default;
+
+// GRAPHICS DIR PATH
+$graphics-dir-path: '../../graphics' !default;
+
+// BASIC COLORS
+$black                        : #000000;
+$white                        : #ffffff;
+$dark-grey                    : #45484F;
+$medium-dark-grey             : #CECECE;
+$grey                         : #989898;
+$other-dark-gray              : #7B7B7B;
+$light-gray                   : #bbbbbb;
+$lighter-grey                 : #DFDFDF;
+$ultra-medium-grey            : #C5C5C5;
+$light-grey                   : #F1F1F1;
+$second-light-grey            : #F0F0F0;
+$medium-grey                  : #FCFCFC;
+$ultra-light-grey             : #F7F7F7;
+$light-red                    : #f78687;
+$very-light-gray              : #F4F4F4;
+$very-dark-grayish-blue       : #4b505b;
+$light-gray                   : #CCCCCC;
+$dark-grayish-blue            : #7E838D;
+$grayish-blue                 : #4B505B;
+$slightly-desaturated-orange  : #b9a877;
+$very-light-gray-secondary    : #eaeaea;
+$vivid-red                    : #F31431;
+$form-border                  : #CACACA;
+$darkblue                     : #123A6F;
+$platinum-gray                : #797979;
+$grizzle-gray                 : #626262;
+$medium-light-grey            : #E3DEDE;
+$dark-gray                    : #404040;
+
+// LAYOUT COLORS Theme Yellow
+$primary-color          : #11BBB4;
+$primary-color-light    : #00335a;
+$primary-color-dark     : $darkblue;
+
+$secondary-color        : #707070;
+$secondary-color-light  : #505050;
+$secondary-color-dark   : #343434;
+
+$font-light      : 300;
+$font-regular    : 400;
+$font-medium     : 500;
+$font-semi-bold  : 600;
+$font-bold       : 700;
+
+$base-font-size: 17px;
+$base-line-height: 1.4;
+$base-font: 'Barlow', sans-serif;
+$base-color: $darkblue;
+
+$browser-context  : 17;
+$fontAwesomeSolid : 'Font Awesome 5 Free';
+$secondary-font   : 'Montserrat', sans-serif;
+$tertiary-font    :$secondary-font;
+$navigation-font : $secondary-font;
+
+$icon-color         : $primary-color-dark ;
+
+$border-size        :2px;
+$border-style       :solid;
+$border-color       : $form-border;
+
+$bg-color           : $white;
+$header-bg          : $secondary-color-light;
+$footer-title-color : $medium-grey;
+$footer-text-color  : $medium-grey;
+$footer-link        : $base-color;
+$footer-bg          : $base-color;
+$arrow-default      : $primary-color;
+$arrow-hover        : $primary-color-light;
+$dots-default       : $primary-color;
+$dots-hover         : $primary-color-light;
+$card-bg            : $white;
+$card-heading       : $secondary-color-light;
+$card-heading-hover : $primary-color;
+$blog-card-bg       : $primary-color;
+$highlight-bg       : $ultra-light-grey;
+$review-bg          : $white;

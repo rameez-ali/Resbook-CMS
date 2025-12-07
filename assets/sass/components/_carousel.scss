@@ -1,0 +1,110 @@
+.carousel {
+  position: relative;
+  padding: 0 20px;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.carousel__slide,
+.carousel__figure,
+.carousel__img{
+  width: 100%;
+}
+
+.carousel__img--rounded{
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+
+.carousel__nav {
+  color: $light-grey;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.carousel__nav--prev {
+  left: -15px;
+}
+
+.carousel__nav--next {
+  right: -15px;
+}
+
+.slider__nav {
+  color: $light-grey;
+  position: absolute;
+  top: 55%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 40px;
+  z-index:2;
+  background: none;
+  margin-top: -25px;
+}
+
+.slider__nav--prev {
+  left: 15px;
+}
+
+.slider__nav--next {
+  right: 15px;
+}
+
+/** SHOWCASE NAVIGATION STYLE START */
+.showcase{
+  padding:80px 0 30px;
+  @media screen and (max-width: 767px) {
+    padding:20px 0;
+  }
+}
+
+.showcase__nav{
+  position:absolute;
+  top:50%;
+  z-index: 2;
+  font-size: 40px;
+  color:$arrow-default;
+  cursor: pointer;
+
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
+  &:hover{
+    color: $arrow-hover;
+  }
+
+  @media screen and (max-width: 767px) {
+    top: 40%;
+  }
+
+}
+@media screen and (max-width: 767px) {
+  #arrow-left-grey{
+    width: 20px;
+    height: 20px;
+  }
+  #arrow-right-grey{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+.showcase__nav--prev {
+  left: -75px;
+  @media screen and (max-width: 767px) {
+    left: -5px;
+  }
+}
+
+.showcase__nav--next {
+  right: -75px;
+  @media screen and (max-width: 767px) {
+    right: -5px}
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Execute our versioning script
+./git_version_update.sh
+
+# Add any changes our script made to the commit
+git add utility/config.php README.md

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1, maximum-scale=6, minimum-scale=1.0, user-scalable=1">
+    <!-- Facebook sharing information tags -->
+    <meta property="og:title" content="{subject}">
+    
+    <title>{subject}</title>
+
+    <style type="text/css">
+      body {
+        width: 100% !important;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        margin: 0;
+        padding: 0;
+        background: #f1f1f1;
+      }
+      a {
+        color: #005EB0;
+      }
+      h1, h2, h3, p {
+        margin: 1em 0;
+      }
+      pre {
+        overflow-x: scroll;
+        max-width: 455px;
+        background-color: #f1f1f1;
+        padding: 15px;
+      }
+      img{
+        border:0;
+        height:auto;
+        line-height:100%;
+        outline:none;
+        text-decoration:none;
+      }
+      table td{
+        border-collapse:collapse;
+      }
+      #outer-table{
+        height:100% !important;
+        margin:0;
+        padding:0;
+        width:100% !important;
+        background-color: #f1f1f1;
+      }
+      #inner-table{
+        width: 100%;
+        max-width:600px;
+        background-color: #ffffff; 
+        border-width: 1px; 
+        border-color: #d1d1d1;
+      }
+
+      table.stripped {
+        border:1px solid #eee;
+        border-bottom: 0px;
+        width:100%;
+      }
+      .stripped tr td{
+        border-bottom: 1px solid #EFEFEF;
+    
+      }
+
+      .stripped tr:last-child td{
+        border-bottom: 1px solid #eee !important;
+      }
+
+      .stripped tr td.label{
+        background-color: #EFEFEF; border-bottom: 1px solid #fff;
+      }   
+      .header-logo{
+        max-width:100%;
+      }
+      #email-footer {
+        background-color: #E3E1DC;
+        width:100%;
+        color: #dark-grey;
+      }
+      #email-header {
+        background-color: #FFFFFF;
+        width:100%;
+        color: #fff;
+      }
+
+     
+      @media only screen and (min-device-width: 601px) {
+        #email-body{
+          padding:20px;
+        }
+        #email-footer{
+          padding:20px;
+        }
+        .stripped tr td{
+          padding:10px;
+        }
+        .stripped tr td.label{
+          min-width: 130px !important;
+        }
+      }
+
+      @media only screen and (min-device-width: 581px) {
+        .stripped tr td{
+          padding:10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if (gte mso 9)|(IE)]>
+    <!-- Outer Table -->
+    <table id="outer-table" cellpadding="10" cellspacing="0" border="0" align="center">
+      <tr>
+        <td style="font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #333333;" align="center">
+          <table id="inner-table" class="content" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td>
+                <!-- Email header -->
+                <table id="email-header" border="0" cellpadding="25" cellspacing="0" width="100%" class="header-table">
+                  <tr>
+                    <td valign="middle" align="center">
+                      <a href="#{root}">
+                        <img class="header-logo" src="{root}/graphics/email-logo.png" alt="{company}">
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+                <!-- Email header end -->
+                <table id="email-body" width="100%" cellpadding="10" cellspacing="0" align="center">
+                  <tr>
+                    <td align="left">
+                      <!-- Message Body -->
+                      <table cellpadding="5" cellspacing="0" width="100%" class="stripped">
+                        <tr>
+                          <td class="label" width="150"><strong>First Name:</strong></td>
+                          <td>{firstName}</td>
+                        </tr>
+                        <tr>
+                          <td class="label" width="150"><strong>Last Name:</strong></td>
+                          <td>{lastName}</td>
+                        </tr>
+                        <tr>
+                          <td class="label" width="150"><strong>Email Address:</strong></td>
+                          <td><a href="mailto:{emailAddress}">{emailAddress}</a></td>
+                        </tr>
+                        <tr>
+                          <td class="label" width="150"><strong>Phone/Mobile:</strong></td>
+                          <td>{contactNumber}</td>
+                        </tr> 
+                        <tr>
+                          <td class="label" width="150" valign="top"><strong>Subject:</strong></td>
+                          <td>{subject}</td>
+                        </tr>
+                        <tr>
+                          <td class="label" width="150" valign="top"><strong>Message:</strong></td>
+                          <td>{comments}</td>
+                        </tr>
+                        <tr>
+                          <td class="label" width="150"><strong>Date Enquired:</strong></td>
+                          <td>{dateEnquired}</td>
+                        </tr>                                 
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <!-- Email footer -->
+                <table id="email-footer" border="0" cellpadding="5" cellspacing="0" width="100%" class="footer-table">
+                  <tr>
+                    <td valign="middle" align="center">
+                      <p>{contactAddress}</p>
+                      <p>Email: <a href="mailto:{contactEmailAddress}">{contactEmailAddress}</a></p>
+                      <p>Phone: {contactPhoneNumber}</p>
+                    </td>
+                  </tr>
+                </table>
+                <!-- Email footer end -->
+              </td>
+            </tr>
+          </table>
+          <!-- End Outer Table -->
+    <![endif]-->
+  </body>
+</html>

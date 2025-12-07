@@ -1,0 +1,10 @@
+.placeholder.ck-widget {
+  background: #e2e3e5;
+  padding: 1px 2px;
+  outline-offset: -2px;
+  line-height: 1em;
+  margin: 0 1px;
+  height: auto;
+  width: auto;
+  float:none;
+}

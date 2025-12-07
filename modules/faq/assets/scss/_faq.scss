@@ -1,0 +1,138 @@
+/** Syle for accordion view */
+.faq {
+	
+	&.active{
+
+		&:last-of-type{
+			.faq__body{
+				border-bottom: 1px solid $border-color;
+			}
+		}
+
+	}
+  
+  &:not(.active){
+    &:last-of-type{
+      .faq__link{
+        border-bottom: 1px solid $border-color;
+      }
+    }
+  }
+}
+
+.faq__title,
+.faq__head{
+  margin: 0;
+}
+
+.faq__title{
+    border-top: 1px solid $border-color;
+    font-size: em(22);
+    line-height: em(35,22);
+    font-family: $base-font;
+    font-weight: $font-semi-bold;
+
+    &.active{
+        color: $primary-color;
+    }
+    &:hover {
+        color: $primary-color;
+    }
+    &:before {
+        display: none;
+    }
+}
+
+.faq__link {
+	position: relative;
+	display: block;
+	padding: 15px 13px 15px 8px;
+	border-top: 1px solid $border-color;
+	color: $darkblue;
+
+	&.active{
+		color: $primary-color;
+	}
+}
+.faq__link-icon {
+	float: right;
+	margin-top: 6px;
+	padding: 13px;
+	position: absolute;
+	right: 0px;
+  opacity: 0.5;
+}
+.faq {
+	.faq__link-icon.arrow-up {	  
+	  background: transparent url('../../../../graphics/arrowgrey_small_up.svg') 0% 0% no-repeat padding-box;
+	}
+}
+  
+.faq {
+	.faq__link-icon.arrow-down {
+		background: transparent url('../../../../graphics/arrowgrey_small_down.svg') 0% 0% no-repeat padding-box;
+	}
+}
+.faq__body {
+  padding: 0 8px 20px;
+}
+
+/** Syle for list view */
+
+.faq-list {
+	
+	.faq{
+		&:last-of-type{
+      border-bottom: 0px;
+    }
+	}
+
+	.faq-title {
+		position: relative;
+		display: block;
+		padding: 10px 8px;	
+	}
+  
+  .faq__title {
+    padding-top: 18px;
+  }
+  
+	.faq__body {
+		padding: 10px 0px;
+		padding-bottom: 23px;
+		margin: 0px;
+	}
+
+}
+
+
+
+
+.faq-accordion{
+	font-size: em(14);
+	line-height: em(22,14);
+	color: $platinum-gray;
+	font-family: $secondary-font;
+  padding-bottom: 40px;
+  ul{
+    list-style: disc;
+  }
+  ol {
+    list-style: decimal;
+  }
+  ol,ul {
+    margin: 15px 0px 0px 40px;
+    li{
+      line-height: 1.7em;
+    }
+  }
+  figure{
+    &.media{
+      display: block;
+    }
+  }
+  .content-div {
+    font-weight: $font-regular ;
+	font-family: $secondary-font;
+  }
+ }

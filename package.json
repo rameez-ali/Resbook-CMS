@@ -1,0 +1,21 @@
+{
+  "name": "new-base-cms",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-compass": "^1.0.4",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-nodeunit": "^2.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.4.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass-import": "^0.2.2"
+  },
+  "dependencies": {
+    "font-proxima-nova": "^1.0.1",
+    "vue": "^2.6.12"
+  }
+}

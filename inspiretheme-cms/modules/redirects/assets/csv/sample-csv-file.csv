@@ -1,0 +1,3 @@
+old_url,new_url
+https://www.mywebsite.com/oldurl,https://www.mywebsite.com/newurl
+https://www.mywebsite.com/oldurl/lorem-ipsum,https://www.mywebsite.com/newurl

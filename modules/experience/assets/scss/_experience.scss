@@ -1,0 +1,270 @@
+
+/** GRID LISTING STYLE START */
+.card__rate{
+  font-weight: $font-bold;
+  color: $grey;
+}
+
+.featured-experience,
+.experience{
+  .card__heading{
+    margin-bottom: 0px;
+  }
+}
+
+.card__heading {
+  text-align: left;
+  @media screen and (max-width:768px) {
+    text-align: center;
+  }
+}
+
+/** GRID LISTING STYLE END */
+
+/** DETAILS PAGE STYLE START */
+
+.main__experience-subtitle,
+.main__experience-price,
+.experience-category__item{
+  font-weight: $font-bold;
+  color: $ultra-light-grey;
+}
+.main__experience-price{
+  font-size: em(24);
+  line-height: em(30,24);
+  margin: 15px auto;
+}
+
+.experience-category{
+  margin: 10px;
+}
+
+.experience-category__list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-category__item{
+  display: inline-block;
+  padding: 0px 8px;
+
+  &:not(:last-child):after {
+    content: '';
+    border-right: 2px solid $ultra-light-grey;
+    padding: 0 8px;
+  }
+}
+
+.card__booking{
+  padding: 3px 0px;
+  text-align: right;
+}
+
+.experience__price{
+  color: #6A6A6A;
+  margin: 15px auto !important;
+  padding: 20px 0px;
+  border-top: 2px solid #E8E8E8;
+  border-bottom: 2px solid #E8E8E8;
+  display: block;
+}
+
+.price_from,
+.price_caption {
+font-size: em(12);
+}
+
+.experience_list {
+  .card_pricedesc {
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: em(20);
+  }
+  @media screen and (max-width:768px) {
+    .card__content, .card__heading, .card__cta {
+      text-align: center;
+    }    
+  }  
+}
+
+.featured-experience {
+  .section__header-wrapper {
+    margin-bottom: 0;
+  }
+  .experience__heading {
+    margin-bottom: 0;
+  }
+   .showcase {
+     padding: 50px 0 10px;
+     @media screen and (max-width: 767px) {
+      padding:20px 0;
+    }
+     .showcase__nav {
+       line-height: 1em;
+     }
+     
+   }
+   .card_pricedesc {
+    padding: 10px 0;
+    font-weight: $font-semi-bold;
+   }   
+ }
+.card__price {
+  .price_desc_single {
+    font-weight: $font-semi-bold;
+    color: $darkblue;
+    font-size: 18px;
+  }
+}
+
+.experience-showcase {
+  .slick-track {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  
+  .experience__price,
+  .card__booking {
+    text-align: center;
+  }
+
+  .price_desc_single {
+    display: none;
+  }
+  .price_desc_single_mobile {
+    display: inline-block;
+    font-weight: $font-semi-bold;
+    color: $darkblue !important;
+    font-size: 16px !important;
+  }
+
+}
+
+.experience-accordion{
+  //border-bottom: 1px solid $border-color;
+}
+/** FACILITIES & HIGHLIGHTS STYLE START */
+.experience-amenities{
+  padding: 0 0 30px 0;
+  margin: 0 -15px;
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+  .experience__link-icon{
+    float: right;
+    font-size: 40px;
+    color: $secondary-color-light;
+  }
+  
+  ul {
+    font-family: $base-font;
+    margin: 30px 0 30px 0;
+    li {
+      color: $primary-color-dark;
+      display: block;
+      width: 100%;
+      padding: 5px 35px;
+      position: relative;
+      font-size: em(20);
+      line-height: em(28,20);
+      font-weight: $font-regular;
+
+      &:before {
+        content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNC40MzkiIHZpZXdCb3g9IjAgMCAyMCAxNC40MzkiPjxwYXRoIGlkPSJjaGVja19GSUxMMF93Z2h0NDAwX0dSQUMwX29wc3o0OCIgZD0iTTE2MC44ODIsMzU0LjQzOSwxNTQsMzQ3LjU1OCwxNTUuMzIxLDM0Ni4yMzcsMTYwLjg4MiwzNTEuNzk4LDE3Mi42ODIsMzQwLDE3NCwzNDEuMzIxWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE1NCAtMzQwKSIgZmlsbD0iIzExYmJiNCIvPjwvc3ZnPg==');
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 20px;
+        height: 14.439px;
+      }
+    }
+  }
+
+  .section__heading{
+    font-size: em(30);
+    line-height: em(32,30);
+  }
+}
+
+.experience-amenities {
+  border: 1px solid $form-border;
+  padding: 20px 10px 30px 40px;
+  @media screen and (max-width: 767px) { 
+    border: none;
+    border-bottom: 2px solid $form-border;
+    border-top: 2px solid $form-border;
+    padding: 20px 10px 30px 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+
+  .experience-amenities {
+    ul {
+      column-count: 3;
+      margin-top: 30px;
+      li {
+        font-size: 20px;
+        padding: 5px 35px;
+        font-weight: $font-semi-bold;
+        padding-left: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 768px) {
+
+  .experience .card {
+    padding: 8px;
+  }
+
+  .card__booking {
+    right: 32px;
+  }
+  
+}
+
+@media screen and (max-width: 1025px) {
+  .featured-experience {
+    padding-bottom: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .exp_btn {
+    text-align: left;
+  }
+  .experience-showcase {
+    .card__text, .card__price, .card_pricedesc {
+      text-align: center;
+    }
+  }
+  .featured-experience {
+    .experience-showcase {
+      .card__cta {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.experience__link-icon.rotated {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out; /* Smooth transition for rotation */
+}
+
+@media screen and (min-width:1024px) {
+  .experience-showcase {
+    .showcase__nav--prev {
+      left: -50px;
+    }
+    .showcase__nav--next {
+      right: -50px;
+    }
+  }
+}

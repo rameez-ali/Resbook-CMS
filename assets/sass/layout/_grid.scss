@@ -1,0 +1,144 @@
+.card{
+  margin-bottom: 15px;
+  border:0px;
+  background: none;
+}
+
+.card__inner{
+  position: relative;
+  background: transparent;
+
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.card__figure {
+  height: 250px;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+  &:hover{
+    .card__figure-image{
+      -moz-transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+}
+
+.card__btn{
+  margin:5px 7px 5px 5px;
+  border: 2px solid $primary-color;
+}
+.btn--sm { 
+    margin: 5px 7px 5px 0px;
+}
+.card__heading {
+  font-size: em(30);
+  line-height: em(50,30);
+  margin-bottom: 15px;
+  &:before{
+    display: none;
+   }
+  &:hover{
+    color:$card-heading-hover;
+  }
+}
+
+.card__figure-link{
+  height:100%;
+  width:100%;
+  overflow: hidden;
+  display: block;
+}
+
+.card__figure-image{
+  width: 100%;
+  height: 100%;
+  object-fit: unset;
+  object-position: center;
+  @include img-transition();
+}
+
+.card__content,
+.card__cta{
+  display: block;
+  text-align: center;
+}
+
+.card__content {
+  padding: 25px 0;
+  text-align: left;
+}
+.card__content,
+.card__cta {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  // border-bottom: 1px solid $primary-color;
+  padding:0 15px 10px;
+}
+
+/** card style 1 with shadow */
+.card--with-shadow {
+  .card__inner {
+    background-color: $card-bg;
+    border: 1px solid $medium-light-grey;
+  }
+  .card__content {
+    padding: 25px 25px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  
+  .card__content,
+  .card__cta{
+    display: block;
+  }
+
+}
+
+@media screen and (min-width: 576px) {
+  
+  .card{
+    margin-bottom: 15px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .card__figure {
+    height: 194px;
+  }
+  .card__inner{
+    max-width: 400px;
+    width:100%;
+    margin:0 auto;
+  }
+
+  .card__heading {
+    // font-size: em(28);
+    // line-height: em(38,28);
+  }
+  .btn--sm { 
+    margin: 5px 5px 5px 0px;
+}
+}
+
+@media screen and (max-width: 768px) and (min-width: 768px){ 
+  .accommodation-wrapper .row{
+
+    .card:nth-child(odd) {
+      padding-right: 8px;
+    }
+
+    .card:nth-child(even) {
+      padding-left: 8px;
+    }
+
+  }
+}

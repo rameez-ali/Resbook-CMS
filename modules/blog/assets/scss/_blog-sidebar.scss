@@ -1,0 +1,46 @@
+.sidebar {
+  padding: 15px;
+	background-color: $blog-card-bg;
+	margin-bottom: 15px;
+	list-style-type: disc;
+}
+
+.sidebar__heading {
+	color: $white;
+	border-bottom: 1px solid $white;
+	margin: 10px 10px;
+	text-align: left;
+	padding-bottom: 10px;
+	&::before {
+		content: none;
+	}
+}
+
+.sidebar__content{
+  display:table;
+	padding-left:10px;
+	font-family: $base-font;
+}
+.sidebar__content-item {
+  display: inherit;
+	margin: 10px 0px !important;
+	a:hover {
+		color: $white ;
+		text-decoration: underline;
+	}
+
+	&:before{
+		content: "\f111";
+		vertical-align: middle;
+    font-family: $fontAwesomeSolid;
+    font-weight: $font-bold;
+    color: $white;
+    font-size: 7px;
+    display: table-cell;
+    padding-right: 10px;
+	}
+}
+.sidebar__content-link{
+	font-weight: $font-regular;
+	color: $white;
+}

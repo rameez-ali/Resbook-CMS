@@ -1,0 +1,46 @@
+/* Custom galleryhow slide listing */
+
+#gallery-wrapper{margin:0;padding:0;}
+
+#gallery-wrapper .col-item{
+  display: table-cell;
+  vertical-align: top;
+}
+
+.gallery-details{
+  border:0;
+  width: 100%;
+}
+
+#gallery-wrapper .col-left{
+  width: 180px;
+  text-align: center;
+}
+
+#gallery-wrapper .col-right{
+  width: 640px;
+}
+
+#gallery-wrapper img{
+  max-width:100%
+}
+
+.col-item.padded{padding-left:20px}
+
+.gallery-item{
+  display:block;
+  margin-bottom:15px;
+  background:#f8f7f7;
+  border-radius:3px;
+  padding:10px 10px 2px 10px;
+  border:1px solid #f1f1f1
+}
+
+#gallery-wrapper .remove-photo{
+  padding:15px;
+  display: block;
+}
+
+#add-new-photo{
+  color: #fff !important;
+}
