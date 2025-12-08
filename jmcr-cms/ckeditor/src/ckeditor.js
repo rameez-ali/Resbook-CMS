@@ -180,8 +180,7 @@ ClassicEditor.defaultConfig = {
                 <div class="col-12 col-lg-6 text-center p-4 p-lg-0">
                     <h3 class="ql-cover__heading">Heading</h3>
                     <p class="ql-cover__text">Description</p>
-                    <a href="#" class="btn btn-primary">Update Link<span contenteditable="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon"><path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="#11BBB4"/></svg></span></a>
+                    <a href="#" class="btn btn--primary">Update Link</a>
                 </div>
             </div>
           </div>
@@ -197,8 +196,7 @@ ClassicEditor.defaultConfig = {
                 <div class="col-12 col-lg-6 text-center p-4 p-lg-0 order-lg-1 order-2">
                     <h3 class="ql-cover__heading">Heading</h3>
                     <p class="ql-cover__text">Description</p>
-                    <a href="#" class="btn btn-primary">Update Link<span contenteditable="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon"><path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="#11BBB4"/></svg></span></a>
+                    <a href="#" class="btn btn--primary">Update Link</a>
                 </div>
                 <div class="col-12 col-lg-6 p-0  order-lg-2 order-1">
                   <div class="img-fluid cover-image">
@@ -255,32 +253,24 @@ ClassicEditor.defaultConfig = {
       // Inspire Button Primary
       {
         title: 'Button - Primary',
-        data: `<a href="#" class="btn btn-primary">Update Link<span contenteditable="false"><svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2"> <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/></svg></span></a>`,
+        data: `<a href="#" class="btn btn--primary">Update Link</a>`,
         description: 'Primary button template.'
       },
       // Inspire Button Secondary
       {
           title: 'Button - Secondary',
-          data: `<a href="#" class="btn inspireButtonSecondary">Update Link<span contenteditable="false"><svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2"><path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/></svg></span></a>`,
+          data: `<a href="#" class="btn btn--secondary">Update Link</a>`,
           description: 'Secondary button template.'
       },
       {
         title: ' Button - Primary + Secondary',
         data: `<div class="row no-gutters">
                 <div class="col-12 col-lg-2 card__cta p-0 pt-3 text-center text-lg-left">
-                  <a href="#" class="btn btn-primary">Update Link<span contenteditable="false">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-                        <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-                      </svg>
-                    </span>
+                  <a href="#" class="btn btn--primary">Update Link
                   </a>
                 </div>
                 <div class="col-12 col-lg-3 card__cta p-0 pt-3 text-center text-lg-left pl-lg-3">
-                  <a href="#" class="btn inspireButtonSecondary">Update Link<span contenteditable="false">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-                        <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-                      </svg>
-                    </span>
+                  <a href="#" class="btn btn--secondary">Update Link
                   </a>
                 </div>
               </div>`,
