@@ -39,7 +39,7 @@
   text-align: center;
   cursor: pointer;
   position: relative;
-  border-radius: 5px;
+  border-radius: 2px;
   i {
     margin: 0 15px;
     font-size: 25px;
@@ -54,7 +54,7 @@
     padding: 10px 30px;
     transition: all 0.3s;
     border: 1px solid $secondary-color-light;
-    border-radius: 0px;
+    border-radius: 2px;
    
   }
   #filters__wrapper {
@@ -78,7 +78,7 @@
       margin: 0px 15px;
       border: 1px solid $primary-color;
       position: absolute;
-      border-radius: 0px;
+      border-radius: 2px;
       right: 0;
       left: 0;
       z-index: 2;

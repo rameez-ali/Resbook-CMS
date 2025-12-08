@@ -35,11 +35,10 @@ button.btn, button.btn--primary,
   letter-spacing: 1.6px;
   color: $white;
   text-transform: uppercase;
-  border-radius: 0;
   border: 0px;
   padding: 9px 30px;
   border: 2px solid $primary-color;
-  border-radius: 4px;
+  border-radius: 2px;
   position: relative;
   // &::after {
   //   content: "";

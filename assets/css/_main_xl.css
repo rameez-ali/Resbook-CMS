@@ -11849,11 +11849,10 @@ button.btn, button.btn--primary,
   letter-spacing: 1.6px;
   color: #ffffff;
   text-transform: uppercase;
-  border-radius: 0;
   border: 0px;
   padding: 9px 30px;
   border: 2px solid #6E733F;
-  border-radius: 4px;
+  border-radius: 2px;
   position: relative; }
   .btn:hover, .btn:active, .btn:focus, .btn--primary:hover, .btn--primary:active, .btn--primary:focus,
   button.btn:hover,
@@ -12416,7 +12415,7 @@ button.btn--link,
   color: #ffffff;
   text-transform: uppercase !important;
   margin: 5px;
-  border-radius: 4px;
+  border-radius: 2px;
   border: 0px;
   padding: 10px 20px;
   background-color: #6E733F; }
@@ -12611,7 +12610,7 @@ button.btn--link,
   text-align: center;
   cursor: pointer;
   position: relative;
-  border-radius: 5px; }
+  border-radius: 2px; }
   .filter__show-btn i {
     margin: 0 15px;
     font-size: 25px;
@@ -12625,7 +12624,7 @@ button.btn--link,
     padding: 10px 30px;
     transition: all 0.3s;
     border: 1px solid #4B4B4B;
-    border-radius: 0px; }
+    border-radius: 2px; }
 
   #filters__wrapper {
     text-align: center;
