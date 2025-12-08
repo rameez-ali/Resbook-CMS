@@ -10,8 +10,8 @@
   display: block;
 
   a {
-    font-size: em(18);
-    line-height: em(36, 18);
+    font-size: 16px;
+    line-height: 28px;
     letter-spacing: 0;
     font-family: $navigation-font;
     font-weight: $font-semi-bold;
@@ -72,7 +72,8 @@
       color: $platinum-gray;
       font-family: $secondary-font;
       font-weight: $font-regular;
-      font-size: em(16);
+      font-size: 16px;
+      line-height: 24px;
       text-transform: capitalize;
       padding: 14px 0 0px 5px;
 

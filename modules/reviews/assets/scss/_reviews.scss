@@ -19,8 +19,8 @@
   color: $primary-color;
   font-family: $secondary-font;
   padding-bottom: 0;
-  font-size: em(24);
-  line-height: em(30,24);
+  font-size: 28px;
+  line-height: 38px;
   font-weight: $font-bold;
   text-transform: uppercase;
   &:before{
@@ -28,8 +28,8 @@
     margin: 0px auto 20px auto;
   }
   @media screen and (max-width: 1024px){
-    font-size: em(18);
-    line-height: em(30,18);
+    font-size: 16px;
+    line-height: 28px;
   }
 }
 
@@ -62,11 +62,11 @@
 }
 
 .review__item-content{
-  font-size: em(30);
+  font-size: 28px;
+  line-height: 38px;
   font-family: $base-font;
-  font-weight: $font-semi-bold;
+  font-weight: $font-regular;
   opacity: 1;
-  line-height: em(45,30);
   color:$primary-color-dark;
   letter-spacing: 0px;
   margin-bottom: 0px;
@@ -83,19 +83,17 @@
 }
 
 .review__item-person{
-  font-size: em(16);
+  font-size: 16px;
+  line-height: 24px;
   font-family: $secondary-font;
   text-transform: none;
   margin-top: 15px;
   color: $primary-color;
   font-weight: $font-regular;
   .review--list & {
-    font-size: em(18);
+    font-size: 16px;
+    line-height: 28px;
     font-weight: $font-bold;
-  }
-  @media screen and (max-width: 1024px){
-    font-size: e4(14);
-    line-height: em(24,14);
   }
 }
 
@@ -218,8 +216,8 @@
 @media screen and (max-width: 768px) {
   .review__carousel {
     .review__item-content{
-      font-size: em(16);
-      line-height: em(20,16);
+      font-size: 16px;
+      line-height: 24px;
     }
     .slick-slide-review {
       padding: 15px 25px;

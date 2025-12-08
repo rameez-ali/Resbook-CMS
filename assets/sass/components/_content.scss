@@ -32,8 +32,8 @@
 
 .home {
   .main__content-intro {
-    color: $grizzle-gray;
-    font-weight: $font-regular;
+    color: $secondary-color;
+    font-weight: $font-medium;
   }
 }
 
@@ -64,8 +64,8 @@
 .team-modal__description,
 .team__member-description,
 .post__content{
-  font-size: em(14);
-	line-height: em(22,14);
+  font-size: 14px;
+  line-height: 22px;
 	color: $platinum-gray;
 	font-family: $secondary-font;
   ul{
@@ -124,8 +124,8 @@
     min-width: 200px;
     text-decoration: none;
     font-family: $secondary-font;
-    font-size: em(18);
-    line-height: em(36,18);
+    font-size: 16px;
+    line-height: 28px;
     font-weight: $font-bold;
     letter-spacing: 0px;
     color: $white;

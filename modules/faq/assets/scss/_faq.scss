@@ -27,8 +27,8 @@
 
 .faq__title{
     border-top: 1px solid $border-color;
-    font-size: em(22);
-    line-height: em(35,22);
+    font-size: 18px;
+    line-height: 30px;
     font-family: $base-font;
     font-weight: $font-semi-bold;
 
@@ -109,8 +109,8 @@
 
 
 .faq-accordion{
-	font-size: em(14);
-	line-height: em(22,14);
+	font-size: 14px;
+  line-height: 22px;
 	color: $platinum-gray;
 	font-family: $secondary-font;
   padding-bottom: 40px;

@@ -49,8 +49,8 @@ h6,
 
 h1,
 .h1 {
-  font-size: em(50);
-  line-height: em(58,50);
+  font-size: 44px;
+  line-height: 56px;
 
   &:before{
    display: none;
@@ -59,32 +59,33 @@ h1,
 
 h2,
 .h2 {
-  font-size: em(44);
-  line-height: em(52,44);
+  font-size: 38px;
+  line-height: 50px;
 }
 
 h3,
 .h3 {
-  font-size: em(40);
-  line-height: em(48,40);
+  font-size: 34px;
+  line-height: 42px;
 }
 
 h4,
 .h4 {
-  font-size: em(34);
-  line-height: em(48,34);
+  font-size: 28px;
+  line-height: 38px;
 }
 
 h5,
 .h5 {
-  font-size: em(30);
-  line-height: em(38,30);
+  font-size: 24px;
+  line-height: 32px;
 }
 
 h6,
 .h6 {
-  font-size: em(25);
-  line-height: em(33,25);
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 1.6px;
 }
 
 a {
@@ -100,24 +101,24 @@ a {
 }
 
 p{
-  font-size: em(16);
-  line-height: em(24,16);
+  font-size: 16px;
+  line-height: 24px;
   color: $platinum-gray;
   font-family: $secondary-font;
 }
 
 .ql__card__text{
   color: $white;
-  font-size: em(16);
-  line-height: em(32,16);
+  font-size: 16px;
+  line-height: 24px;
 }
 .card__text{
-  font-size: em(14);
-  line-height: em(26,14);
+  font-size: 14px;
+  line-height: 22px;
 }
 .ql-cover__text{
-  font-size: em(16);
-  line-height: em(30,16);
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   padding: 0 15px;
   @media (max-width: 768px) {
@@ -127,13 +128,13 @@ p{
 
 .main__content-intro {
   font-family: $secondary-font;
-  font-weight: $font-semi-bold;
-  font-size: em(22);
-  line-height: em(34,22);
+  font-weight: $font-medium;
+  font-size: 18px;
+  line-height: 30px;
   margin-top: 10px;
   margin-left: 0px;
   margin: 20px 0 0;
-  color: $primary-color;
+  color: $secondary-color;
 }
 
 blockquote {
@@ -175,44 +176,43 @@ blockquote {
 
 @media (max-width: 768px) {
 
-h1,
-.h1 {
-  font-size: em(36);
-  line-height: em(44,36);
-}
+  h1,
+  .h1 {
+    font-size: 34px;
+    line-height: 40px;
+  }
 
-h2,
-.h2 {
-  font-size: em(30);
-  line-height: em(36,30);
-}
+  h2,
+  .h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
 
-h3,
-.h3 {
-  font-size: em(28);
-  line-height: em(36,28);
-}
+  h3,
+  .h3 {
+    font-size: 26px;
+    line-height: 30px;
+  }
 
-h4,
-.h4 {
-  font-size: em(24);
-  line-height: em(32,24);
-}
+  h4,
+  .h4 {
+    font-size: 24px;
+    line-height: 32px;
+  }
 
-h5,
-.h5 {
-  font-size: em(22);
-  line-height: em(30,22);
-}
+  h5,
+  .h5 {
+    font-size: 20px;
+    line-height: 26px;
+  }
 
-h6,
-.h6 {
-  font-size: em(18);
-  line-height: em(26,18);
-}
-p{
-  line-height: em(28,17);
-}
+  h6,
+  .h6 {
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+  }
 }
 
 .topaz-bg {

@@ -123,8 +123,8 @@
 
 .footer__heading {
   // font-family: $base-font;
-  font-size: em(30);
-  line-height: em(38,30);
+  font-size: 38px;
+  line-height: 50px;
   color: $footer-title-color;
   letter-spacing: 0px;
   opacity: 1;
@@ -272,7 +272,8 @@
     
   }
   .footer__heading {
-    font-size: em(22);
+    font-size: 18px;
+    line-height: 30px;
     text-align: center;    
   }
 

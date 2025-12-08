@@ -99,9 +99,7 @@ if (!empty($experiences)) {
     /* Experience Module ButtonView */
   if(!empty($experienceBookingUrl)) {
     $experienceBookNowButtonView = '<a href="'.$experienceBookingUrl.'" class="btn btn--sm"
-      data-category="experience" data-action="Book Now Link" data-name="'.$experienceName.'">Book<svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-        <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-      </svg></a>';
+      data-category="experience" data-action="Book Now Link" data-name="'.$experienceName.'">Book</a>';
   }
 
   /** Get Price Description */
@@ -137,10 +135,7 @@ if (!empty($experiences)) {
           <div class="card__cta">
             <a href="'.$experienceUrl.'" class="btn btn--ghost btn--sm card__btn"
              data-category="Experience" data-action="Read More Link" data-name="'.$experienceName.'">
-              '.$experienceButtonLabel.' <svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-              <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-            </svg>
-            </a>
+              '.$experienceButtonLabel.'</a>
             '.$experienceBookNowButtonView.'
           </div>
            

@@ -164,11 +164,11 @@
 
 .ql__default {
   .ql__card__heading {
-    font-size: em(30);
-    line-height: em(38,30);
+    font-size: 38px;
+    line-height: 50px;
     @media screen and (max-width:768px) {
-      font-size: em(28);
-      line-height: em(34,28);
+      font-size: 34px;
+      line-height: 42px;
     }
   }
 }
@@ -200,8 +200,6 @@
     margin: 15px;
   }
   .ql__card__heading {
-    // font-size: em(22);
-    // line-height: em(39,22);
     padding-left: 25px !important;
   }
 }

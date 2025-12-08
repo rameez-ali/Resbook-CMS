@@ -139,9 +139,7 @@ if (!empty($categoryData)) {
       
           if(!empty($accommodationBookingUrl)) {
             $accommodationBookNowButtonView = '<a href="'.$accommodationBookingUrl.'" class="btn btn--primary btn--sm card__btn"
-              data-category="Accommodation" data-action="Book Now Link" data-name="'.$accommodationHeading.'">Book<svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-                <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-              </svg></a>';
+              data-category="Accommodation" data-action="Book Now Link" data-name="'.$accommodationHeading.'">Book</a>';
           }
 
           $isMobileDevice = preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -171,9 +169,7 @@ if (!empty($categoryData)) {
                 <div class="card__cta">
                   <a href="'.$accommodationFullURL.'" class="btn btn--ghost btn--sm card__btn"
                   data-category="Accommodation" data-action="More Link" data-name="'.$accommodationHeading.'">'
-                  .$accommodationButtonLabel.'<svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-                    <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-                  </svg></a>
+                  .$accommodationButtonLabel.'</a>
                   '.$accommodationBookNowButtonView.'
                 </div>  
               </div>

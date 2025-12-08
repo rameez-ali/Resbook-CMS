@@ -81,19 +81,13 @@ if (!empty($featuredHighlight)) {
     if(!empty($highlightSectionBtnTxt)) {
       $hButtonView .= '<div class="col-12 col-lg-6 card__cta p-0 pt-3 text-center text-lg-left">
       <a href="'.$highlightUrl.'" class="btn btn--ghost btn--sm card__btn featured-button"
-      data-category="Highlight" data-action="Read More Link" data-name="'.$highlightName.'">'.$highlightSectionBtnTxt.'<svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-          <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-          </svg>
-      </a>
+      data-category="Highlight" data-action="Read More Link" data-name="'.$highlightName.'">'.$highlightSectionBtnTxt.'</a>
     </div>';
     }
     if(!empty($highlightUrl)) {
         $hLButtonView .= '<div class="col-12 col-lg-5 card__cta p-0 pt-3 text-center text-lg-left">
         <a href="'.$highlightUrl.'" class="btn btn--ghost btn--sm card__btn featured-button"
-        data-category="Highlight" data-action="Read More Link" data-name="'.$highlightName.'">Find Out More<svg xmlns="http://www.w3.org/2000/svg" width="17.88" height="11.88" viewBox="0 0 29.117 29.117" class="btn-arrow-icon ml-2">
-            <path id="arrow_forward_FILL0_wght400_GRAD0_opsz48" d="M174.559,285.117l-1.911-1.956,11.237-11.237H160v-2.73h23.885l-11.237-11.237L174.559,256l14.559,14.559Z" transform="translate(-160 -256)" fill="currentColor"/>
-            </svg>
-        </a>
+        data-category="Highlight" data-action="Read More Link" data-name="'.$highlightName.'">Find Out More</a>
       </div>';
       }
 

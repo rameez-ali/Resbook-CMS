@@ -48,7 +48,8 @@
   font-family: $base-font;  
   font-weight: $font-semi-bold;
   color: $primary-color;
-  font-size: em(30);
+  font-size: 38px;
+  line-height: 50px;
   &::before {
     display: none;
   }
@@ -60,8 +61,8 @@
 
 .highlight__text {
   margin: 0 0 22px;
-  font-size: em(14);
-  line-height: em(24,14);
+  font-size: 14px;
+  line-height: 22px;
   word-break: break-word;
 }
 

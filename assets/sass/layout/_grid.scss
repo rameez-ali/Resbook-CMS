@@ -35,8 +35,8 @@
     margin: 5px 7px 5px 0px;
 }
 .card__heading {
-  font-size: em(30);
-  line-height: em(50,30);
+  font-size: 38px;
+  line-height: 50px;
   margin-bottom: 15px;
   &:before{
     display: none;
@@ -118,11 +118,6 @@
     max-width: 400px;
     width:100%;
     margin:0 auto;
-  }
-
-  .card__heading {
-    // font-size: em(28);
-    // line-height: em(38,28);
   }
   .btn--sm { 
     margin: 5px 5px 5px 0px;
