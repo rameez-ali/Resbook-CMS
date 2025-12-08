@@ -12642,7 +12642,7 @@ button.btn--link,
     margin: 0px 15px;
     border: 1px solid #6E733F;
     position: absolute;
-    border-radius: 0px;
+    border-radius: 2px;
     right: 0;
     left: 0;
     z-index: 2;
@@ -13250,7 +13250,7 @@ textarea.form-control {
 .card__figure-image {
   width: 100%;
   height: 100%;
-  object-fit: unset;
+  object-fit: cover;
   object-position: center;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
