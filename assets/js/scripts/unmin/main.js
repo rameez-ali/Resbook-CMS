@@ -1,4 +1,4 @@
-/*! new-base-cms 2023-11-13 01:11 */
+/*! new-base-cms 2025-12-08 12:12 */
 (function(w, d, $){
 
   var REQUEST_URL = '/requests/service';
