@@ -1,4 +1,4 @@
-/*! new-base-cms 2025-12-08 12:12 */
+/*! new-base-cms 2025-12-12 10:12 */
 (function(w, d, $){
 
   var REQUEST_URL = '/requests/service';
@@ -1020,7 +1020,7 @@ initShuffle('.accom-shuffle', '.accom-items', '.filters__btn', 'filters__btn--ac
   var headerheight = $('#header').outerHeight();
 
   // set top margin in all cases
-  $('.banner').css('margin-top', headerheight + 'px');
+  // $('.banner').css('margin-top', headerheight + 'px');
 
   // check if the page is the homepage
   if($('.banner').hasClass('banner--fs')){
@@ -1028,6 +1028,22 @@ initShuffle('.accom-shuffle', '.accom-items', '.filters__btn', 'filters__btn--ac
     // subtract the margin-top from the height
     $('.banner').css('height', viewportheight - headerheight + 'px');
   }
+
+  function toggleHeaderWhite() {
+    if ($(w).scrollTop() === 0 && !$('body').hasClass('no-banner')) {
+      $('body').removeClass('header-white');
+    } else {
+      $('body').addClass('header-white');
+    }
+  }
+
+  // Run on load
+  toggleHeaderWhite();
+
+  // Run on scroll
+  $(w).on('scroll', function () {
+    toggleHeaderWhite();
+  });
 })(window, document, jQuery);;(function(w, d, $){
 
   w.initHeroBannerVideoPopup = function(elm){

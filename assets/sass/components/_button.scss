@@ -239,6 +239,33 @@ button.btn--link,
     transform: translateY(-50%);
   }
 }
+@media screen and (min-width: 1024px) {
+  body:not(.header-white) {
+    .header__logo {
+      filter: brightness(0) invert(1);
+    }
+    .primary-navigation__item {
+      > a {
+        filter: brightness(0) invert(1);
+        color: white;
+      }
+      &::after{
+        filter: brightness(0) invert(1);
+      }
+    }
+    .btn--book {
+      background-color: transparent;
+      color: $white;
+      border:2px solid $white;
+      opacity: 1;
+      &:hover{
+        background-color: transparent;
+        border:2px solid $white;
+        opacity: 0.75;
+      }
+    }
+  }
+}
 .CheckInPersonWidget .toggle-check-availability {
   font-size: 17px !important;
   font-family: $secondary-font !important;

@@ -37,22 +37,22 @@
   }
 }
 
-.main__content-heading {
-  &:after{
-    content: "";
-    position: absolute;
-    left: calc(50% - 1px);
-    width: 2px;
-    height: 55px;
-    top: -73px;
-    background-color: $primary-color;
-    z-index: -1;
-    @media screen and (max-width:768px){
-      content: "";
-      top: -55px;
-    }
-  }
-}
+// .main__content-heading {
+//   &:after{
+//     content: "";
+//     position: absolute;
+//     left: calc(50% - 1px);
+//     width: 2px;
+//     height: 55px;
+//     top: -73px;
+//     background-color: $primary-color;
+//     z-index: -1;
+//     @media screen and (max-width:768px){
+//       content: "";
+//       top: -55px;
+//     }
+//   }
+// }
 
 .section--main-content{
 

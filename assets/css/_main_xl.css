@@ -11595,10 +11595,10 @@ label[for] {
   border: none !important; }
 
 .no-banner #main {
-  padding-top: 95px; }
+  padding-top: 110px; }
   @media (max-width: 1024px) {
     .no-banner #main {
-      padding-top: 65px; } }
+      padding-top: 90px; } }
 
 @media (max-width: 768px) {
   .container-fluid--fw {
@@ -12035,6 +12035,23 @@ button.btn--link,
     right: 15px;
     top: 50%;
     transform: translateY(-50%); } }
+@media screen and (min-width: 1024px) {
+  body:not(.header-white) .header__logo {
+    filter: brightness(0) invert(1); }
+  body:not(.header-white) .primary-navigation__item > a {
+    filter: brightness(0) invert(1);
+    color: white; }
+  body:not(.header-white) .primary-navigation__item::after {
+    filter: brightness(0) invert(1); }
+  body:not(.header-white) .btn--book {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    opacity: 1; }
+    body:not(.header-white) .btn--book:hover {
+      background-color: transparent;
+      border: 2px solid #ffffff;
+      opacity: 0.75; } }
 .CheckInPersonWidget .toggle-check-availability {
   font-size: 17px !important;
   font-family: "Montserrat" !important;
@@ -12330,20 +12347,6 @@ button.btn--link,
 .home .main__content-intro {
   color: #4B4B4B;
   font-weight: 500; }
-
-.main__content-heading:after {
-  content: "";
-  position: absolute;
-  left: calc(50% - 1px);
-  width: 2px;
-  height: 55px;
-  top: -73px;
-  background-color: #6E733F;
-  z-index: -1; }
-  @media screen and (max-width: 768px) {
-    .main__content-heading:after {
-      content: "";
-      top: -55px; } }
 
 .section--main-content {
   padding-top: 0px !important; }
@@ -12854,10 +12857,13 @@ textarea.form-control {
   -moz-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  background-color: #ffffff; }
+  background-color: transparent; }
   @media screen and (max-width: 1024px) {
     .header {
       border-bottom: none; } }
+
+.header-white .header {
+  background-color: #ffffff; }
 
 .header__container {
   position: relative;

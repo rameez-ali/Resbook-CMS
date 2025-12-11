@@ -96,7 +96,7 @@ if (!empty($slideshowPageId)) {
 }
 
 if (empty($bannerView)) {
-    $bodyCls .= ' no-banner';
+    $bodyCls .= ' no-banner header-white';
 }
 
 // var_dump($pageBannerView);

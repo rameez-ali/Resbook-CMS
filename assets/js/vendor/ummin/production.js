@@ -1,4 +1,4 @@
-/*! new-base-cms 2025-12-08 12:12 */
+/*! new-base-cms 2025-12-12 10:12 */
 /*!
  * jQuery JavaScript Library v3.4.1
  * https://jquery.com/

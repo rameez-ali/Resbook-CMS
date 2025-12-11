@@ -36,7 +36,7 @@ if (!$browserIsIE && !$isMobileDevice && $itemVideoId) {
       </div>
 ';
 } else {
-  $bodyCls .= ' no-banner';
+  $bodyCls .= ' no-banner header-white';
 }
 
 $sectionContent = 
