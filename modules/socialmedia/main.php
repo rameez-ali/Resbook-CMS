@@ -3,7 +3,7 @@ require_once __DIR__.DS.'config.php';
 
 
 $smHeadingView = (empty($socialmediaHeading)) ? '' : '<h2 class="footer__heading">'.$socialmediaHeading.'</h2>';
-// $smCaptionView = (empty($socialmediaDescription)) ? '' : '<p class="footer__text">'.$socialmediaDescription.'</p>';
+$smHeadingView .= (empty($socialmediaDescription)) ? '' : '<p class="footer__text footer_shortdesc">'.$socialmediaDescription.'</p>';
 
 $viewSocialMediaWidget = '';
 
@@ -50,7 +50,7 @@ if (!empty($viewSocialMediaWidget)) {
 $socialMediaContent = '';
 
 if($viewSocialMediaWidget != '') {
-  $socialMediaContent = '<div class="col-12 col-xl-3 col-lg-4  footer__item"><div class="footer__content">
+  $socialMediaContent = '<div class="col-12 col-lg-4  footer__item"><div class="footer__content">
   '.$smHeadingView.$viewSocialMediaWidget.'</div></div>';
 }
 

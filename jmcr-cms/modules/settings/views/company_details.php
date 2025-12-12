@@ -14,17 +14,17 @@ $tabCompanyDetailsContent = '<table width="100%" border="0"
         <label for="phone_number">Phone Number</label>
       </td>
       <td>
-        <input name="phone_number" id="phone_number" type="text"
-         value="'.$gsPhoneNumber.'" style="width:150px;" />
+        <textarea name="phone_number" style="width:350px;min-height:100px;">'
+        .$gsPhoneNumber.'</textarea>
       </td>
     </tr>
     <tr>
       <td>
-        <label for="free_phone_number">Free Phone Number</label>
+        <label for="free_phone_number">WhatsApp</label>
       </td>
       <td>
-        <input name="free_phone_number" id="free_phone_number" type="text"
-         value="'.$gsFreePhoneNumber.'" style="width:150px;" />
+        <textarea name="free_phone_number" style="width:350px;min-height:100px;">'
+        .$gsFreePhoneNumber.'</textarea>
       </td>
     </tr>
     <tr>

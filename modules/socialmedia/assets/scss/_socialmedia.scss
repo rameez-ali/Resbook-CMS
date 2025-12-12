@@ -8,9 +8,9 @@
 
 .social-icons__item {
   display: inline-block;
-  margin: 6px;
+  margin: 0;
   vertical-align: middle;
-  padding: 0 13px;
+  padding: 0 6px;
 
   &:first-of-type {
     margin-left: 0;
@@ -19,15 +19,12 @@
 }
 
 .social-icons__link {
-  display: block;
-  font-size:35px;
-  text-align: right;
-  color: $white;
-  border-radius: 50%;
-  padding: 0;
-  line-height: 0;
-  letter-spacing: 0px;
-  opacity: 0.5;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    color: $primary-color;
+
   @media (max-width: 1440px) {
     font-size: 28px;
   }
@@ -45,7 +42,8 @@
   }
 
   &:hover{
-    color: $white;
+    color: $primary-color-light;
+    border: 1px solid $primary-color-light;
     opacity: 1;
   }
 
@@ -59,13 +57,13 @@
 }
 
 .social-icons__icon {
-  position: relative;
-  top: 50%;  
-  line-height: em(44,40);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 @media screen and (max-width:768px){

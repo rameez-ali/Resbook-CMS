@@ -7,12 +7,12 @@ $nlHeadingView = (empty($newsletterHeading)) ? '' : '<h2 class="footer__heading"
 
 if (!empty($mailchimpApiKey) && !empty($mailchimpListId)) {
 	
-	$templateTags['newsletter_view'] = ' <div class="col-12 col-xl-5 offset-xl-1 col-lg-4 footer__item"><div class="footer__content">
+	$templateTags['newsletter_view'] = ' <div class="col-12 col-lg-3 footer__item"><div class="footer__content">
 			'.$nlHeadingView.'
 			<form action="#" class="form newsletter">
 				<div class="form__group">
-					<input type="email" class="form__control" id="newsletter-email" placeholder="Enter your email">
-					<button type="submit" id="newsletter-btn">Sign Up</button>
+					<input type="email" class="form__control" id="newsletter-email" placeholder="Email address">
+					<button type="submit" id="newsletter-btn" class="btn btn--primary w-100">Subscribe</button>
 				</div>
 				<p class="newsletter__msg">&nbsp;</p>
 			</form>

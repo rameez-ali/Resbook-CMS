@@ -19,17 +19,21 @@
 
 .newsletter input[type="text"]::placeholder, 
 .newsletter .form__control::placeholder {
-  color: $white;
+  color: $charcoal;
 }
 #newsletter-email {
-  padding: 0 170px 0 30px;
-  border-radius: 75px;
+  // padding: 0 170px 0 30px;
   font-size: 16px;
   line-height: 24px;
-  color: $white;
-  border-color: $white;
+  color: $charcoal;
+  border-bottom: 1px solid $charcoal;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   background-color: transparent;
-  opacity: 0.6;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  font-family: $secondary-font;
 }
 
 .newsletter__warning {
