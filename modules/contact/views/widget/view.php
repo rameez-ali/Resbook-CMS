@@ -33,16 +33,29 @@ if ($contactFreePhoneNumber) {
 }
 
 if ($contactEmailAddress) {
-  if (strpos($contactEmailAddress, ';') !== false) {
-		$contactEmailAddress = substr($contactEmailAddress, 0, strpos($contactEmailAddress, ';'));
-	}
-  $contactSectionContent .= '<div class="d-flex mb-4"><p class="my-0 mr-2">'.$mailSvg.'</p><a href="mailto: '.$contactEmailAddress.'"
-                                class="footer__text--mail my-auto"
-                                data-category="Email Link" 
-                                data-action="Click" 
-                                data-name="'.$contactEmailAddress.'">
-                                '.$contactEmailAddress.'
-                              </a></div>';
+
+    // Split on semicolon, trim spaces
+    $emails = array_map('trim', explode(';', $contactEmailAddress));
+
+    // Filter out empty items
+    $emails = array_filter($emails);
+
+    $contactSectionContent .= '<div class="d-flex mb-4"><p class="my-0 mr-2">'.$mailSvg.'</p><div>';
+
+    $links = [];
+
+    foreach ($emails as $email) {
+        $links[] = '<a href="mailto:'.$email.'" 
+                       class="footer__text--mail my-auto"
+                       data-category="Email Link" 
+                       data-action="Click" 
+                       data-name="'.$email.'">'.$email.'</a>';
+    }
+
+    // Join links with comma + space
+    $contactSectionContent .= implode('', $links);
+
+    $contactSectionContent .= '</div></div>';
 }
 
 $contactContent = '';
