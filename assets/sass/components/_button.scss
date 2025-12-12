@@ -238,6 +238,9 @@ button.btn--link,
     top: 50%;
     transform: translateY(-50%);
   }
+  .banner {
+    margin-top: 90px;
+  }
 }
 @media screen and (min-width: 1024px) {
   body:not(.header-white) {
