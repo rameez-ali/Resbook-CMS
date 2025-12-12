@@ -81,6 +81,10 @@
     display: block;
     font-weight: 500;
     text-decoration: underline;
+    color: $primary-color;
+    &:hover {
+      color: $primary-color-light;
+    }
   }
 
 }

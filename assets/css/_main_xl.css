@@ -13381,7 +13381,10 @@ article {
   .footer__text .footer__text--mail {
     display: block;
     font-weight: 500;
-    text-decoration: underline; }
+    text-decoration: underline;
+    color: #6E733F; }
+    .footer__text .footer__text--mail:hover {
+      color: #8D954A; }
 
 .footer__copyright-credits {
   color: #4B4B4B; }

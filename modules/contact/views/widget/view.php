@@ -33,6 +33,9 @@ if ($contactFreePhoneNumber) {
 }
 
 if ($contactEmailAddress) {
+  if (strpos($contactEmailAddress, ';') !== false) {
+		$contactEmailAddress = substr($contactEmailAddress, 0, strpos($contactEmailAddress, ';'));
+	}
   $contactSectionContent .= '<div class="d-flex mb-4"><p class="my-0 mr-2">'.$mailSvg.'</p><a href="mailto: '.$contactEmailAddress.'"
                                 class="footer__text--mail my-auto"
                                 data-category="Email Link" 
