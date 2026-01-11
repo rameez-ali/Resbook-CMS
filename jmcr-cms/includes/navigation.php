@@ -101,6 +101,11 @@ function buildSiteMenu()
                     "uri" => "refundprotect",
                     "icon_cls" => "fa fa-lock",
                 ],
+                [
+                    "label" => "Showcase",
+                    "uri" => "showcase",
+                    "icon_cls" => "fa fa-images",
+                ],
             ],
         ],
         [

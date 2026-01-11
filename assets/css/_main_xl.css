@@ -16618,6 +16618,50 @@ input[type="radio"]:checked {
   .review-arrow:hover {
     fill: #11BBB4; }
 
+.showcase-section .showcase-item {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .showcase-section .showcase-item::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 100%); }
+.showcase-section .showcase-box {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%); }
+.showcase-section .showcase-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center; }
+.showcase-section .showcase-name {
+  color: var(--White, #FFF);
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  /* 175% */
+  letter-spacing: 1.6px;
+  text-transform: uppercase; }
+.showcase-section .showcase-header {
+  color: var(--White, #FFF);
+  text-align: center; }
+.showcase-section .showcase-desc {
+  color: var(--White, #FFF);
+  text-align: center; }
+
 .social-icons {
   display: flex;
   flex-wrap: nowrap;
