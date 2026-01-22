@@ -66,17 +66,6 @@ function displayLoginScreen()
                 </div>
               </div>
               <div class="form-group">
-                <label for="captcha-inp">Captcha</label>
-                <div class="input-group">
-                  <div class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></div>
-                  <input type="text" placeholder="Please enter the text you see below" 
-                   value="" name="spam-control" id="captcha-inp" class="form-control" autocomplete="off">
-                </div>
-              </div>
-              <div class="form-group">
-                <div style="margin:10px 0;"><img src="/captcha.jpg" alt="spam control image" id="anti-spam"></div>
-              </div>
-              <div class="form-group">
                 <button type="submit" name="submit" value="login" class="btn btn-default">
                   Login <i class="glyphicon glyphicon-log-in" style="margin-top:1px;vertical-align:text-top;"></i>
                 </button>

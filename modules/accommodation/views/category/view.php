@@ -49,7 +49,9 @@ if (!empty($categoryData)) {
         a.`features`,
         a.`booking_url`,
         a.`button_text`,
-        a.`page_meta_data_id`,        
+        a.`page_meta_data_id`,
+        a.`show_poa`,
+        a.`type`,        
         pmd.`name`,
         pmd.`menu_label`,
         pmd.`heading`,
@@ -92,6 +94,8 @@ if (!empty($categoryData)) {
           $accommodationBookingUrl       = $accommodation['booking_url'];
           $accommodationButtonLabel      = $accommodation['button_text'];
           $accommodationItemKey          = $accommodation['item_key'];
+          $accommodationShowPOA          = isset($accommodation['show_poa']) ? $accommodation['show_poa'] : null;
+          $accommodationType             = isset($accommodation['type']) ? trim((string) $accommodation['type']) : null;
       
           $accommodationShortDescription = nl2br($accommodationShortDescription);
           $accommodationShortDescription = Helper::strTruncate($accommodationShortDescription, 180,'', true, true); 
@@ -145,7 +149,12 @@ if (!empty($categoryData)) {
           $isMobileDevice = preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
           $finalImage = $isMobileDevice ? $accommodationImage : $accommodationFullImage;
           
-          $accommodationItems .= '<div class="col-12 col-md-6 col-xl-4 card">
+          // Determine column classes based on accommodation type
+          // Villa shows as full width (single card per row), all others show 3 cards per row
+          $isVilla = (!empty($accommodationType) && strtolower($accommodationType) === 'villa');
+          $columnClasses = $isVilla ? 'col-12' : 'col-12 col-md-6 col-xl-4';
+          
+          $accommodationItems .= '<div class="'.$columnClasses.' card">
               <div class="card__inner">
                 <figure class="card__figure">
                   <a href="'.$accommodationFullURL.'" class="card__figure-link"

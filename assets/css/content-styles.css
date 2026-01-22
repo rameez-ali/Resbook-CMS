@@ -533,6 +533,31 @@ code {
     padding: 0;
     border-radius: 0;
 }
+
+
+/* 🔥 Fix gaps + wrong column alignment caused by Shuffle */
+.accom-shuffle {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+  }
+  
+  .accom-shuffle > .accom-items {
+    position: relative !important;
+    transform: none !important;
+    margin-bottom: 30px;
+  
+    /* 🔥 critical fix */
+    width: auto !important;
+    flex-basis: auto !important;
+    max-width: 100% !important;
+  }
+  
+  .accom-shuffle > .col-12 {
+    clear: both;
+  }
+  
+
 @media print {
     /* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
     .page-break {

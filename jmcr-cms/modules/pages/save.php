@@ -73,6 +73,11 @@ function saveItem (){
   //  $arrMetaData['cta_bunner_secondary_external_url']  = validateInput('cta_bunner_secondary_external_url');
    $arrMetaData['cta_bunner_secondary_button_text']   = validateInput('cta_bunner_secondary_button_text');
 
+   /** Save Reservation Banner Data */
+   $arrMetaData['reservation_banner_title']          = validateInput('reservation_banner_title');
+   $arrMetaData['reservation_banner_button_text']     = validateInput('reservation_banner_button_text');
+   $arrMetaData['reservation_banner_button_url']      = validateInput('reservation_banner_button_url');
+
    $arrMetaData['prefilter_catid']   = validateInput('prefilter_catid');
    
   /** PAGE DETAILS */

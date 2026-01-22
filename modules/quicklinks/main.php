@@ -18,6 +18,10 @@ if (!empty($pageQlModuleKey) && !empty($pageQlItemId)) {
   
     require __DIR__ . '/views/icon.php';
   
+  } elseif($quicklinkSectionStyle == 4) {
+  
+    require __DIR__ . '/views/banner.php';
+  
   } else {
 
     require __DIR__ . '/views/tile.php';

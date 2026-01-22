@@ -184,7 +184,10 @@ $isInvalidUrl = $validateUrlResponse['isInvalidUrl'];
       pmd.`cta_bunner_primary_button_text`,
       pmd.`cta_bunner_secondary_url`,
       pmd.`cta_bunner_secondary_external_url`,
-      pmd.`cta_bunner_secondary_button_text`
+      pmd.`cta_bunner_secondary_button_text`,
+      pmd.`reservation_banner_title`,
+      pmd.`reservation_banner_button_text`,
+      pmd.`reservation_banner_button_url`
     FROM `general_pages` gp
     LEFT JOIN `page_meta_data` pmd
         ON(gp.`page_meta_data_id` = pmd.`id`)
@@ -325,6 +328,11 @@ $ctaBunnerPrimaryButtonText              = $templateTags['cta_bunner_primary_but
 $ctaBunnerSecondaryUrl                   = $templateTags['cta_bunner_secondary_url'];
 // $ctaBunnerSecondaryExternallUrl          = $templateTags['cta_bunner_secondary_external_url'];
 $ctaBunnerSecondaryButtonText            = $templateTags['cta_bunner_secondary_button_text'];
+
+/** page Reservation Banner details */
+$reservationBannerTitle                  = $templateTags['reservation_banner_title'];
+$reservationBannerButtonText             = $templateTags['reservation_banner_button_text'];
+$reservationBannerButtonUrl              = $templateTags['reservation_banner_button_url'];
 
 // INIT ANY EMPTY TEMPLATE TAGS
 $templateTags['scripts_load_top']        = '';
@@ -573,6 +581,46 @@ if(!empty($ctaBunnerTitle)){
         <div class="col-12 text-center">
           '.$PageCtaButtonView.'
         </div>
+    </div>
+  </div>
+  </section>';
+}
+
+/** Reservation Banner View */
+$reservationBannerButtonView = '';
+if (!empty($reservationBannerButtonText) && !empty($reservationBannerButtonUrl)) {
+  $reservationBannerFullUrl = $reservationBannerButtonUrl;
+  
+  // Check if it's an external URL
+  if (strpos($reservationBannerButtonUrl, "http://") === 0 || strpos($reservationBannerButtonUrl, "https://") === 0) {
+    $reservationBannerFullUrl = $reservationBannerButtonUrl;
+  } elseif (strpos($reservationBannerButtonUrl, "/") === 0) {
+    $reservationBannerFullUrl = Helper::getFullUrl($reservationBannerButtonUrl);
+  } else {
+    $reservationBannerFullUrl = Helper::getFullUrl('/' . $reservationBannerButtonUrl);
+  }
+  
+  $reservationBannerButtonView = '<a href="'.$reservationBannerFullUrl.'" class="btn btn--primary" 
+    data-category="Reservation Banner" data-action="Button Link" data-name="'.$reservationBannerTitle.'">'.$reservationBannerButtonText.'</a>';
+}
+
+if(!empty($reservationBannerTitle)){
+  $templateTags['reservation_banner']= '<section class="section reservation-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="reservation-banner__wrapper">
+          <div class="reservation-banner__inner">
+            <h3 class="reservation-banner__subtitle">STAY WITH US</h3>
+            <h2 class="reservation-banner__title">
+              '.$reservationBannerTitle.'
+            </h2>
+            <div class="reservation-banner__button-wrapper">
+              '.$reservationBannerButtonView.'
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   </section>';

@@ -52,6 +52,27 @@ $tabDetailsContent = '<table width="100%" border="0" cellspacing="0" cellpadding
       </td>
     </tr>
     <tr>
+      <td><label for="deck_size">Deck Size:</label></td>
+      <td>
+        <input type="number" name="deck_size" id="deck_size" value="'.($itemDeckSize ?? '').'" 
+         style="width:100px;" maxlength="3" min="0"/> (In "square meters") 
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><label for="bedroom_details">Bedroom Details:</label></td>
+      <td>
+        <textarea name="bedroom_details" id="bedroom_details" style="width:550px;min-height:60px;resize:none;">'.($itemBedroomDetails ?? '').'</textarea>
+        <br><span class="text-muted"><small>e.g., "1 Bedroom with Ensuite One King Bed and one Single Day Bed"</small></span>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><label for="sleeps_details">Sleeps Details:</label></td>
+      <td>
+        <textarea name="sleeps_details" id="sleeps_details" style="width:550px;min-height:60px;resize:none;">'.($itemSleepsDetails ?? '').'</textarea>
+        <br><span class="text-muted"><small>e.g., "Sleeps 4 maximum with rollaway Bed"</small></span>
+      </td>
+    </tr>
+    <tr>
     <td><label for="room_resbook_id">Resbook Room Id:</label></td>
     <td>
       <input type="text" name="room_resbook_id" id="room_resbook_id" value="'.$itemRoomResbookID.'"

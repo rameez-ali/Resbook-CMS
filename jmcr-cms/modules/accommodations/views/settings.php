@@ -107,6 +107,17 @@ $tabSettingsContent = '
       </td>
     </tr>
     <tr>
+      <td><label for="type">Type:</label></td>
+      <td>
+        <select name="type" id="type" style="width:300px;">
+          <option value="">Please Select Type</option>
+          <option value="Room"'.(($itemType === 'Room') ? ' selected="selected"' : '').'>Room</option>
+          <option value="Villa"'.(($itemType === 'Villa') ? ' selected="selected"' : '').'>Villa</option>
+          <option value="Bures"'.(($itemType === 'Bures') ? ' selected="selected"' : '').'>Bures</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
       <td><label for="booking_url">Booking URL:</label></td>
       <td>
         <input type="text" name="booking_url" id="booking_url" value="'.$itemBookingUrl.'" style="width:300px;"/>

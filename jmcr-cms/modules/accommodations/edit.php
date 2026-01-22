@@ -14,12 +14,16 @@ function editItem()
   $template           = (empty($template)) ? '' : $template;
   $disableMenu = FLAG_YES; 
 
+  // Around line 17, update the SQL query to include type and new fields:
   $sqlItem = "SELECT a.`id`,
       a.`guests`,
       a.`beds`,
       a.`room_resbook_id`,
       a.`bathrooms`,
       a.`room_size`,
+      a.`deck_size`,
+      a.`bedroom_details`,
+      a.`sleeps_details`,
       a.`from_price`,
       a.`currency_code`,
       a.`from_price_caption`,
@@ -29,6 +33,7 @@ function editItem()
       a.`page_meta_data_id`,
       a.`is_featured`,
       a.`show_poa`,
+      a.`type`,
       pmd.`name`,
       pmd.`menu_label`,
       pmd.`heading`,
@@ -62,12 +67,16 @@ function editItem()
     $itemBeds              = $itemData['beds'];
     $itemBathrooms         = $itemData['bathrooms'];
     $itemRoomsize          = $itemData['room_size'];
+    $itemDeckSize          = $itemData['deck_size'] ?? null;
+    $itemBedroomDetails    = $itemData['bedroom_details'] ?? null;
+    $itemSleepsDetails     = $itemData['sleeps_details'] ?? null;
     $itemRoomResbookID     = $itemData['room_resbook_id'];
 
     $itemFromPrice         = $itemData['from_price'];
     $itemCurrencyCode      = $itemData['currency_code'];
     $itemIsFeatured        = $itemData['is_featured'];
     $itemShowPOA           = $itemData['show_poa'];
+    $itemType = $itemData['type'] ?? null;
     $itemFromPriceCaption  = $itemData['from_price_caption'];
     $itemFeatures          = $itemData['features'];
     $itemPhotoPath         = $itemData['photo_path'];

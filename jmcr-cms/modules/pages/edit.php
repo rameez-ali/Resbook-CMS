@@ -36,6 +36,9 @@ function editItem()
         pmd.`cta_bunner_primary_button_text`,
         pmd.`cta_bunner_secondary_url`,
         pmd.`cta_bunner_secondary_button_text`,
+        pmd.`reservation_banner_title`,
+        pmd.`reservation_banner_button_text`,
+        pmd.`reservation_banner_button_url`,
         pmd.`template_id`,
         pmd.`slideshow_page_id`,
         pmd.`prefilter_catid`        
@@ -81,6 +84,10 @@ function editItem()
     $ctaBunnerSecondaryUrl   = $pageData['cta_bunner_secondary_url'];
     // $ctaBunnerSecondaryExternallUrl  = $pageData['cta_bunner_secondary_external_url'];
     $ctaBunnerSecondaryButtonText    = $pageData['cta_bunner_secondary_button_text'];
+
+    $reservationBannerTitle          = $pageData['reservation_banner_title'];
+    $reservationBannerButtonText     = $pageData['reservation_banner_button_text'];
+    $reservationBannerButtonUrl      = $pageData['reservation_banner_button_url'];
 
     $itemPreFilterCatId    = $pageData['prefilter_catid'];
 
@@ -145,6 +152,9 @@ function editItem()
   require_once MOD_VIEWS_DIR.DS.'cta_bunner.php';
   // require_once MOD_VIEWS_DIR.DS.'cta.php';
 
+  /** Reservation Banner tab content */
+  require_once MOD_VIEWS_DIR.DS.'reservation_banner.php';
+
   /** Generate tab array */
 
   $arrMenuTabs = array();
@@ -157,6 +167,7 @@ function editItem()
   $arrMenuTabs['Highlights']  = HighlightHelper::getHighlightData($modKey, $pageId, $modMsgLabel);
   $arrMenuTabs['Features']    = $tabFeaturesContent;
   $arrMenuTabs['CTA Banner']  = $tabCTABunnerContent;
+  $arrMenuTabs['Reservation Banner']  = $tabReservationBannerContent;
 
   $tabIndex   = 0;
   $tabList    = "";

@@ -1,0 +1,158 @@
+/** Quicklinks Banner Style - Three vertical panels side by side */
+
+.ql-banner {
+  padding: 0;
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  
+  &__wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  &__row {
+    margin: 0;
+    min-height: 500px;
+    width: 100%;
+    padding: 0;
+    
+    @media screen and (max-width: 767px) {
+      min-height: 400px;
+    }
+  }
+  
+  &__panel {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    
+    @media screen and (max-width: 767px) {
+      min-height: 400px;
+      margin-bottom: 0;
+    }
+  }
+  
+  &__panel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: flex-end;
+    
+    @media screen and (max-width: 767px) {
+      min-height: 400px;
+    }
+  }
+  
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    text-decoration: none;
+  }
+  
+  &__figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+  
+  &__overlay {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    padding: 40px 30px;
+    color: $white;
+    
+    @media screen and (max-width: 767px) {
+      padding: 30px 20px;
+    }
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__heading {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: $font-semi-bold;
+    color: $white;
+    margin: 0 0 15px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @media screen and (max-width: 991px) {
+      font-size: 28px;
+    }
+    
+    @media screen and (max-width: 767px) {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  &__text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: $white;
+    margin: 0 0 20px 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    
+    @media screen and (max-width: 767px) {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  }
+  
+  &__btn {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  // Hover effects
+  &__panel:hover {
+    .ql-banner__image {
+      transform: scale(1.1);
+    }
+    
+    .ql-banner__overlay {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+    }
+  }
+  
+  // Ensure panels are equal height
+  @media screen and (min-width: 768px) {
+    &__row {
+      display: flex;
+    }
+    
+    &__panel {
+      display: flex;
+      flex: 1;
+    }
+  }
+}

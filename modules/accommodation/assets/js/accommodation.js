@@ -92,4 +92,109 @@
 initAccordion('.accommodation-accordion');
 initShuffle('.accom-shuffle', '.accom-items', '.filters__btn', 'filters__btn--active');
 
+  // Fix for preserving Bootstrap column classes after Shuffle.js initializes
+  // This ensures Villa cards stay full width and other cards show 3 per row
+  function preserveBootstrapColumns() {
+    var $accomItems = $('.accommodation-wrapper .accom-items, .accommodation-wrapper .card');
+    
+    if ($accomItems.length) {
+      $accomItems.each(function() {
+        var $item = $(this);
+        // Check if it's a Villa (has col-12 but NOT col-lg-4)
+        var hasCol12 = $item.hasClass('col-12');
+        var hasColLg4 = $item.hasClass('col-lg-4');
+        var isVilla = hasCol12 && !hasColLg4;
+        var windowWidth = $(window).width();
+        
+        // Force remove any inline styles that might interfere
+        if (!isVilla && hasColLg4) {
+          // For non-Villa cards (has col-lg-4), apply Bootstrap grid
+          if (windowWidth >= 992) {
+            // Large screens: 3 columns (33.33%)
+            $item.css({
+              'width': '33.333333%',
+              'max-width': '33.333333%',
+              'flex': '0 0 33.333333%',
+              'position': 'relative',
+              'left': 'auto',
+              'top': 'auto'
+            });
+          } else if (windowWidth >= 768) {
+            // Medium screens: 2 columns (50%)
+            $item.css({
+              'width': '50%',
+              'max-width': '50%',
+              'flex': '0 0 50%',
+              'position': 'relative',
+              'left': 'auto',
+              'top': 'auto'
+            });
+          } else {
+            // Small screens: 1 column (100%)
+            $item.css({
+              'width': '100%',
+              'max-width': '100%',
+              'flex': '0 0 100%',
+              'position': 'relative',
+              'left': 'auto',
+              'top': 'auto'
+            });
+          }
+        } else if (isVilla) {
+          // Villa cards: always full width
+          $item.css({
+            'width': '100%',
+            'max-width': '100%',
+            'flex': '0 0 100%',
+            'position': 'relative',
+            'left': 'auto',
+            'top': 'auto'
+          });
+        }
+      });
+    }
+  }
+
+  // Run immediately and multiple times to catch all scenarios
+  $(document).ready(function() {
+    preserveBootstrapColumns();
+    
+    // Run multiple times to catch Shuffle and other initializations
+    setTimeout(function() {
+      preserveBootstrapColumns();
+    }, 100);
+    
+    setTimeout(function() {
+      preserveBootstrapColumns();
+    }, 500);
+    
+    setTimeout(function() {
+      preserveBootstrapColumns();
+    }, 1000);
+  });
+
+  // Run on window resize
+  $(window).on('resize', function() {
+    preserveBootstrapColumns();
+  });
+  
+  // Also run after any DOM mutations (for dynamic content)
+  if (window.MutationObserver) {
+    var observer = new MutationObserver(function(mutations) {
+      preserveBootstrapColumns();
+    });
+    
+    $(document).ready(function() {
+      var targetNode = document.querySelector('.accommodation-wrapper');
+      if (targetNode) {
+        observer.observe(targetNode, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['style', 'class']
+        });
+      }
+    });
+  }
+
 })(window, document, jQuery);

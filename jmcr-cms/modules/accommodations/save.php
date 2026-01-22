@@ -56,6 +56,9 @@ function saveItem (){
   $arrItemData['beds']               = validateInput('beds', FILTER_VALIDATE_INT);
   $arrItemData['bathrooms']          = validateInput('bathrooms', FILTER_VALIDATE_INT);
   $arrItemData['room_size']          = validateInput('room_size', FILTER_VALIDATE_INT);
+  $arrItemData['deck_size']          = validateInput('deck_size', FILTER_VALIDATE_INT);
+  $arrItemData['bedroom_details']    = requestVar('bedroom_details');
+  $arrItemData['sleeps_details']    = requestVar('sleeps_details');
   $arrItemData['room_resbook_id']    = validateInput('room_resbook_id');
   $arrItemData['from_price']         = validateInput('from_price', FILTER_VALIDATE_FLOAT);
   $arrItemData['from_price_caption'] = validateInput('from_price_caption');
@@ -65,7 +68,8 @@ function saveItem (){
   $arrItemData['button_text']        = validateInput('button_text');
   $arrItemData['is_featured']        = (validateInput('is_featured') == FLAG_YES) ? FLAG_YES: FLAG_NO;  
   $arrItemData['show_poa']           = (validateInput('show_poa') == FLAG_YES) ? FLAG_YES: FLAG_NO;  
-
+  $arrItemData['type']               = validateInput('type');
+  
   if (!empty($metaDataId) && !empty($id)) {
    
     /** Update existing item data */

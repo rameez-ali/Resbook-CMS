@@ -12,13 +12,18 @@ if(!empty($pagePreFilterCatdId)) {
       a.`beds`,
       a.`bathrooms`,
       a.`room_size`,
+      a.`deck_size`,
+      a.`bedroom_details`,
+      a.`sleeps_details`,
       REPLACE(a.`from_price`,'.00','') AS from_price,
       a.`currency_code`,
       a.`from_price_caption`,
       a.`features`,
       a.`booking_url`,
       a.`button_text`,
-      a.`page_meta_data_id`,        
+      a.`page_meta_data_id`,
+      a.`show_poa`,
+      a.`type`,
       pmd.`name`,
       pmd.`menu_label`,
       pmd.`heading`,
@@ -55,6 +60,9 @@ if(!empty($pagePreFilterCatdId)) {
       $accommodationGuests           = $accommodation['guests'];
       $accommodationBeds             = $accommodation['beds'];
       $accommodationroomsize         = $accommodation['room_size'];
+      $accommodationDeckSize         = $accommodation['deck_size'] ?? null;
+      $accommodationBedroomDetails   = $accommodation['bedroom_details'] ?? null;
+      $accommodationSleepsDetails    = $accommodation['sleeps_details'] ?? null;
       $accommodationbathroom         = $accommodation['bathrooms'];    
       $accommodationFromPrice        = $accommodation['from_price'];
       $accommodationFromPriceCaption = $accommodation['from_price_caption'];
@@ -64,13 +72,14 @@ if(!empty($pagePreFilterCatdId)) {
       $accommodationButtonLabel      = $accommodation['button_text'];
       $accommodationItemKey          = $accommodation['item_key'];
       $accommodationShowPOA          = $accommodation['show_poa'];
+      $accommodationType             = isset($accommodation['type']) ? trim((string) $accommodation['type']) : null;
 
       $accommodationShortDescription = nl2br((string) $accommodationShortDescription);
       $accommodationShortDescription = Helper::strTruncate($accommodationShortDescription, 180,'', true, true);    
       
       $accommodationFullURL        = Helper::getFullUrl($impPageAccommodation->full_url.$subUrl.$accommodation['full_url']);
 
-      $accommodationButtonLabel = (empty($accommodationButtonLabel)) ? 'More' : $accommodationButtonLabel ;
+      $accommodationButtonLabel = (empty($accommodationButtonLabel)) ? 'DISCOVER MORE' : $accommodationButtonLabel ;
 
       /** Generate view for facilities */
       require __DIR__ . '/facilities.php';
@@ -104,7 +113,12 @@ if(!empty($pagePreFilterCatdId)) {
       $isMobileDevice = preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
       $finalImage = $isMobileDevice ? $accommodationImage : $accommodationFullImage;
 
-      $preFilterAccommodationItems .= '<div class="col-12 col-md-6 col-lg-4  card card--with-shadow accom-items"  data-swipe-rel="'.$galleryHashedId.'"
+      // Determine column classes based on accommodation type
+      // Villa shows as full width (single card per row), all others show 3 cards per row
+      $isVilla = (!empty($accommodationType) && strtolower($accommodationType) === 'villa');
+      $columnClasses = $isVilla ? 'col-12' : 'col-12 col-md-6 col-lg-4';
+
+      $preFilterAccommodationItems .= '<div class="'.$columnClasses.'  card card--with-shadow accom-items"  data-swipe-rel="'.$galleryHashedId.'"
       data-category="Accommodation">
           <div class="card__inner">
             <figure class="card__figure">

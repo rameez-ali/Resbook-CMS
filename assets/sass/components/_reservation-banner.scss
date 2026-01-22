@@ -1,0 +1,69 @@
+/** Reservation Banner Styles */
+.reservation-banner {
+  padding: 40px 0;
+  
+  &__wrapper {
+    background-color: $white;
+    border: 2px solid #A8B07A; // Light olive green border
+    padding: 50px 40px;
+    text-align: center;
+    
+    @media screen and (max-width: 767px) {
+      padding: 40px 20px;
+    }
+  }
+  
+  &__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  &__subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    color: $primary-color; // Dark olive green #6E733F
+    font-weight: $font-semi-bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 15px 0;
+    font-family: $secondary-font; // Montserrat
+  }
+  
+  &__title {
+    font-size: 32px;
+    line-height: 1.3;
+    color: $primary-color; // Dark olive green #6E733F
+    font-weight: $font-semi-bold;
+    margin: 0 0 30px 0;
+    font-family: $base-font; // Belleza
+    
+    @media screen and (max-width: 767px) {
+      font-size: 24px;
+    }
+  }
+  
+  &__button-wrapper {
+    margin-top: 20px;
+    
+    .btn,
+    .btn--primary {
+      background-color: $primary-color; // #6E733F
+      color: $white;
+      border: 2px solid $primary-color;
+      padding: 12px 40px;
+      font-size: 16px;
+      font-weight: $font-semi-bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      
+      &:hover {
+        background-color: $primary-color-light; // #8D954A
+        border-color: $primary-color-light;
+        color: $white;
+      }
+    }
+  }
+}

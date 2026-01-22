@@ -140,39 +140,44 @@
   padding: 20px 0px;
   border-top: 2px solid $border-color;
   border-bottom: 2px solid $border-color;  
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
 
 .featured-accommodation,
 .accommodation_list {
   .card-features {
-    padding: 0;
+    padding: 15px 0;
     border-top: none;
     border-bottom: none;
     @media screen and (max-width:768px) {
-      padding: 0 0 10px 0;
+      padding: 10px 0;
     }
   }
 }
 .card-features__item {
-  display: inline-block;
-  padding-right: 5px;  
+  display: block;
+  padding: 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #45484F;
 
   .card-features--main & {
     font-size: 1.09em;
   }
 
   &:last-child {
-    padding-right: 0;
-    //padding-top: 7px;
-    
+    padding-bottom: 0;
   }
 }
 
 .card-features__item-icon {
   font-size: em(19);
   line-height: em(20,19);
-  margin-right: 10px;
+  margin-right: 12px;
   vertical-align: middle;
+  display: inline-block;
 
   .card-features--main & {
     font-size: 28px;
@@ -418,6 +423,42 @@
       @media screen and (max-width:768px) {
         padding-left: 5px;
         padding-right: 5px;
+      }
+      
+      // Override Shuffle.js width calculations to preserve Bootstrap column classes
+      .accom-items {
+        position: relative !important;
+        
+        // Villa cards - full width (only has col-12, doesn't have col-lg-4)
+        &.col-12:not(.col-md-6):not(.col-lg-4) {
+          width: 100% !important;
+          max-width: 100% !important;
+          flex: 0 0 100% !important;
+        }
+        
+        // Non-Villa cards - responsive columns
+        &.col-lg-4 {
+          // 3 columns on large screens
+          @media (min-width: 992px) {
+            width: 33.333333% !important;
+            max-width: 33.333333% !important;
+            flex: 0 0 33.333333% !important;
+          }
+          
+          // 2 columns on medium screens
+          @media (min-width: 768px) and (max-width: 991px) {
+            width: 50% !important;
+            max-width: 50% !important;
+            flex: 0 0 50% !important;
+          }
+          
+          // 1 column on small screens
+          @media (max-width: 767px) {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+          }
+        }
       }
     }
   }

@@ -28,8 +28,6 @@ function doLogin()
   $email          = validateInput('log', FILTER_VALIDATE_EMAIL);
   $password       = validateInput('key', FILTER_SANITIZE_ADD_SLASHES);
 
-  $captchaIsValid = Helper::validateImageCaptcha();
-
   $objUserAuthentication->userEmail     = $email;
   $objUserAuthentication->userPassword  = $password;
 
@@ -39,7 +37,7 @@ function doLogin()
   {
     if(isset($_POST['submit']) || isset($_GET['submit']))
     {
-      if (!empty($email) && !empty($password) && strlen((string) $password) > 5 && $captchaIsValid )
+      if (!empty($email) && !empty($password) && strlen((string) $password) > 5)
       {
         $userData = $objUserAuthentication->validateUser();
         if (!empty($userData))
@@ -69,7 +67,7 @@ function doLogin()
           $message = "Please correct the password and try again.";
         }
       } else {
-        $message = "Invalid login, password or captcha";
+        $message = "Invalid login or password";
       }
     }
 
