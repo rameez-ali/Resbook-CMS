@@ -62,5 +62,5 @@ escapetheme-cms/error.log
 *.zip
 *.rar
 *.back
-library/*
+#library/*
 uploads/*
