@@ -13,7 +13,10 @@ if ($mainPageId == $impPageAccommodation->id && empty($segment1)) {
 } elseif ($mainPageId == $impPageAccommodation->id && (!empty($segment1))) {
 
   if(!empty($segment1) && empty($segment2) && empty($segment3)) {
-    $templateTags['page_cta'] = ''; //** Hide page CTA Banner in accommodation Details. */
+    // Hide CTA banner, customer reviews, and partner sections on accommodation detail pages
+    $templateTags['page_cta'] = '';
+    $templateTags['footer_review'] = '';
+    $templateTags['partner_view'] = '';
     require_once 'views/single/view.php';
 
   } else {

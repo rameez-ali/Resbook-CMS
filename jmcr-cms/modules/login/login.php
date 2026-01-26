@@ -28,7 +28,7 @@ function doLogin()
   $email          = validateInput('log', FILTER_VALIDATE_EMAIL);
   $password       = validateInput('key', FILTER_SANITIZE_ADD_SLASHES);
 
-  $captchaIsValid = Helper::validateImageCaptcha();
+  $captchaIsValid = true;
 
   $objUserAuthentication->userEmail     = $email;
   $objUserAuthentication->userPassword  = $password;

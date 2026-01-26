@@ -11,11 +11,18 @@ $sqlAccommodation = "SELECT a.`id`,
     a.`from_price`,
     a.`currency_code`,
     a.`from_price_caption`,
+    a.`from_price_caption`,
     a.`features`,
+    a.`amenities`,
+    a.`services`,
     a.`booking_url`,
     a.`button_text`,
     a.`page_meta_data_id`,
     a.`show_poa`,
+    a.`floor_plan`,
+    a.`deck_size`,
+    a.`bedroom_details`,
+    a.`sleeps_details`,
     pmd.`name`,
     pmd.`menu_label`,
     pmd.`heading`,
@@ -55,86 +62,108 @@ if (!empty($accommodation)) {
 
   // DEFINE PAGE VARS
 
-  $accommodationId               = $accommodation['id'];
-  $accommodationHashId           = $accommodation['hexId'];
-  $accommodationHeading          = $accommodation['heading'];
-  $accommodationIntroduction     = $accommodation['introduction'];
+  $accommodationId = $accommodation['id'];
+  $accommodationHashId = $accommodation['hexId'];
+  $accommodationHeading = $accommodation['heading'];
+  $accommodationIntroduction = $accommodation['introduction'];
 
-  $accommodationFeatures         = $accommodation['features'];
+  $accommodationFeatures = $accommodation['features'];
+  $accommodationAmenities = $accommodation['amenities'];
+  $accommodationServices = $accommodation['services'];
 
-  $accommodationGuests           = $accommodation['guests'];
-  $accommodationBeds             = $accommodation['beds'];
-  $accommodationroomsize         = $accommodation['room_size'];
-  $accommodationbathroom         = $accommodation['bathrooms'];
-  $accommodationFromPrice        = $accommodation['from_price'];
+  $accommodationGuests = $accommodation['guests'];
+  $accommodationBeds = $accommodation['beds'];
+  $accommodationroomsize = $accommodation['room_size'];
+  $accommodationbathroom = $accommodation['bathrooms'];
+  $accommodationFromPrice = $accommodation['from_price'];
   $accommodationFromPriceCaption = $accommodation['from_price_caption'];
-  $accommodationCurrencyCode     = $accommodation['currency_code'];
+  $accommodationCurrencyCode = $accommodation['currency_code'];
+  $accommodationDeckSize = $accommodation['deck_size'];
+  $accommodationBedroomDetails = $accommodation['bedroom_details'];
+  $accommodationSleepsDetails = $accommodation['sleeps_details'];
 
-  $accommodationBookingUrl       = $accommodation['booking_url'];
-  $accommodationButtonLabel      = $accommodation['button_text'];
+  $accommodationBookingUrl = $accommodation['booking_url'];
+  $accommodationButtonLabel = $accommodation['button_text'];
 
-  $accommodationOgImage          = $accommodation['og_image'];
-  $accommodationOgImage          = (empty($accommodationOgImage)) ? '' : Helper::getFullUrl($accommodationOgImage);
-  $accommodationShowPOA          = $accommodation['show_poa'];
+  $accommodationOgImage = $accommodation['og_image'];
+  $accommodationOgImage = (empty($accommodationOgImage)) ? '' : Helper::getFullUrl($accommodationOgImage);
+  $accommodationShowPOA = $accommodation['show_poa'];
+  $accommodationFloorPlan = $accommodation['floor_plan'];
 
   /* OVERRIDE PAGE VARS */
-  $pageHeading                   = $accommodationHeading;
-  $pageSubHeading                = '';
-  $pageIntroduction              = $accommodationIntroduction;
-  $pageMetaDataId                = $accommodation['page_meta_data_id'];
-  $pageMetaIndexId               = $accommodation['page_meta_index_id'];
+  $pageHeading = $accommodationHeading;
+  $pageSubHeading = '';
+  $pageIntroduction = $accommodationIntroduction;
+  $pageShortDescription = $accommodation['short_description'];
+  $pageMetaDataId = $accommodation['page_meta_data_id'];
+  $pageMetaIndexId = $accommodation['page_meta_index_id'];
 
-  $pageGalleryId                 = $accommodation['gallery_id'];
-  $pageSlideshowId               = $accommodation['slideshow_id'];
-  $pageCodeHeadClose             = $accommodation['page_code_head_close'];
-  $pageCodeBodyOpen              = $accommodation['page_code_body_open'];
-  $pageCodeBodyClose             = $accommodation['page_code_body_close'];
-  $pageSchemaMarkup              = $accommodation['page_structure_data_markup'];
-  $pageCustomCode                = $accommodation['page_custom_code'];
-  $pageQlModuleKey               = $accommodation['module_key'];
-  $pageQlItemId                  = $accommodationId;
+  $pageGalleryId = $accommodation['gallery_id'];
+  $pageSlideshowId = $accommodation['slideshow_id'];
+  $pageCodeHeadClose = $accommodation['page_code_head_close'];
+  $pageCodeBodyOpen = $accommodation['page_code_body_open'];
+  $pageCodeBodyClose = $accommodation['page_code_body_close'];
+  $pageSchemaMarkup = $accommodation['page_structure_data_markup'];
+  $pageCustomCode = $accommodation['page_custom_code'];
+  $pageQlModuleKey = $accommodation['module_key'];
+  $pageQlItemId = $accommodationId;
 
   /** UPDATE TEMPLATE TAGS */
 
-  $templateTags['title']                = $accommodation['title'];
-  $templateTags['meta_description']     = $accommodation['meta_description'];
-  $templateTags['og_title']             = $accommodation['og_title'];
-  $templateTags['og_meta_description']  = $accommodation['og_meta_description'];
-  $templateTags['og_image']             = $accommodationOgImage;
+  $templateTags['title'] = $accommodation['title'];
+  $templateTags['meta_description'] = $accommodation['meta_description'];
+  $templateTags['og_title'] = $accommodation['og_title'];
+  $templateTags['og_meta_description'] = $accommodation['og_meta_description'];
+  $templateTags['og_image'] = $accommodationOgImage;
 
   /* Partials View  */
   require_once __DIR__ . '/partials/content.php';
 
+  /* Gallery Section */
+  require_once __DIR__ . '/gallery.php';
+
   /* Facilities Section */
   require_once __DIR__ . '/facilities.php';
+
+  /* Amenities Section */
+  require_once __DIR__ . '/amenities.php';
+
+  /* Floor Plan Section */
+  require_once __DIR__ . '/floor_plan.php';
 
   /* Features Section */
   require_once __DIR__ . '/features.php';
 
+  /* Services Section */
+  require_once __DIR__ . '/services.php';
+
   /* Booking Section */
   require_once __DIR__ . '/booking_panel.php';
-  
+
   /* more accommodation Section */
   require_once __DIR__ . '/accommodation.php';
 
   // OVERRIDE PAGE VARS
-  //$templateTags['accommodation_view']       .= $accommodationFacilityView;
-  //$templateTags['accommodation_view']       .= $accommodationView;
+  // $templateTags['accommodation_view'] .= $accommodationFacilityView;
+  //$templateTags['accommodation_view'] .= $accommodationView;
   // OVERRIDE PAGE VARS
-  $templateTags['page_features_view']  .= ''.$accommodationView;
-  $templateTags['accommodation_book_view']  .= $accommodationBookingView;
+  $templateTags['accommodation_view'] .= $accommodationGalleryView;
+  $templateTags['page_features_view'] .= $accommodationAmenitiesView;
+  $templateTags['page_features_view'] .= $accommodationFloorPlanView;
+  $templateTags['page_features_view'] .= $accommodationServicesView;
+  $templateTags['accommodation_book_view'] .= $accommodationBookingView;
 
-  if(!empty($pageCustomCode)) {
+  if (!empty($pageCustomCode)) {
     $templateTags['custom_code'] = '<section class="section yonder_bg">
     <div class="container container--fw">
       <div class="row justify-content-lg-center pl-4 pr-4 pl-lg-0 pr-lg-0">
         <div class="col-12 accommodation-wrapper">
-        '.$pageCustomCode.'
+        ' . $pageCustomCode . '
         </div>
       </div>
     </div>
   </section>';
-        
+
   }
 
 }

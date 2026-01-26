@@ -46,4 +46,22 @@ $tabModulesContent = '<p>
 
 $tabModulesContent .=  $modules;
 
+$resRankRow = DB::fetchRow("
+  SELECT pmd.`reservation_banner_rank`
+  FROM `general_pages` gp
+  LEFT JOIN `page_meta_data` pmd ON (gp.`page_meta_data_id` = pmd.`id`)
+  WHERE gp.`id` = '{$id}'
+  LIMIT 1
+");
+$reservationBannerRank = (int)($resRankRow['reservation_banner_rank'] ?? 0);
+
+$tabModulesContent .= '
+  <div class="md-row md-row--virtual">
+    <label>
+      <input type="text" name="reservation_module_rank"
+        class="input-text" style="width:35px;" 
+        value="'.$reservationBannerRank.'">&nbsp;Reservation Banner
+    </label>
+  </div>';
+
 ?>

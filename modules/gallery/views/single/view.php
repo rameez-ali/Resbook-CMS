@@ -2,7 +2,7 @@
 
 if (!empty($pageGalleryId)) {
 
-	$sqlGalleryPhotos = "SELECT gp.`id`,
+  $sqlGalleryPhotos = "SELECT gp.`id`,
 		gp.`photo_path`,
 		gp.`thumb_photo_path`,
 		gp.`photo_width`,
@@ -18,130 +18,36 @@ if (!empty($pageGalleryId)) {
 	WHERE gp.`gallery_id` = '{$pageGalleryId}'
 	ORDER BY gp.`rank`";
 
-	$arrGalleryPhotos = DB::fetchAll($sqlGalleryPhotos);
+  $arrGalleryPhotos = DB::fetchAll($sqlGalleryPhotos);
 
-	if (!empty($arrGalleryPhotos)) {
+  if (!empty($arrGalleryPhotos)) {
 
-    $arrGalleryItems = [];
-		foreach ($arrGalleryPhotos AS $galleryPhoto) {
-	
-			$photoCls            = ' swipebox';			
-			$photoFullUrl				 = Helper::getFullUrl($galleryPhoto['photo_path']);
-			$photoThumbFullUrl	 = Helper::getFullUrl($galleryPhoto['thumb_photo_path']);	
-			$photoCaption			   = $galleryPhoto['caption'];
-			$photoAltText				 = $galleryPhoto['alt_text'];
-			$photoVideoId 			 = $galleryPhoto['video_id'];
-			$galleryLabel 			 = $galleryPhoto['menu_label'];
-			
-			$lightBoxContentUrl = (empty($photoVideoId)) 
-				? $photoFullUrl 
-				: "https://www.youtube.com/watch?v={$photoVideoId}";
+    $slidesHtml = '';
 
-			$arrGalleryItems[] = [
-        'lightBoxContentUrl' => $lightBoxContentUrl,
-        'photoCls' => $photoCls,
-        'galleryLabel' => $galleryLabel,
-        'photoThumbFullUrl' => $photoThumbFullUrl,
-        'photoAltText' => $photoAltText,
-        'caption' => $photoCaption,
-      ];
-        
-    }
-    
-    $galleryItemsDisplay = $arrGalleryItems;
-    $galleryItemsLast    = [];
-    $pageGalleryView = '';
+    foreach ($arrGalleryPhotos as $gp) {
 
-    if (count($arrGalleryItems) >= 4) {
+      $full = Helper::getFullUrl($gp['photo_path']);
+      $thumb = Helper::getFullUrl($gp['thumb_photo_path']);
+      $cap = htmlspecialchars((string) ($gp['caption'] ?? ''), ENT_QUOTES, 'UTF-8');
+      $alt = htmlspecialchars((string) ($gp['alt_text'] ?? ''), ENT_QUOTES, 'UTF-8');
+      $video = $gp['video_id'];
+      $href = empty($video) ? $full : "https://www.youtube.com/watch?v={$video}";
 
-      // Only select to view first 3 items
-      $galleryItemsDisplay = array_slice($arrGalleryItems, 0, 3);
-
-      // Select Last items in the array
-      $galleryItemsLast    = array_slice($arrGalleryItems, 3);
-
-      // Display the first 3 items
-      
-      foreach ($galleryItemsDisplay as $galleryKey => $galleryItem) {
-        $lightBoxContentUrl = $galleryItem['lightBoxContentUrl'];
-        $photoCls           = $galleryItem['photoCls'];
-        $galleryLabel       = $galleryItem['galleryLabel'];
-        $photoThumbFullUrl  = $galleryItem['photoThumbFullUrl'];
-        $photoAltText       = $galleryItem['photoAltText'];
-        $photoCaption       = $galleryItem['caption'];
-        $pageGalleryOverlay = '';
-
-        if ($galleryKey == 2) {
-          
-          $pageGalleryOverlay = '<span class="gallery-single__item-img-overlay"></span>
-                    <span class="gallery-single__item-view-more">+ '.count($galleryItemsLast).'</span>';
-
-        }
-
-        $pageGalleryView .= '<a href="'.$lightBoxContentUrl.'" class="gallery-single__item '.$photoCls.' swipebox-'.$galleryKey.'" 
-                      title="'.$photoCaption.'" data-category="Photo Gallery" data-action="Image Link" data-name="'.$galleryLabel.'">
-                      <figure class="gallery-single__figure">
-                        <img data-src="'.$photoThumbFullUrl.'" alt="'.$photoAltText.'" class="gallery-single__image lazy">
-                      </figure>
-                      '.$pageGalleryOverlay.'
-                    </a>';
-
-      }
-
-      // Hidden Last Items
-      foreach ($galleryItemsLast as $galleryItem) {
-        $lightBoxContentUrl = $galleryItem['lightBoxContentUrl'];
-        $photoCls           = $galleryItem['photoCls'];
-        $galleryLabel       = $galleryItem['galleryLabel'];
-        $photoThumbFullUrl  = $galleryItem['photoThumbFullUrl'];
-        $photoAltText       = $galleryItem['photoAltText'];
-
-        $pageGalleryView .= '<a href="'.$lightBoxContentUrl.'" class="gallery-single__item-hidden gallery-single__item '.$photoCls.' swipebox-'.$galleryKey++.'" 
-                      title="'.$photoCaption.'" data-category="Photo Gallery" data-action="Image Link" data-name="'.$galleryLabel.'">
-                      <figure class="gallery-single__figure">
-                        <img data-src="'.$photoThumbFullUrl.'" alt="'.$photoAltText.'" class="gallery-single__image lazy">
-                      </figure>
-                    </a>';
-
-      }
-
-    } else {
-
-      // Less than or equal to 3 galleries
-      foreach ($arrGalleryItems as $galleryItem) {
-        $lightBoxContentUrl = $galleryItem['lightBoxContentUrl'];
-        $photoCls           = $galleryItem['photoCls'];
-        $galleryLabel       = $galleryItem['galleryLabel'];
-        $photoThumbFullUrl  = $galleryItem['photoThumbFullUrl'];
-        $photoAltText       = $galleryItem['photoAltText'];
-
-        $pageGalleryView .= '<a href="'.$lightBoxContentUrl.'" class="gallery-single__item '.$photoCls.'" 
-                      title="'.$photoCaption.'" data-category="Photo Gallery" data-action="Image Link" data-name="'.$galleryLabel.'">
-                      <figure class="gallery-single__figure">
-                        <img data-src="'.$photoThumbFullUrl.'" alt="'.$photoAltText.'" class="gallery-single__image lazy">
-                      </figure>
-                    </a>';
-      }
-
+      $slidesHtml .= '
+        <div class="gallery__slide">
+          <a href="' . $href . '" class="gallery__link swipebox" title="' . $cap . '">
+            <figure class="gallery__figure">
+              <img class="gallery__img lazy" data-src="' . $full . '" src="' . $thumb . '" alt="' . $alt . '">
+              ' . ($cap ? '<figcaption class="gallery__caption">' . $cap . '</figcaption>' : '') . '
+            </figure>
+          </a>
+        </div>';
     }
 
-    $galleryTemplateLayout = count($arrGalleryItems) >= 3 ? 'gallery-single__three-col' : 'gallery-single__two-col';
-    $galleryTemplateLayout = count($arrGalleryItems) == 1 ? 'gallery-single__one-col' : $galleryTemplateLayout;
-
-		$pageGalleryView = '<section class="section section-gallery-single">
-                          <div class="container container--fw">
-                            <div class="row no-gutters justify-content-center">
-                            
-                                <div class="gallery-single '.$galleryTemplateLayout.'">
-                                  '.$pageGalleryView.'
-                                </div>
-                              
-                            </div>
-                          </div>
-                        </section>';
     
+
   }
-  
+
 }
 
 ?>

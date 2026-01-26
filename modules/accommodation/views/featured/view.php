@@ -55,7 +55,9 @@ if (!empty($arrAccommodations)) {
     $accommodationShortDescription = nl2br((string) $accommodationShortDescription);
     $accommodationShortDescription = Helper::strTruncate($accommodationShortDescription, 80, '...', true, true);    
   
-    $accommodationFullURL        = Helper::getFullUrl($impPageAccommodation->full_url.$accommodation['full_url']);
+    // Use /accommodation/{slug} format for all accommodation links
+    $accommodationSlug = $accommodation['url'];
+    $accommodationFullURL = Helper::getFullUrl('/accommodation/' . $accommodationSlug);
 
     $accommodationButtonLabel = (empty($accommodationButtonLabel)) ? 'More' : $accommodationButtonLabel ;
 

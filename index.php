@@ -24,9 +24,9 @@ if ($debug) {
 
 /**
  * CONNECT TO DATABASE 
-*/
+ */
 
-if (!$cConnection->Connect()) { 
+if (!$cConnection->Connect()) {
 
     echo "Database connection failed";
     exit;
@@ -35,7 +35,7 @@ if (!$cConnection->Connect()) {
 
 /**
  * HANDLE 301 REDIRECTS 
-*/
+ */
 
 $requestedUrl = rtrim((string) $_SERVER['REQUEST_URI'], '/');
 
@@ -45,14 +45,14 @@ $redirectSQL = "SELECT
 	FROM `redirect`
 	WHERE `old_url` = '{$requestedUrl}'
     AND `old_url` != `new_url`
-		AND `status` = '".FLAG_ACTIVE."'
+		AND `status` = '" . FLAG_ACTIVE . "'
 	LIMIT 1";
 
 $redirectDetails = fetchRow($redirectSQL);
 
 if (!empty($redirectDetails)) {
-    
-    $location   = Helper::getFullUrl($redirectDetails['new_url']);
+
+    $location = Helper::getFullUrl($redirectDetails['new_url']);
     $statusCode = $redirectDetails['statusCode'];
 
     Helper::redirect($location, 301);
@@ -82,19 +82,19 @@ $option7 = sanitizeSqlSafe($_GET['g'] ?? false);
 
 $uriSegments = [];
 
-if (!empty($page)) { 
+if (!empty($page)) {
     $uriSegments[] = $page;
 }
 
-if (!empty($option1)) { 
+if (!empty($option1)) {
     $uriSegments[] = $option1;
 }
 
-if (!empty($option2)) { 
+if (!empty($option2)) {
     $uriSegments[] = $option2;
 }
 
-if (!empty($option3)) { 
+if (!empty($option3)) {
     $uriSegments[] = $option3;
 }
 
@@ -102,15 +102,15 @@ if (!empty($option4)) {
     $uriSegments[] = $option4;
 }
 
-if (!empty($option5)) { 
+if (!empty($option5)) {
     $uriSegments[] = $option5;
 }
 
-if (!empty($option6)) { 
+if (!empty($option6)) {
     $uriSegments[] = $option6;
 }
 
-if (!empty($option7)) { 
+if (!empty($option7)) {
 
     $uriSegments[] = $option7;
 }
@@ -120,17 +120,17 @@ if (!empty($option7)) {
  * Get page/website-settings/module information from db
  */
 
-require_once INCLUDES_DIR_PATH.DS."pageInfo.php";  
+require_once INCLUDES_DIR_PATH . DS . "pageInfo.php";
 
 /**
  * INCLUDE NAVIGATION FILE 
-*/
-require_once INCLUDES_DIR_PATH.DS."components".DS."main.php";                   
-require_once INCLUDES_DIR_PATH.DS."views".DS."main.php";
+ */
+require_once INCLUDES_DIR_PATH . DS . "components" . DS . "main.php";
+require_once INCLUDES_DIR_PATH . DS . "views" . DS . "main.php";
 
 /**
  * GET MODULES 
-*/
+ */
 
 $sql = "SELECT mt.`mod_id` AS id, 
 	mt.`tmplmod_rank` AS tmplrank, 
@@ -155,28 +155,55 @@ $sql = "SELECT mt.`mod_id` AS id,
 
 $pageModules = DB::fetchAll($sql);
 
-if (!empty($pageModules)) { 
+if (!empty($templateTags['reservation_banner'])) {
+    $pageModules[] = [
+        'id' => 'virtual_reservation_banner',
+        'tmplrank' => !empty($templateTags['reservation_banner_rank']) ? $templateTags['reservation_banner_rank'] : 0,
+        'mod_path' => 'reservation_banner_virtual_path'
+    ];
+}
 
-    foreach ($pageModules as $pageModule) { 
+// Sort modules by rank (tmplrank)
+usort($pageModules, function ($a, $b) {
+    return $a['tmplrank'] <=> $b['tmplrank'];
+});
+
+if (!empty($pageModules)) {
+
+    foreach ($pageModules as $pageModule) {
 
         $pageModulePath = $pageModule['mod_path'];
 
-        include_once MODULES_DIR_PATH.DS."{$pageModulePath}/main.php";
+        if ($pageModulePath === 'reservation_banner_virtual_path') {
+            if (!empty($templateTags['reservation_banner'])) {
+                $templateTags['mod_view'] .= $templateTags['reservation_banner'];
+            }
+        } else {
+            include_once MODULES_DIR_PATH . DS . "{$pageModulePath}/main.php";
+        }
     }
-} 
+}
 
+// Hide CTA banner, customer reviews, and partner sections on accommodation detail pages
+// Check if we're on an accommodation detail page (mainPageId matches accommodation page and segment1 exists)
+if (!empty($mainPageId) && !empty($impPageAccommodation) && isset($impPageAccommodation->id) && 
+    $mainPageId == $impPageAccommodation->id && !empty($segment1) && empty($segment2) && empty($segment3)) {
+    $templateTags['page_cta'] = '';
+    $templateTags['footer_review'] = '';
+    $templateTags['partner_view'] = '';
+}
 
 /**
  * ADD TEMPLATE BODY CLASS 
-*/
+ */
 $templateTags['content_main_cls'] = '';
-$templateTags['js_vars']          = '<script> var jsVars = '.json_encode($jsVars, JSON_THROW_ON_ERROR).'; </script>';
-$templateTags['body_cls']         = (empty($bodyCls)) ? '' : trim((string) $bodyCls);
+$templateTags['js_vars'] = '<script> var jsVars = ' . json_encode($jsVars, JSON_THROW_ON_ERROR) . '; </script>';
+$templateTags['body_cls'] = (empty($bodyCls)) ? '' : trim((string) $bodyCls);
 $templateTags['content_main_cls'] = ($templateTags['content_main_cls']) ? trim((string) $templateTags['content_main_cls']) : '';
 
 /**
  * ADD CANONICAL TAGS 
-*/
+ */
 
 if (!empty($pageCanonicalTags)) {
 
@@ -186,20 +213,20 @@ if (!empty($pageCanonicalTags)) {
 
 /**
  * ADD ROBOT TAGS 
-*/
-if(PRODUCTION_MODE === true || isset($_GET['test'])) {
+ */
+if (PRODUCTION_MODE === true || isset($_GET['test'])) {
 
     $pageMetaIndex = DB::fetchValue(
         "SELECT `value`
     FROM `page_meta_index`
 		WHERE `id` = '{$pageMetaIndexId}'"
     );
-        
-    if(!empty($pageMetaIndex)) {
-        
-        $templateTags['robots_meta_tag'] = '<meta name="robots" content="'.$pageMetaIndex.'">';
-    
-    } 
+
+    if (!empty($pageMetaIndex)) {
+
+        $templateTags['robots_meta_tag'] = '<meta name="robots" content="' . $pageMetaIndex . '">';
+
+    }
 
 } else {
 
@@ -209,18 +236,18 @@ if(PRODUCTION_MODE === true || isset($_GET['test'])) {
 
 /**
  * ADD PAGE DEVELOPER CODE CONTENT TO SITE LEVEL DEVELOPER CODE CONTENT 
-*/
+ */
 
-$templateTags['js_code_head_close']             .= (empty($pageCodeHeadClose)) ? '' : $pageCodeHeadClose ;
-$templateTags['js_code_body_open']           .= (empty($pageCodeBodyOpen)) ? '' : $pageCodeBodyOpen ;
-$templateTags['js_code_body_close']          .= (empty($pageCodeBodyClose)) ? '' : $pageCodeBodyClose ;
+$templateTags['js_code_head_close'] .= (empty($pageCodeHeadClose)) ? '' : $pageCodeHeadClose;
+$templateTags['js_code_body_open'] .= (empty($pageCodeBodyOpen)) ? '' : $pageCodeBodyOpen;
+$templateTags['js_code_body_close'] .= (empty($pageCodeBodyClose)) ? '' : $pageCodeBodyClose;
 
 /**
  * ADD STRUCTURED DATA  
-*/
-if(!empty($pageSchemaMarkup)) {
-    
-    $templateTags['structure_data_markup']   = $pageSchemaMarkup ;
+ */
+if (!empty($pageSchemaMarkup)) {
+
+    $templateTags['structure_data_markup'] = $pageSchemaMarkup;
 
 }
 
@@ -230,10 +257,10 @@ if(!empty($pageSchemaMarkup)) {
  * IF DEV THEN OUTPUT UNMINIFIED
  */
 
-require_once INCLUDES_DIR_PATH.DS."resultPage.php";  
+require_once INCLUDES_DIR_PATH . DS . "resultPage.php";
 
 if (PRODUCTION_MODE === true) {
-    
+
     ob_start("sanitizeOutput");
     echo $pageView;
     ob_end_flush();

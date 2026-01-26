@@ -1,37 +1,42 @@
 /** FEATURES STYLE START */
 .featured-accommodation,
-.accommodation-wrapper{
-  .card__text{
+.accommodation-wrapper {
+  .card__text {
     margin-top: 0;
-    margin-bottom:0;
+    margin-bottom: 0;
   }
 }
 
 .featured-accommodation {
- .experience__heading {
-   margin-bottom: 0;
- }
+  .experience__heading {
+    margin-bottom: 0;
+  }
+
   .showcase {
     padding: 70px 0 30px;
+
     @media screen and (max-width: 767px) {
-      padding:20px 0;
+      padding: 20px 0;
     }
+
     .showcase__nav {
       line-height: 1em;
     }
-    
+
   }
+
   .card__price {
     padding-top: 20px;
   }
+
   @media screen and (min-width:1200px) {
     .card__cta {
       margin-bottom: 10px;
-    }    
+    }
   }
 }
 
-.accommodation__link-icon{
+.accommodation__link-icon {
   float: right;
   font-size: 40px;
   padding: 13px;
@@ -40,7 +45,7 @@
 }
 
 .accommodation-accordion.active {
-  .accommodation__link-icon.arrow-up {  
+  .accommodation__link-icon.arrow-up {
     background: transparent url('../../../../graphics/arrow_up_grey.svg') 0% 0% no-repeat padding-box;
   }
 }
@@ -55,6 +60,7 @@
   .page-amenities {
     border: 1px solid $form-border;
     padding: 20px 10px 30px 40px;
+
     @media screen and (max-width: 767px) {
       border: none;
       border-bottom: 2px solid $form-border;
@@ -69,35 +75,41 @@
   padding: 0px;
   color: $platinum-gray;
   font-size: em(12);
-  line-height: em(26,12);
+  line-height: em(26, 12);
   text-transform: uppercase;
+
   @media screen and (max-width:786px) {
     padding-top: 15px !important;
     padding-bottom: 0 !important;
   }
-  span{
-    color:$platinum-gray;
+
+  span {
+    color: $platinum-gray;
     padding: 1px;
     font-size: 12px;
     line-height: 20px;
     vertical-align: text-top;
+
     @media screen and (max-width:786px) {
       font-size: 9px;
       line-height: 17px;
       display: contents;
     }
   }
-  & &-rate{
+
+  & &-rate {
     font-size: 24px;
     line-height: 30px;
     font-weight: $font-bold;
     color: $darkblue;
     vertical-align: top;
+
     @media screen and (max-width:786px) {
       font-size: 16px;
-      line-height: 22px;     
+      line-height: 22px;
     }
   }
+
   .card__price-poa {
     padding: 0;
     font-size: 24px;
@@ -105,15 +117,17 @@
     font-weight: 700;
     color: $darkblue;
     vertical-align: top;
+
     @media screen and (max-width:786px) {
       font-size: 16px;
-      line-height: 22px;     
+      line-height: 22px;
     }
   }
 }
 
 
 .card__figure {
+
   .card__price,
   .accommodation-price {
     position: absolute;
@@ -122,10 +136,12 @@
     background-color: $white;
     box-shadow: 0px 3px 6px #00000029;
     padding: 5px 10px;
-    span{
+
+    span {
       display: block;
     }
-   .card__price-rate{
+
+    .card__price-rate {
       font-weight: $font-bold;
       color: $base-color;
       margin-top: 3px;
@@ -139,7 +155,7 @@
   color: $icon-color;
   padding: 20px 0px;
   border-top: 2px solid $border-color;
-  border-bottom: 2px solid $border-color;  
+  border-bottom: 2px solid $border-color;
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -151,11 +167,13 @@
     padding: 15px 0;
     border-top: none;
     border-bottom: none;
+
     @media screen and (max-width:768px) {
       padding: 10px 0;
     }
   }
 }
+
 .card-features__item {
   display: block;
   padding: 8px 0;
@@ -174,7 +192,7 @@
 
 .card-features__item-icon {
   font-size: em(19);
-  line-height: em(20,19);
+  line-height: em(20, 19);
   margin-right: 12px;
   vertical-align: middle;
   display: inline-block;
@@ -191,34 +209,41 @@
 .card-features__item-icon.icon_bed,
 .card-features__item-icon.icon_bathroom,
 .card-features__item-icon.icon_roomsize {
-  svg{
+  svg {
     width: 25%;
+
     @media screen and (max-width:768px) {
       width: 25%;
     }
   }
 }
 
-.card-featured__room{
+.card-featured__room {
   vertical-align: middle;
-  .icon_size{
+
+  .icon_size {
     vertical-align: middle;
     margin-right: 10px;
+
     svg {
       width: 20%;
+
       @media screen and (max-width:768px) {
         width: 15%;
       }
     }
   }
 }
+
 /** FEATURES STYLE END */
 
 /** ACCOMMODATION DETAILS STYLE START */
 .accommodation-booking {
   padding-bottom: 35px;
+
   h2 {
     text-align: center;
+
     &:before {
       border-bottom: 0 solid transparent !important;
     }
@@ -226,14 +251,15 @@
 }
 
 /** FACILITIES & HIGHLIGHTS STYLE START */
-.accommodation-amenities{
+.accommodation-amenities {
   padding: 0 0 30px 0;
   // border-bottom: 1px solid $border-color;
-  position: relative; 
+  position: relative;
 
   ul {
     font-family: $base-font;
     margin-top: 30px;
+
     li {
       color: $primary-color-dark;
       display: block;
@@ -241,7 +267,7 @@
       padding: 5px 35px;
       position: relative;
       font-size: em(20);
-      line-height: em(28,20);
+      line-height: em(28, 20);
       font-weight: $font-semi-bold;
       padding-left: 50px;
 
@@ -258,28 +284,29 @@
     }
   }
 
-  .section__heading{
+  .section__heading {
     font-size: 38px;
     line-height: 50px;
   }
 }
 
 .section__btn {
-    @media screen and (max-width: 414px) {       
-      display: inline-block;
-      margin: 0 20px;
+  @media screen and (max-width: 414px) {
+    display: inline-block;
+    margin: 0 20px;
   }
 }
 
-.section__btn + .section__btn{
-    margin-left: 15px;
-    @media screen and (max-width: 414px) {         
-        margin-top: 15px;
-    }
+.section__btn+.section__btn {
+  margin-left: 15px;
+
+  @media screen and (max-width: 414px) {
+    margin-top: 15px;
+  }
 }
 
 .yonder_bg {
-    background-color: $base-color;
+  background-color: $base-color;
 }
 
 .accommodation__details {
@@ -288,21 +315,26 @@
     margin: -10px;
     border: none;
   }
-  .card-features__item  {
+
+  .card-features__item {
     font-size: 16px;
     font-weight: $font-bold;
     color: $darkblue;
-    @media screen and (max-width:768px) { 
+
+    @media screen and (max-width:768px) {
       font-size: 13px;
       padding: 0;
     }
   }
+
   .card-features__item-icon {
     margin: 15px;
+
     @media screen and (max-width:768px) {
       margin: 0;
     }
   }
+
   .icon_roomsize {
     svg {
       width: 18%;
@@ -312,7 +344,7 @@
 
 .accommodation_list {
   .filter__show-btn {
-    @media screen and (max-width:768px){
+    @media screen and (max-width:768px) {
       .fa-angle-down {
         float: right;
         margin-top: 6px;
@@ -321,22 +353,29 @@
         right: 0px;
         opacity: 0.5;
         background: transparent url('../../../../graphics/arrowgrey_small_up.svg') 0% 0% no-repeat padding-box !important;
+
         &::before {
           content: none;
         }
       }
+
       text-align: left;
       padding-left: 0;
     }
   }
+
   @media screen and (max-width:768px) {
-    .card__content, .card__cta {
+
+    .card__content,
+    .card__cta {
       text-align: center;
+
       .card__heading {
         text-align: center;
       }
     }
   }
+
   @media screen and (max-width:414px) {
     .card-features__item-icon {
       margin-right: 5px;
@@ -353,23 +392,24 @@
 .accommodation_list {
   #filters__wrapper {
     .filter__show-btn {
-      @media screen and (max-width:768px){
+      @media screen and (max-width:768px) {
         color: $darkblue;
         font-weight: $font-semi-bold;
         border: none;
         border-top: 2px solid $primary-color;
-        border-bottom: 2px solid $primary-color;                  
-      } 
+        border-bottom: 2px solid $primary-color;
+      }
     }
-    
+
     #gallery-filters {
       border-top: 2px solid $primary-color;
       border-bottom: 2px solid $primary-color;
       padding: 20px 0 0;
-      @media screen and (max-width:768px){
+
+      @media screen and (max-width:768px) {
         padding: 10px 0 0;
       }
-      
+
       .filters__btn {
         border: none;
         background: none;
@@ -381,93 +421,110 @@
         opacity: 0.7;
         padding: 0 20px;
         margin: 0 0;
-        @media screen and (max-width:768px){
+
+        @media screen and (max-width:768px) {
           padding: 10px 0 !important;
         }
       }
+
       .filters__btn--active {
-        background: none;        
+        background: none;
         color: $darkblue;
         font-weight: $font-semi-bold;
         opacity: 1;
         padding: 0 20px;
         margin: 0;
-        
-        &::after{
-          content: '';          
+
+        &::after {
+          content: '';
           display: block;
           border-bottom: 2px solid $darkblue;
           padding-bottom: 20px;
-          @media screen and (max-width:768px){
+
+          @media screen and (max-width:768px) {
             border-bottom: none;
             padding-bottom: 0;
-          }
-        }
-        }
-      }
-    }
-    .filters--active {
-      @media screen and (max-width:768px){
-        .fa-angle-down {
-          background: transparent url('../../../../graphics/arrowgrey_small_down.svg') 0% 0% no-repeat padding-box !important;
-          &::before {
-            content: none !important;
-          }
-        }
-      }
-    }
-    .accommodation-wrapper {
-      .card__price {
-        padding-top: 20px;
-      }
-      @media screen and (max-width:768px) {
-        padding-left: 5px;
-        padding-right: 5px;
-      }
-      
-      // Override Shuffle.js width calculations to preserve Bootstrap column classes
-      .accom-items {
-        position: relative !important;
-        
-        // Villa cards - full width (only has col-12, doesn't have col-lg-4)
-        &.col-12:not(.col-md-6):not(.col-lg-4) {
-          width: 100% !important;
-          max-width: 100% !important;
-          flex: 0 0 100% !important;
-        }
-        
-        // Non-Villa cards - responsive columns
-        &.col-lg-4 {
-          // 3 columns on large screens
-          @media (min-width: 992px) {
-            width: 33.333333% !important;
-            max-width: 33.333333% !important;
-            flex: 0 0 33.333333% !important;
-          }
-          
-          // 2 columns on medium screens
-          @media (min-width: 768px) and (max-width: 991px) {
-            width: 50% !important;
-            max-width: 50% !important;
-            flex: 0 0 50% !important;
-          }
-          
-          // 1 column on small screens
-          @media (max-width: 767px) {
-            width: 100% !important;
-            max-width: 100% !important;
-            flex: 0 0 100% !important;
           }
         }
       }
     }
   }
 
-  .accommodation-accordion {
-    .accommodation-amenities {
-      border: 1px solid #CACACA;
-      padding: 20px 10px 30px 40px;
-      margin: 0 -15px;
+  .filters--active {
+    @media screen and (max-width:768px) {
+      .fa-angle-down {
+        background: transparent url('../../../../graphics/arrowgrey_small_down.svg') 0% 0% no-repeat padding-box !important;
+
+        &::before {
+          content: none !important;
+        }
+      }
+    }
+  }
+
+  .accommodation-wrapper {
+    .card__price {
+      padding-top: 20px;
+    }
+
+    @media screen and (max-width:768px) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .accom-shuffle {
+      height: auto !important;
+      min-height: 200px;
+    }
+
+    // Override Shuffle.js width calculations to preserve Bootstrap column classes
+    .accom-items {
+      position: relative !important;
+      transform: none !important;
+      /* Disable Shuffle.js translation */
+      margin: 0 0 30px 0 !important;
+      /* Ensure no extra horizontal margins break the grid, add bottom margin */
+
+      // Villa cards - full width (only has col-12, doesn't have col-lg-4)
+      &.col-12:not(.col-md-6):not(.col-lg-4) {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+      }
+
+      // Non-Villa cards - responsive columns
+      &.col-lg-4 {
+
+        // 3 columns on large screens
+        @media (min-width: 992px) {
+          width: 33.333333% !important;
+          max-width: 33.333333% !important;
+          flex: 0 0 33.333333% !important;
+        }
+
+        // 2 columns on medium screens
+        @media (min-width: 768px) and (max-width: 991px) {
+          width: 50% !important;
+          max-width: 50% !important;
+          flex: 0 0 50% !important;
+        }
+
+        // 1 column on small screens
+        @media (max-width: 767px) {
+          width: 100% !important;
+          max-width: 100% !important;
+          flex: 0 0 100% !important;
+        }
+      }
+    }
+  }
+}
+
+.accommodation-accordion {
+  .accommodation-amenities {
+    border: 1px solid #CACACA;
+    padding: 20px 10px 30px 40px;
+    margin: 0 -15px;
     position: relative;
 
     @media screen and (max-width:768px) {
@@ -476,14 +533,18 @@
       border-bottom: 1px solid #CACACA;
       padding: 20px 40px;
     }
-    }
   }
+}
 
-.accommodation-details{
+.accommodation-details {
   .accommodation-showcase {
     padding-bottom: 15px;
+
     @media screen and (max-width:768px) {
-      .card__content, .card__heading, .card__cta {
+
+      .card__content,
+      .card__heading,
+      .card__cta {
         text-align: center;
       }
     }
@@ -491,9 +552,10 @@
 }
 
 .sidepadding {
-  padding:0 15px;
-  @media screen and (max-width:768px){ 
-    padding:0;
+  padding: 0 15px;
+
+  @media screen and (max-width:768px) {
+    padding: 0;
   }
 }
 
@@ -502,6 +564,7 @@
   .accommodation-amenities {
     ul {
       column-count: 3;
+
       li {
         display: inline-block;
         // width: 33.33%;
@@ -514,9 +577,9 @@
 }
 
 @media screen and (min-width: 768px) {
-  .card-features__item-right{
+  .card-features__item-right {
     float: right;
-    margin-top: -5px; 
+    margin-top: -5px;
   }
 }
 
@@ -525,32 +588,41 @@
     display: inline-block;
     padding-right: 5px;
   }
+
   .card-features {
     margin-bottom: 15px;
   }
+
   .accommodation-showcase {
     .showcase__nav--prev {
       left: -50px;
     }
+
     .showcase__nav--next {
       right: -50px;
     }
   }
 }
+
 @media screen and (max-width: 360px) {
-  .card-features__item{
+  .card-features__item {
     padding-right: 20px;
   }
 
 }
+
 @media screen and (max-width: 768px) {
   .accom_btn {
     text-align: left;
   }
+
   .featured-accommodation {
     padding-bottom: 15px;
+
     .accommodation-showcase {
-      .card__content, .card__cta {
+
+      .card__content,
+      .card__cta {
         text-align: center;
       }
     }

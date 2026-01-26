@@ -17289,3 +17289,4 @@ input[type="radio"]:checked {
   text-decoration: none; }
 
 /*# sourceMappingURL=_main_xl.css.map */
+/* Fix for overlapping accommodation cards */ .accommodation-wrapper .accom-shuffle { height: auto !important; min-height: 200px; } .accommodation-wrapper .accom-items { margin: 0 0 30px 0 !important; }

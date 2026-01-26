@@ -75,6 +75,12 @@ class ImageResizer extends FileName
     {
         $this->errorArr = [];
 
+        // Check if GD extension is loaded
+        if (!extension_loaded('gd') || !function_exists('imagecreatefrompng')) {
+            $this->errorArr[] = 'PHP GD extension is not enabled. Please enable the GD extension in your php.ini file.';
+            return;
+        }
+
         if(!$this->maxwidth && !$this->maxheight) { 
 
             $this->errorArr[] = 'Please specify a maximum width and/or height.';

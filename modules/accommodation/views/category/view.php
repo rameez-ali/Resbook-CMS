@@ -119,7 +119,9 @@ if (!empty($categoryData)) {
             $subUrl = '/category';
           }
 
-          $accommodationFullURL        = Helper::getFullUrl($impPageAccommodation->full_url.$subUrl.$accommodation['full_url']);
+          // Use /accommodation/{slug} format for all accommodation links
+          $accommodationSlug = $accommodation['url'];
+          $accommodationFullURL = Helper::getFullUrl('/accommodation/' . $accommodationSlug);
       
           $accommodationButtonLabel = (!empty($accommodationButtonLabel)) ? $accommodationButtonLabel : 'More' ;
       

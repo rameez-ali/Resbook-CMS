@@ -77,6 +77,7 @@ function saveItem (){
    $arrMetaData['reservation_banner_title']          = validateInput('reservation_banner_title');
    $arrMetaData['reservation_banner_button_text']     = validateInput('reservation_banner_button_text');
    $arrMetaData['reservation_banner_button_url']      = validateInput('reservation_banner_button_url');
++  $arrMetaData['reservation_banner_rank']            = (int) validateInput('reservation_module_rank');
 
    $arrMetaData['prefilter_catid']   = validateInput('prefilter_catid');
    
@@ -91,7 +92,6 @@ function saveItem (){
 
     /** Update existing item data */
     DB::updateRow($arrMetaData, 'page_meta_data', "WHERE id = '{$metaDataId}' LIMIT 1");
-
     /** Update Product data */
     DB::updateRow($arrPageData, 'general_pages', "WHERE id = '{$id}' LIMIT 1");
 
