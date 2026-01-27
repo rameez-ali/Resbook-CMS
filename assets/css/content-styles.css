@@ -1524,3 +1524,124 @@ code {
     font-size: 14px;
   }
 }
+
+/* Final video section (large poster with centered round play) */
+.video-section {
+    position: relative;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.video-section video {
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(120, 130, 60, 0.9);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.play-overlay::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    border-style: solid;
+    border-width: 14px 0 14px 22px;
+    border-color: transparent transparent transparent #fff;
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.faq-section-title {
+    font-size: 32px;
+    color: #6e733f;
+    margin-bottom: 40px;
+    font-family: 'Oxygen', sans-serif;
+    text-transform: capitalize;
+}
+
+.faq-accordion {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faq-accordion-item {
+    margin-bottom: 15px;
+    background-color: #eef7fb;
+    border: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-accordion-header {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-accordion-header:hover {
+    background-color: #e4f1f8;
+}
+
+.faq-accordion-title {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex: 1;
+}
+
+.faq-accordion-icon {
+    font-size: 20px;
+    color: #6e733f;
+    transition: transform 0.3s ease;
+    margin-left: 15px;
+}
+
+.faq-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease;
+}
+
+.faq-accordion-inner {
+    padding: 0 30px 25px 30px;
+    color: #666;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Active State */
+.faq-accordion-item.active .faq-accordion-content {
+    max-height: 1000px; /* Large enough to fit content */
+    transition: max-height 0.6s ease-in;
+}
+
+.faq-accordion-item.active .faq-accordion-icon {
+    transform: rotate(180deg);
+}
+
+.faq-accordion-item.active .faq-accordion-icon i::before {
+    content: "\f068"; /* fa-minus */
+}
+

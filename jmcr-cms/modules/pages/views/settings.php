@@ -17,7 +17,7 @@ ORDER BY pmd.`name`';
 $selectPreFilterCatView = '<select name="prefilter_catid" id="prefilter_catid" 
    style="width:250px">
     <option value="">Please Select Pre Filter Category</option>
-    '.createItemList($filterPreSelCatSQL, $itemPreFilterCatId).'
+    ' . createItemList($filterPreSelCatSQL, $itemPreFilterCatId) . '
   </select>';
 
 /** slideshow dropdown */
@@ -33,13 +33,13 @@ $SlideshowQuery = "SELECT `id` AS ind,
 $selectSlideshowView = '<select name="slideshow_id" id="slideshow_id" 
    style="width:250px">
     <option value="">Please Select Hero Banner</option>
-    '.createItemList($SlideshowQuery, $pageSlideshowId).'
+    ' . createItemList($SlideshowQuery, $pageSlideshowId) . '
   </select>';
 
-  $selectPageSlideshowView = '<select name="slideshow_page_id" id="slideshow_page_id" 
+$selectPageSlideshowView = '<select name="slideshow_page_id" id="slideshow_page_id" 
    style="width:250px">
     <option value="">Please Select Page Hero Banner</option>
-    '.createItemList($SlideshowQuery, $slideshowPageId).'
+    ' . createItemList($SlideshowQuery, $slideshowPageId) . '
   </select>';
 /** gallery dropdown */
 
@@ -52,23 +52,23 @@ $galleryQuery = "SELECT `id` AS ind,
 $selectGalleryView = '<select name="gallery_id" id="gallery_id" 
    style="width:250px">
     <option value="">Please Select Gallery</option>
-    '.createItemList($galleryQuery, $pageGalleryId).'
+    ' . createItemList($galleryQuery, $pageGalleryId) . '
   </select>';
 
 /** Template dropdown */
 $selectTemplateView = getTemplateList($pageTemplateId);
-    
-if ($id == 1) { 
+
+if ($id == 1) {
 
   $pageUrlView = '<td></td>
     <td>
       <input name="url" type="hidden" id="page_url" 
-       value="'.$pageUrl.'" data-cvalue="'.$pageUrl.'" data-type="gp">
+       value="' . $pageUrl . '" data-cvalue="' . $pageUrl . '" data-type="gp">
       <span id="page_url_msg" class="text-danger"></span>
     </td>';
 
-} else { 
-    
+} else {
+
   $pageUrl = rtrim((string) $pageUrl, '/');
 
   $pageUrlView = '<td>
@@ -80,13 +80,13 @@ if ($id == 1) {
     </td>
     <td>
       <input name="url" type="text" id="page_url" 
-       value="'.$pageUrl.'" data-cvalue="'.$pageUrl.'"
+       value="' . $pageUrl . '" data-cvalue="' . $pageUrl . '"
        data-type="gp" style="width:250px;" class="item-url" />
       <span id="page_url_msg" style="margin-left:10px;"
        class="text-danger"></span>
     </td>';
 
-}    
+}
 
 /** Form dropdown */
 $sql = "SELECT `id` AS ind, `name` AS label
@@ -95,13 +95,13 @@ $sql = "SELECT `id` AS ind, `name` AS label
   AND `xml_data` != ''
   ORDER BY `name`";
 
-  $formsDropdown = '<select name="form_id" id="form_id" style="width:250px"><option value="">-- select --</option>';
-  $formsDropdown .= createItemList($sql, $formId);
-  $formsDropdown .= '</select>';
+$formsDropdown = '<select name="form_id" id="form_id" style="width:250px"><option value="">-- select --</option>';
+$formsDropdown .= createItemList($sql, $formId);
+$formsDropdown .= '</select>';
 
 $tabSettingsContent = '<table width="100%" border="0"
    cellspacing="0" cellpadding="6">
-    <tr>'.$pageUrlView.'</tr>
+    <tr>' . $pageUrlView . '</tr>
     <tr>
       <td width="170">
         <label for="name">CMS Label:</label>
@@ -110,7 +110,7 @@ $tabSettingsContent = '<table width="100%" border="0"
       </td>
       <td>
         <input type="text" name="name" id="name"
-         value="'.$pageName.'"style="width:250px;"/></td>
+         value="' . $pageName . '"style="width:250px;"/></td>
     </tr>
     <tr>
       <td>
@@ -120,7 +120,7 @@ $tabSettingsContent = '<table width="100%" border="0"
       </td>
       <td>
         <input type="text" name="menu_label" id="menu_label"
-         value="'.$pageMenuLabel.'" style="width:250px;" />
+         value="' . $pageMenuLabel . '" style="width:250px;" />
       </td>
     </tr>
     <tr>
@@ -129,53 +129,63 @@ $tabSettingsContent = '<table width="100%" border="0"
       </td>
       <td>
         <input type="text" name="footer_menu" id="footer_menu"
-         value="'.$pageFooterMenu.'" style="width:250px;" />
+         value="' . $pageFooterMenu . '" style="width:250px;" />
       </td>
     </tr>
-    <tr>'.$parentPageList.'</tr>
+    <tr>' . $parentPageList . '</tr>
     <tr>
       <td>
         <label for="slideshow_id">Hero Banner:</label>
       </td>
-      <td>'.$selectSlideshowView.'</td>
+      <td>' . $selectSlideshowView . '</td>
     </tr>
     <tr>
     <td>
       <label for="slideshow_page_id">Page Banner:</label>
     </td>
-    <td>'.$selectPageSlideshowView.'</td>
+    <td>' . $selectPageSlideshowView . '</td>
     </tr>
     <tr>
       <td>
         <label for="gallery_id">Gallery:</label>
       </td>
-      <td>'.$selectGalleryView.'</td>
+      <td>' . $selectGalleryView . '</td>
     </tr>
     <tr>
     <td>
       <label for="form_id">Form:</label>
     </td>
-    <td>'.$formsDropdown.'</td>
+    <td>' . $formsDropdown . '</td>
   </tr>
     <tr>
       <td>
         <label for="template_id">Template:</label>
       </td>
-      <td>'.$selectTemplateView.'</td>
+      <td>' . $selectTemplateView . '</td>
     </tr>
     <tr>
     <td>
       <label for="external_url">External Url:</label>
     </td>      
     <td><input type="text" name="external_url" id="external_url"
-       value="'.$pageExternalUrl.'" style="width:250px;" />
+       value="' . $pageExternalUrl . '" style="width:250px;" />
        </td>
     </tr>
     <tr>
       <td>
         <label for="prefilter_catid">Filter Category Selection:</label>
       </td>
-      <td>'.$selectPreFilterCatView.'</td>
+      <td>' . $selectPreFilterCatView . '</td>
+    </tr>
+    <tr>
+      <td><label for="video_thumbnail">Video:</label></td>
+      <td>
+          <input name="video_thumbnail" type="text" value="' . $videoThumbnail . '" 
+           style="width:250px;" id="video_thumbnail" readonly autocomplete="off">
+          <input type="button" value="browse" onclick="openCKFileBrowser(\'video_thumbnail\')"> 
+          <input type="button" value="clear" onclick="clearValue(\'video_thumbnail\')"><br>
+          <small>Set the rank in the Modules tab</small>
+      </td>
     </tr>
   </table>';
 

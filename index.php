@@ -163,6 +163,23 @@ if (!empty($templateTags['reservation_banner'])) {
     ];
 }
 
+
+if (!empty($templateTags['video_thumbnail'])) {
+    $pageModules[] = [
+        'id' => 'virtual_video_banner',
+        'tmplrank' => !empty($templateTags['video_rank']) ? $templateTags['video_rank'] : 0,
+        'mod_path' => 'video_banner_virtual_path'
+    ];
+}
+
+if (!empty($templateTags['faq_section'])) {
+    $pageModules[] = [
+        'id' => 'virtual_faq_section',
+        'tmplrank' => !empty($templateTags['faqs_rank']) ? $templateTags['faqs_rank'] : 0,
+        'mod_path' => 'faq_section_virtual_path'
+    ];
+}
+
 // Sort modules by rank (tmplrank)
 usort($pageModules, function ($a, $b) {
     return $a['tmplrank'] <=> $b['tmplrank'];
@@ -178,6 +195,14 @@ if (!empty($pageModules)) {
             if (!empty($templateTags['reservation_banner'])) {
                 $templateTags['mod_view'] .= $templateTags['reservation_banner'];
             }
+        } elseif ($pageModulePath === 'video_banner_virtual_path') {
+            if (!empty($templateTags['video_thumbnail'])) {
+                $templateTags['mod_view'] .= $templateTags['video_thumbnail'];
+            }
+        } elseif ($pageModulePath === 'faq_section_virtual_path') {
+            if (!empty($templateTags['faq_section'])) {
+                $templateTags['mod_view'] .= $templateTags['faq_section'];
+            }
         } else {
             include_once MODULES_DIR_PATH . DS . "{$pageModulePath}/main.php";
         }
@@ -186,8 +211,10 @@ if (!empty($pageModules)) {
 
 // Hide CTA banner, customer reviews, and partner sections on accommodation detail pages
 // Check if we're on an accommodation detail page (mainPageId matches accommodation page and segment1 exists)
-if (!empty($mainPageId) && !empty($impPageAccommodation) && isset($impPageAccommodation->id) && 
-    $mainPageId == $impPageAccommodation->id && !empty($segment1) && empty($segment2) && empty($segment3)) {
+if (
+    !empty($mainPageId) && !empty($impPageAccommodation) && isset($impPageAccommodation->id) &&
+    $mainPageId == $impPageAccommodation->id && !empty($segment1) && empty($segment2) && empty($segment3)
+) {
     $templateTags['page_cta'] = '';
     $templateTags['footer_review'] = '';
     $templateTags['partner_view'] = '';

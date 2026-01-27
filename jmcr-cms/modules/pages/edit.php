@@ -2,12 +2,13 @@
 
 /** Edit General data */
 
-function editItem() 
+function editItem()
 {
 
   global $message, $id, $do, $action, $disableMenu, $moduleSubHeading, $moduleMainHeading, $modMsgLabel, $modKey;
   $template = '';
-  $disableMenu = FLAG_YES; 
+  $moduleContent = '';
+  $disableMenu = FLAG_YES;
 
   $sqlPage = "SELECT gp.`id`,
         gp.`parent_id`,
@@ -41,7 +42,12 @@ function editItem()
         pmd.`reservation_banner_button_url`,
         pmd.`template_id`,
         pmd.`slideshow_page_id`,
-        pmd.`prefilter_catid`        
+        pmd.`prefilter_catid`,        
+        pmd.`video_thumbnail`,
+        pmd.`video_rank`,
+        pmd.`faqs_content`,
+        pmd.`faqs_heading`,
+        pmd.`faqs_rank`        
     FROM `general_pages` gp
     LEFT JOIN `page_meta_data` pmd
         ON(gp.`page_meta_data_id` = pmd.`id`)
@@ -53,46 +59,52 @@ function editItem()
   if (!empty($pageData)) {
 
     /** Define vars */
-    $pageId                  = $pageData['id'];
-    $pageParentId            = $pageData['parent_id'];
-    $pageMetaDataId          = $pageData['page_meta_data_id'];
-    $pageName                = $pageData['name'];
-    $pageMenuLabel           = $pageData['menu_label'];
-    $pageFooterMenu          = $pageData['footer_menu'];
-    $pageHeading             = $pageData['heading'];
-    $pageSubHeading          = $pageData['sub_heading'];
-    $pageUrl                 = $pageData['url'];
-    $pageFullUrl             = $pageData['full_url'];
-    $pageIntroduction        = $pageData['introduction'];
-    $pageShortDescription    = $pageData['short_description'];
-    $pageDescription         = $pageData['description'];
-    $pageCoverPhotoPath      = $pageData['cover_photo'];
+    $pageId = $pageData['id'];
+    $pageParentId = $pageData['parent_id'];
+    $pageMetaDataId = $pageData['page_meta_data_id'];
+    $pageName = $pageData['name'];
+    $pageMenuLabel = $pageData['menu_label'];
+    $pageFooterMenu = $pageData['footer_menu'];
+    $pageHeading = $pageData['heading'];
+    $pageSubHeading = $pageData['sub_heading'];
+    $pageUrl = $pageData['url'];
+    $pageFullUrl = $pageData['full_url'];
+    $pageIntroduction = $pageData['introduction'];
+    $pageShortDescription = $pageData['short_description'];
+    $pageDescription = $pageData['description'];
+    $pageCoverPhotoPath = $pageData['cover_photo'];
     $pageCoverThumbPhotoPath = $pageData['thumb_cover_photo'];
-    $itemFeatures            = $pageData['features'];
-    $pageGalleryId           = $pageData['gallery_id'];
-    $pageSlideshowId         = $pageData['slideshow_id'];
-    $slideshowPageId         = $pageData['slideshow_page_id'];
-    $pageTemplateId          = $pageData['template_id'];
-    $formId                  = $pageData['form_id'];
-    $pageExternalUrl         = $pageData['external_url'];
+    $itemFeatures = $pageData['features'];
+    $pageGalleryId = $pageData['gallery_id'];
+    $pageSlideshowId = $pageData['slideshow_id'];
+    $slideshowPageId = $pageData['slideshow_page_id'];
+    $pageTemplateId = $pageData['template_id'];
+    $formId = $pageData['form_id'];
+    $pageExternalUrl = $pageData['external_url'];
 
-    $ctaBunnerTitle          = $pageData['cta_bunner_title'];
-    $ctaBunnerDescription    = $pageData['cta_bunner_description'];
-    $ctaBunnerPrimaryUrl     = $pageData['cta_bunner_primary_url'];
+    $ctaBunnerTitle = $pageData['cta_bunner_title'];
+    $ctaBunnerDescription = $pageData['cta_bunner_description'];
+    $ctaBunnerPrimaryUrl = $pageData['cta_bunner_primary_url'];
     // $ctaBunnerPrimaryExternalUrl     = $pageData['cta_bunner_primary_external_url'];
-    $ctaBunnerPrimaryButtonText      = $pageData['cta_bunner_primary_button_text'];
-    $ctaBunnerSecondaryUrl   = $pageData['cta_bunner_secondary_url'];
+    $ctaBunnerPrimaryButtonText = $pageData['cta_bunner_primary_button_text'];
+    $ctaBunnerSecondaryUrl = $pageData['cta_bunner_secondary_url'];
     // $ctaBunnerSecondaryExternallUrl  = $pageData['cta_bunner_secondary_external_url'];
-    $ctaBunnerSecondaryButtonText    = $pageData['cta_bunner_secondary_button_text'];
+    $ctaBunnerSecondaryButtonText = $pageData['cta_bunner_secondary_button_text'];
 
-    $reservationBannerTitle          = $pageData['reservation_banner_title'];
-    $reservationBannerButtonText     = $pageData['reservation_banner_button_text'];
-    $reservationBannerButtonUrl      = $pageData['reservation_banner_button_url'];
+    $reservationBannerTitle = $pageData['reservation_banner_title'];
+    $reservationBannerButtonText = $pageData['reservation_banner_button_text'];
+    $reservationBannerButtonUrl = $pageData['reservation_banner_button_url'];
 
-    $itemPreFilterCatId    = $pageData['prefilter_catid'];
+    $itemPreFilterCatId = $pageData['prefilter_catid'];
 
-  } else  {
-    $pageFullUrl = ''; 
+    $videoThumbnail = $pageData['video_thumbnail'];
+    $videoRank = $pageData['video_rank'];
+    $faqsContent = $pageData['faqs_content'];
+    $faqsHeading = $pageData['faqs_heading'];
+    $faqsRank = $pageData['faqs_rank'];
+
+  } else {
+    $pageFullUrl = '';
     // $pageMetaDataId = '';
     // $pageHeading = '';
     // $pageIntroduction = '';
@@ -106,9 +118,9 @@ function editItem()
 
   $itemLabel = (empty($pageName)) ? 'Untitled' : $pageName;
 
-  $moduleSubHeading = 'Editing '.$modMsgLabel.': '.$itemLabel;
-  $moduleSubHeading .= '<a href="'.BASE_URL.$pageFullUrl.'" target="_blank">
-       ('.BASE_URL.$pageFullUrl.'</a>)';
+  $moduleSubHeading = 'Editing ' . $modMsgLabel . ': ' . $itemLabel;
+  $moduleSubHeading .= '<a href="' . BASE_URL . $pageFullUrl . '" target="_blank">
+       (' . BASE_URL . $pageFullUrl . '</a>)';
 
 
   /** Module actions */
@@ -120,7 +132,7 @@ function editItem()
       </button>
     </li>
     <li>
-      <a class="btn btn-default" href="'.ADMIN_BASE_URL.'/?do='.$do.'">
+      <a class="btn btn-default" href="' . ADMIN_BASE_URL . '/?do=' . $do . '">
         <i class="glyphicon glyphicon-arrow-left"></i> Cancel
       </a>
     </li>
@@ -131,66 +143,67 @@ function editItem()
 
     $moduleContent .= '<div class="alert alert-warning page">
         <i class="glyphicon glyphicon-info-sign"></i>
-        <strong>'.$message.'</strong>
+        <strong>' . $message . '</strong>
       </div>';
 
   }
 
   /** Content tab content */
-  require_once MOD_VIEWS_DIR.DS.'content.php';
+  require_once MOD_VIEWS_DIR . DS . 'content.php';
 
   /** Settings tab content */
-  require_once MOD_VIEWS_DIR.DS.'settings.php';
+  require_once MOD_VIEWS_DIR . DS . 'settings.php';
 
   /** Modules tab content */
-  require_once MOD_VIEWS_DIR.DS.'modules.php';
+  require_once MOD_VIEWS_DIR . DS . 'modules.php';
 
   /** Page features tab content */
-  require_once MOD_VIEWS_DIR.DS.'features.php';
+  require_once MOD_VIEWS_DIR . DS . 'features.php';
 
   /** CTA bunner tab content */
-  require_once MOD_VIEWS_DIR.DS.'cta_bunner.php';
+  require_once MOD_VIEWS_DIR . DS . 'cta_bunner.php';
   // require_once MOD_VIEWS_DIR.DS.'cta.php';
 
   /** Reservation Banner tab content */
-  require_once MOD_VIEWS_DIR.DS.'reservation_banner.php';
+  require_once MOD_VIEWS_DIR . DS . 'reservation_banner.php';
 
   /** Generate tab array */
 
   $arrMenuTabs = array();
 
-  $arrMenuTabs['Content']     = $tabContentContent;
-  $arrMenuTabs['Settings']    = $tabSettingsContent;
-  $arrMenuTabs['Modules']     = $tabModulesContent;
-  $arrMenuTabs['SEO']         = SeoHelper::getSeoData($pageMetaDataId, $modMsgLabel);
-  $arrMenuTabs['Quicklinks']  = QuicklinkHelper::getQuickLinksData($modKey, $pageId, $modMsgLabel);
-  $arrMenuTabs['Highlights']  = HighlightHelper::getHighlightData($modKey, $pageId, $modMsgLabel);
-  $arrMenuTabs['Features']    = $tabFeaturesContent;
-  $arrMenuTabs['CTA Banner']  = $tabCTABunnerContent;
-  $arrMenuTabs['Reservation Banner']  = $tabReservationBannerContent;
+  $arrMenuTabs['Content'] = $tabContentContent;
+  $arrMenuTabs['Settings'] = $tabSettingsContent;
+  $arrMenuTabs['Modules'] = $tabModulesContent;
+  $arrMenuTabs['SEO'] = SeoHelper::getSeoData($pageMetaDataId, $modMsgLabel);
+  $arrMenuTabs['Quicklinks'] = QuicklinkHelper::getQuickLinksData($modKey, $pageId, $modMsgLabel);
+  $arrMenuTabs['Highlights'] = HighlightHelper::getHighlightData($modKey, $pageId, $modMsgLabel);
+  $arrMenuTabs['Features'] = $tabFeaturesContent;
+  $arrMenuTabs['CTA Banner'] = $tabCTABunnerContent;
+  $arrMenuTabs['Reservation Banner'] = $tabReservationBannerContent;
+  $arrMenuTabs['FAQs'] = PageFaqHelper::getFaqData($faqsContent, $faqsHeading, $faqsRank);
 
-  $tabIndex   = 0;
-  $tabList    = "";
+  $tabIndex = 0;
+  $tabList = "";
   $tabContent = "";
 
   foreach ($arrMenuTabs as $tabKey => $tabValue) {
 
-    $tabList    .= '<li><a href="#tabs-'.$tabIndex.'">'.$tabKey.'</a></li>';
-    $tabContent .= '<div id="tabs-'.$tabIndex.'">'.$tabValue.'</div>';
+    $tabList .= '<li><a href="#tabs-' . $tabIndex . '">' . $tabKey . '</a></li>';
+    $tabContent .= '<div id="tabs-' . $tabIndex . '">' . $tabValue . '</div>';
     $tabIndex++;
 
   }
 
-  $moduleContent = '<form action="'.ADMIN_BASE_URL.'/index.php" method="post" 
+  $moduleContent = '<form action="' . ADMIN_BASE_URL . '/index.php" method="post" 
      name="pageList" enctype="multipart/form-data">
       <div id="tabs">
-        <ul>'.$tabList.'</ul>
-        <div style="padding:10px;">'.$tabContent.'</div>
+        <ul>' . $tabList . '</ul>
+        <div style="padding:10px;">' . $tabContent . '</div>
       </div>
       <input type="hidden" name="action" value="" id="action">
-      <input type="hidden" name="do" value="'.$do.'">
-      <input type="hidden" name="id" value="'.$id.'">
-      <input type="hidden" name="meta_data_id" value="'.$pageMetaDataId.'">
+      <input type="hidden" name="do" value="' . $do . '">
+      <input type="hidden" name="id" value="' . $id . '">
+      <input type="hidden" name="meta_data_id" value="' . $pageMetaDataId . '">
   </form>';
 
   require "resultPage.php";

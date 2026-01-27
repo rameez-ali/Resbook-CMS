@@ -188,7 +188,12 @@ $sql = "SELECT pmd.`name`,
       pmd.`reservation_banner_title`,
       pmd.`reservation_banner_button_text`,
       pmd.`reservation_banner_button_url`,
-      pmd.`reservation_banner_rank`
+      pmd.`reservation_banner_rank`,
+      pmd.`video_thumbnail`,
+      pmd.`video_rank`,
+      pmd.`faqs_content`,
+      pmd.`faqs_heading`,
+      pmd.`faqs_rank`
     FROM `general_pages` gp
     LEFT JOIN `page_meta_data` pmd
         ON(gp.`page_meta_data_id` = pmd.`id`)
@@ -201,6 +206,7 @@ $sql = "SELECT pmd.`name`,
 $pageData = DB::fetchRow($sql);
 
 $pageData['content'] = getPageContent($pageData['page_meta_data_id']);
+
 
 $arrPageData = $pageData;
 
@@ -281,6 +287,8 @@ $sqlCurrentDate = $objCurrentDate->format('Y-m-d');
 
 $templateTags = [];
 
+//print_r($arrPageData);
+
 $templateTags = array_merge($templateTags, $arrPageData);
 
 $mainPageId = $templateTags['id'];
@@ -334,6 +342,8 @@ $ctaBunnerSecondaryButtonText = $templateTags['cta_bunner_secondary_button_text'
 $reservationBannerTitle = $templateTags['reservation_banner_title'];
 $reservationBannerButtonText = $templateTags['reservation_banner_button_text'];
 $reservationBannerButtonUrl = $templateTags['reservation_banner_button_url'];
+
+$video_thumbnail = $templateTags['video_thumbnail'];
 
 // INIT ANY EMPTY TEMPLATE TAGS
 $templateTags['scripts_load_top'] = '';
@@ -632,6 +642,62 @@ if (!empty($reservationBannerTitle)) {
   </section>';
 
   $templateTags['reservation_banner_rank'] = $reservationBannerRank;
+
+}
+
+$videoRank = (int) ($arrPageData['video_rank'] ?? 0);
+
+
+if (!empty($video_thumbnail)) {
+  $templateTags['video_thumbnail'] = '<section class="video-section">
+    <video id="localVideo" preload="metadata">
+            <source src="' . BASE_URL . '/assets/video/final.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="play-overlay" id="playOverlay"></div>
+    </section>';
+  $templateTags['video_rank'] = $videoRank;
+
+}
+
+$faqsHeading = $arrPageData['faqs_heading'] ?: 'FAQs';
+$faqsRank = (int) ($arrPageData['faqs_rank'] ?: 0);
+$faqsContent = json_decode((string) $arrPageData['faqs_content'], true);
+
+if (!empty($faqsContent) && is_array($faqsContent)) {
+  $faqItemsHtml = '';
+  foreach ($faqsContent as $faq) {
+    if (empty($faq['question']) || empty($faq['answer']))
+      continue;
+
+    $faqItemsHtml .= '
+    <div class="faq-accordion-item">
+      <div class="faq-accordion-header">
+        <h3 class="faq-accordion-title">' . htmlspecialchars($faq['question']) . '</h3>
+        <span class="faq-accordion-icon"><i class="fa-solid fa-plus"></i></span>
+      </div>
+      <div class="faq-accordion-content">
+        <div class="faq-accordion-inner">
+          ' . nl2br(htmlspecialchars($faq['answer'])) . '
+        </div>
+      </div>
+    </div>';
+  }
+
+  if (!empty($faqItemsHtml)) {
+    $templateTags['faq_section'] = '
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-header text-center">
+          <h2 class="faq-section-title">' . htmlspecialchars($faqsHeading) . '</h2>
+        </div>
+        <div class="faq-accordion">
+          ' . $faqItemsHtml . '
+        </div>
+      </div>
+    </section>';
+    $templateTags['faqs_rank'] = $faqsRank;
+  }
 }
 
 // === Compose modules by rank (including Reservation Banner) ===
@@ -653,6 +719,22 @@ if (!empty($templateTags['reservation_banner'])) {
   $composedModules[] = [
     'rank' => $reservationBannerRank > 0 ? $reservationBannerRank : 999,
     'html' => $templateTags['reservation_banner']
+  ];
+}
+
+// Inject Video Section as a virtual module if present
+if (!empty($templateTags['video_thumbnail'])) {
+  $composedModules[] = [
+    'rank' => $videoRank > 0 ? $videoRank : 999,
+    'html' => $templateTags['video_thumbnail']
+  ];
+}
+
+// Inject FAQ Section as a virtual module if present
+if (!empty($templateTags['faq_section'])) {
+  $composedModules[] = [
+    'rank' => $faqsRank > 0 ? $faqsRank : 999,
+    'html' => $templateTags['faq_section']
   ];
 }
 
