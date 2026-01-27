@@ -12666,6 +12666,60 @@ button.btn--link,
       display: block; }
   #filters__wrapper.filters--active i::before {
     content: '\f106'; } }
+/** Reservation Banner Styles */
+.reservation-banner {
+  padding: 40px 0; }
+  .reservation-banner__wrapper {
+    background-color: #ffffff;
+    border: 2px solid #A8B07A;
+    padding: 50px 40px;
+    text-align: center; }
+    @media screen and (max-width: 767px) {
+      .reservation-banner__wrapper {
+        padding: 40px 20px; } }
+  .reservation-banner__inner {
+    max-width: 800px;
+    margin: 0 auto; }
+  .reservation-banner__subtitle {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6E733F;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 15px 0;
+    font-family: "Montserrat"; }
+  .reservation-banner__title {
+    font-size: 32px;
+    line-height: 1.3;
+    color: #6E733F;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    font-family: "Belleza"; }
+    @media screen and (max-width: 767px) {
+      .reservation-banner__title {
+        font-size: 24px; } }
+  .reservation-banner__button-wrapper {
+    margin-top: 20px; }
+    .reservation-banner__button-wrapper .btn,
+    .reservation-banner__button-wrapper .btn--primary {
+      background-color: #6E733F;
+      color: #ffffff;
+      border: 2px solid #6E733F;
+      padding: 12px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block; }
+      .reservation-banner__button-wrapper .btn:hover,
+      .reservation-banner__button-wrapper .btn--primary:hover {
+        background-color: #8D954A;
+        border-color: #8D954A;
+        color: #ffffff; }
+
 .form__group {
   margin-bottom: 20px;
   padding: 5px;
@@ -13633,16 +13687,16 @@ article {
   color: #6E733F;
   padding: 20px 0px;
   border-top: 2px solid #CACACA;
-  border-bottom: 2px solid #CACACA; }
+  border-bottom: 2px solid #CACACA;
+  list-style: none;
+  padding-left: 0;
+  margin: 0; }
 
 .featured-accommodation .card-features,
 .accommodation_list .card-features {
   padding: 15px 0;
   border-top: none;
-  border-bottom: none;
-  list-style: none;
-  padding-left: 0;
-  margin: 0; }
+  border-bottom: none; }
   @media screen and (max-width: 768px) {
     .featured-accommodation .card-features,
     .accommodation_list .card-features {
@@ -13781,9 +13835,11 @@ article {
       .accommodation_list .filter__show-btn .fa-angle-down::before {
         content: none; } }
 @media screen and (max-width: 768px) {
-  .accommodation_list .card__content, .accommodation_list .card__cta {
+  .accommodation_list .card__content,
+  .accommodation_list .card__cta {
     text-align: center; }
-    .accommodation_list .card__content .card__heading, .accommodation_list .card__cta .card__heading {
+    .accommodation_list .card__content .card__heading,
+    .accommodation_list .card__cta .card__heading {
       text-align: center; } }
 @media screen and (max-width: 414px) {
   .accommodation_list .card-features__item-icon {
@@ -13847,47 +13903,34 @@ article {
   .accommodation_list .accommodation-wrapper {
     padding-left: 5px;
     padding-right: 5px; } }
-
-/* Fix to preserve Bootstrap column classes and override Shuffle.js */
-.accommodation-wrapper .accom-items,
-.accommodation-wrapper .row > .card {
+.accommodation_list .accommodation-wrapper .accom-shuffle {
+  height: auto !important;
+  min-height: 200px; }
+.accommodation_list .accommodation-wrapper .accom-items {
   position: relative !important;
-  left: auto !important;
-  top: auto !important; }
-.accommodation-wrapper .accom-items.col-12:not(.col-md-6):not(.col-lg-4),
-.accommodation-wrapper .row > .card.col-12:not(.col-md-6):not(.col-lg-4) {
-  width: 100% !important;
-  max-width: 100% !important;
-  flex: 0 0 100% !important; }
-  .accommodation-wrapper .accom-items.col-12:not(.col-md-6):not(.col-lg-4) .card__figure,
-  .accommodation-wrapper .row > .card.col-12:not(.col-md-6):not(.col-lg-4) .card__figure {
-    height: 450px !important; }
-    @media screen and (max-width: 991px) {
-      .accommodation-wrapper .accom-items.col-12:not(.col-md-6):not(.col-lg-4) .card__figure,
-      .accommodation-wrapper .row > .card.col-12:not(.col-md-6):not(.col-lg-4) .card__figure {
-        height: 350px !important; } }
-    @media screen and (max-width: 767px) {
-      .accommodation-wrapper .accom-items.col-12:not(.col-md-6):not(.col-lg-4) .card__figure,
-      .accommodation-wrapper .row > .card.col-12:not(.col-md-6):not(.col-lg-4) .card__figure {
-        height: 300px !important; } }
-@media (min-width: 992px) {
-  .accommodation-wrapper .accom-items.col-lg-4,
-  .accommodation-wrapper .row > .card.col-lg-4 {
-    width: 33.333333% !important;
-    max-width: 33.333333% !important;
-    flex: 0 0 33.333333% !important; } }
-@media (min-width: 768px) and (max-width: 991px) {
-  .accommodation-wrapper .accom-items.col-lg-4,
-  .accommodation-wrapper .row > .card.col-lg-4 {
-    width: 50% !important;
-    max-width: 50% !important;
-    flex: 0 0 50% !important; } }
-@media (max-width: 767px) {
-  .accommodation-wrapper .accom-items.col-lg-4,
-  .accommodation-wrapper .row > .card.col-lg-4 {
+  transform: none !important;
+  /* Disable Shuffle.js translation */
+  margin: 0 0 30px 0 !important;
+  /* Ensure no extra horizontal margins break the grid, add bottom margin */ }
+  .accommodation_list .accommodation-wrapper .accom-items.col-12:not(.col-md-6):not(.col-lg-4) {
     width: 100% !important;
     max-width: 100% !important;
-    flex: 0 0 100% !important; } }
+    flex: 0 0 100% !important; }
+  @media (min-width: 992px) {
+    .accommodation_list .accommodation-wrapper .accom-items.col-lg-4 {
+      width: 33.333333% !important;
+      max-width: 33.333333% !important;
+      flex: 0 0 33.333333% !important; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .accommodation_list .accommodation-wrapper .accom-items.col-lg-4 {
+      width: 50% !important;
+      max-width: 50% !important;
+      flex: 0 0 50% !important; } }
+  @media (max-width: 767px) {
+    .accommodation_list .accommodation-wrapper .accom-items.col-lg-4 {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 0 0 100% !important; } }
 
 .accommodation-accordion .accommodation-amenities {
   border: 1px solid #CACACA;
@@ -13904,7 +13947,9 @@ article {
 .accommodation-details .accommodation-showcase {
   padding-bottom: 15px; }
   @media screen and (max-width: 768px) {
-    .accommodation-details .accommodation-showcase .card__content, .accommodation-details .accommodation-showcase .card__heading, .accommodation-details .accommodation-showcase .card__cta {
+    .accommodation-details .accommodation-showcase .card__content,
+    .accommodation-details .accommodation-showcase .card__heading,
+    .accommodation-details .accommodation-showcase .card__cta {
       text-align: center; } }
 
 .sidepadding {
@@ -13945,7 +13990,8 @@ article {
 
   .featured-accommodation {
     padding-bottom: 15px; }
-    .featured-accommodation .accommodation-showcase .card__content, .featured-accommodation .accommodation-showcase .card__cta {
+    .featured-accommodation .accommodation-showcase .card__content,
+    .featured-accommodation .accommodation-showcase .card__cta {
       text-align: center; } }
 .blog-showcase .slick-dots {
   margin: 0;
@@ -14951,7 +14997,20 @@ input[type="radio"]:checked {
   width: 100%;
   overflow: hidden;
   display: block;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  position: relative; }
+
+.gallery-single__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 70%);
+  pointer-events: none; }
 
 .gallery-single__image {
   width: 100%;
@@ -14962,13 +15021,15 @@ input[type="radio"]:checked {
   -webkit-transition: all 0.3s;
   transition: all 0.3s; }
 
-/** Gallery Single Style End */
 @media screen and (max-width: 768px) {
   .section-gallery-single {
     background-color: transparent; }
     .section-gallery-single .no-gutters {
       margin-right: -15px;
       margin-left: -15px; }
+
+  .gallery-single__two-col {
+    grid-template-columns: 1fr; }
 
   .gallery-single__three-col {
     grid-template-columns: none;
@@ -16196,6 +16257,119 @@ input[type="radio"]:checked {
 @media screen and (max-width: 414px) {
   .partner-logo__image {
     width: 100%; } }
+/** Quicklinks Banner Style - Three vertical panels side by side */
+.ql-banner {
+  padding: 0;
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%; }
+  .ql-banner__wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%; }
+  .ql-banner__row {
+    margin: 0;
+    min-height: 500px;
+    width: 100%;
+    padding: 0; }
+    @media screen and (max-width: 767px) {
+      .ql-banner__row {
+        min-height: 400px; } }
+  .ql-banner__panel {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px; }
+    @media screen and (max-width: 767px) {
+      .ql-banner__panel {
+        min-height: 400px;
+        margin-bottom: 0; } }
+  .ql-banner__panel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: flex-end; }
+    @media screen and (max-width: 767px) {
+      .ql-banner__panel-inner {
+        min-height: 400px; } }
+  .ql-banner__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    text-decoration: none; }
+  .ql-banner__figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    z-index: 1; }
+  .ql-banner__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease; }
+  .ql-banner__overlay {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    padding: 40px 30px;
+    color: #ffffff; }
+    @media screen and (max-width: 767px) {
+      .ql-banner__overlay {
+        padding: 30px 20px; } }
+  .ql-banner__content {
+    position: relative;
+    z-index: 2; }
+  .ql-banner__heading {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+    @media screen and (max-width: 991px) {
+      .ql-banner__heading {
+        font-size: 28px; } }
+    @media screen and (max-width: 767px) {
+      .ql-banner__heading {
+        font-size: 24px;
+        margin-bottom: 10px; } }
+  .ql-banner__text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+    @media screen and (max-width: 767px) {
+      .ql-banner__text {
+        font-size: 14px;
+        margin-bottom: 15px; } }
+  .ql-banner__btn {
+    display: inline-block;
+    margin-top: 10px; }
+  .ql-banner__panel:hover .ql-banner__image {
+    transform: scale(1.1); }
+  .ql-banner__panel:hover .ql-banner__overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%); }
+  @media screen and (min-width: 768px) {
+    .ql-banner__row {
+      display: flex; }
+    .ql-banner__panel {
+      display: flex;
+      flex: 1; } }
+
 .ql__card {
   margin-bottom: 15px;
   border: 0px;
@@ -16489,186 +16663,6 @@ input[type="radio"]:checked {
     height: 450px; } }
 .m-t-20 {
   margin-top: 20px !important; }
-
-/** Quicklinks Banner Style - Three vertical panels side by side */
-.section.ql-banner {
-  padding: 0 !important;
-  overflow: hidden;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important; }
-  @media screen and (max-width: 1025px) {
-    .section.ql-banner {
-      padding: 0 !important; } }
-  .ql-banner__wrapper {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-  .ql-banner .container {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    max-width: 100% !important; }
-  .ql-banner__row {
-    margin: 0 !important;
-    min-height: 500px;
-    width: 100% !important;
-    padding: 0 !important; }
-    @media screen and (max-width: 767px) {
-      .ql-banner__row {
-        min-height: 400px; } }
-  .ql-banner__panel {
-    padding: 0 !important;
-    position: relative;
-    overflow: hidden;
-    min-height: 500px;
-    margin: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-    @media screen and (max-width: 767px) {
-      .ql-banner__panel {
-        min-height: 400px;
-        margin-bottom: 0; } }
-  .ql-banner__panel-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 500px;
-    display: flex;
-    align-items: flex-end; }
-    @media screen and (max-width: 767px) {
-      .ql-banner__panel-inner {
-        min-height: 400px; } }
-  .ql-banner__link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    text-decoration: none; }
-  .ql-banner__figure {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-    z-index: 1; }
-  .ql-banner__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s ease; }
-  .ql-banner__overlay {
-    position: relative;
-    width: 100%;
-    z-index: 2;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
-    padding: 40px 30px;
-    color: #ffffff; }
-    @media screen and (max-width: 767px) {
-      .ql-banner__overlay {
-        padding: 30px 20px; } }
-  .ql-banner__content {
-    position: relative;
-    z-index: 2; }
-  .ql-banner__heading {
-    font-size: 32px;
-    line-height: 1.2;
-    font-weight: 600;
-    color: #ffffff;
-    margin: 0 0 15px 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
-    @media screen and (max-width: 991px) {
-      .ql-banner__heading {
-        font-size: 28px; } }
-    @media screen and (max-width: 767px) {
-      .ql-banner__heading {
-        font-size: 24px;
-        margin-bottom: 10px; } }
-  .ql-banner__text {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #ffffff;
-    margin: 0 0 20px 0;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
-    @media screen and (max-width: 767px) {
-      .ql-banner__text {
-        font-size: 14px;
-        margin-bottom: 15px; } }
-  .ql-banner__btn {
-    display: inline-block;
-    margin-top: 10px; }
-  .ql-banner__panel:hover .ql-banner__image {
-    transform: scale(1.1); }
-  .ql-banner__panel:hover .ql-banner__overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%); }
-  @media screen and (min-width: 768px) {
-    .ql-banner__row {
-      display: flex; }
-    .ql-banner__panel {
-      display: flex;
-      flex: 1; } }
-
-/** Reservation Banner Styles */
-.reservation-banner {
-  padding: 40px 0; }
-  .reservation-banner__wrapper {
-    background-color: #ffffff;
-    border: 2px solid #A8B07A;
-    padding: 50px 40px;
-    text-align: center; }
-    @media screen and (max-width: 767px) {
-      .reservation-banner__wrapper {
-        padding: 40px 20px; } }
-  .reservation-banner__inner {
-    max-width: 800px;
-    margin: 0 auto; }
-  .reservation-banner__subtitle {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #6E733F;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin: 0 0 15px 0;
-    font-family: 'Montserrat', sans-serif; }
-  .reservation-banner__title {
-    font-size: 32px;
-    line-height: 1.3;
-    color: #6E733F;
-    font-weight: 600;
-    margin: 0 0 30px 0;
-    font-family: 'Belleza', serif; }
-    @media screen and (max-width: 767px) {
-      .reservation-banner__title {
-        font-size: 24px; } }
-  .reservation-banner__button-wrapper {
-    margin-top: 20px; }
-    .reservation-banner__button-wrapper .btn,
-    .reservation-banner__button-wrapper .btn--primary {
-      background-color: #6E733F;
-      color: #ffffff;
-      border: 2px solid #6E733F;
-      padding: 12px 40px;
-      font-size: 16px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block; }
-      .reservation-banner__button-wrapper .btn:hover,
-      .reservation-banner__button-wrapper .btn--primary:hover {
-        background-color: #8D954A;
-        border-color: #8D954A;
-        color: #ffffff; }
 
 .review {
   padding: 55px 0; }
@@ -17289,4 +17283,3 @@ input[type="radio"]:checked {
   text-decoration: none; }
 
 /*# sourceMappingURL=_main_xl.css.map */
-/* Fix for overlapping accommodation cards */ .accommodation-wrapper .accom-shuffle { height: auto !important; min-height: 200px; } .accommodation-wrapper .accom-items { margin: 0 0 30px 0 !important; }
