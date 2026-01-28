@@ -16,6 +16,20 @@ global $debug, $bodyCls;
 
 require_once __DIR__ . '/utility/config.php';
 
+
+if (!defined('PRODUCTION_MODE') || PRODUCTION_MODE === false) {
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+    if (function_exists('mysqli_report')) {
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    }
+} else {
+    ini_set('display_errors', '0');
+    error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
+}
+
+
 if ($debug) {
 
     FB::setEnabled($debug);
